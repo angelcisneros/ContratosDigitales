@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+  <session-factory>
+    <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+    <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+    <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/contradosdigitales</property>
+    <property name="hibernate.connection.username">root</property>
+    <property name="hibernate.connection.password">admin</property>
+    <mapping class="mx.com.quadrum.entity.Estatus"/>
+    <mapping class="mx.com.quadrum.entity.Contrato"/>
+    <mapping class="mx.com.quadrum.entity.Grado"/>
+    <mapping class="mx.com.quadrum.entity.Usuario"/>
+    <mapping class="mx.com.quadrum.entity.ContratoId"/>
+    <mapping class="mx.com.quadrum.entity.Contacto"/>
+    <mapping class="mx.com.quadrum.entity.Clausula"/>
+    <mapping class="mx.com.quadrum.entity.Permiso"/>
+    <mapping class="mx.com.quadrum.entity.TipoContrato"/>
+    <mapping class="mx.com.quadrum.entity.Empresa"/>
+  </session-factory>
+</hibernate-configuration>
