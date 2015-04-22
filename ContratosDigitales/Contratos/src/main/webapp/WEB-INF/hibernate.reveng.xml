@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd">
+<hibernate-reverse-engineering>
+  <schema-selection match-catalog="contradosdigitales"/>
+  <table-filter match-name="permiso"/>
+  <table-filter match-name="grado"/>
+  <table-filter match-name="contrato"/>
+  <table-filter match-name="tipo_contrato"/>
+  <table-filter match-name="permiso_usuario"/>
+  <table-filter match-name="usuario"/>
+  <table-filter match-name="clausula"/>
+  <table-filter match-name="estatus"/>
+  <table-filter match-name="empresa"/>
+  <table-filter match-name="contacto"/>
+</hibernate-reverse-engineering>

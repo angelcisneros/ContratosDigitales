@@ -1,0 +1,177 @@
+
+/*
+#nav{
+        background-color: #9C440C;
+        color: #fff;
+}
+#nav a{
+        color: #fff;
+        font-family: 'Oswald', sans-serif;
+        font-size: 1.5em;
+}
+
+.a-nav{
+        color: #9C440C;
+}
+.a-nav:hover{
+        color: #9C440C;
+        background-color: #B25901;
+}
+
+
+*/
+
+#font-nav{
+    
+    font-size: 1.4em;
+    font-weight: 600;
+
+}
+.logo-nav{
+    margin-top: -18px;
+
+}
+#brand:hover{
+    background-color: #B25901;
+}
+
+#img-primera{
+    background-color: #503813;
+}
+
+#img-segunda{
+    background-color: #245269;
+    font-size: 8em;
+    color: #fff;
+}
+.slider-negro{
+    background-color: #fff;
+}
+#contenido{
+    margin-top: 3.6em;
+    padding-bottom: 80px;
+}
+#servicios{
+    padding-top: 4em;
+    background-color: #fff;
+    color: #000;
+    padding-bottom: 8em;
+}
+hr{
+    color: #666;
+    background-color: #32d7e6;
+}
+
+#prueba{
+    background-color: #DB9316;
+
+}
+#chida{
+    margin-top: -6.1em;
+}
+.slide-blanco{
+    background-color: #eee;
+}
+.adaptable{
+    max-width: 100%;
+
+}
+
+.centrar{
+    padding-top: 45px;
+
+
+}
+
+
+#footer{
+
+    background-color: #AA2024;
+    color: #fff;
+}
+ul#foot li{
+    padding: 0px;
+    list-style: none;
+}
+ul#foot{
+    padding: 0px;
+}
+
+
+.hr-footer{
+    margin-top: -8px;
+}
+.informacion{
+    padding-top: 8em;
+}
+
+/*#font-nav a.nav img{
+    margin-top: 10px;
+}*/
+
+#portada{
+    background-color: #000;
+}
+
+.font-pacific{
+    font-family: 'Pacifico', cursive;
+    font-size: 6em;
+    color: #fff;
+}
+
+.amarillo{
+    background-color: #AA2024;
+    color: #fff;
+}
+
+.ocultar{
+    visibility: hidden;
+}
+
+#permisosCheck{
+    padding-left: 30px;
+}
+.rojo-quadrum{
+    background-color: #AA2024;
+    color: #fff;
+}
+
+.panel-quadrum{
+    background-color: #AA2024;
+    color: #fff;
+    border-color: #AA2024;
+}
+.panel-quadrum:hover{
+    background: #AA2024;
+    color: #fff;
+    border-color: #AA2024;
+}
+.fondoBlanco{
+    background-color: #fff;
+}
+
+.letra-negra{
+    color: #000;
+}
+.retraso-2{
+	animation-delay:2s;
+	-webkit-animation-delay:2s;
+	-moz-animation-delay:2s;
+}
+.font-pacific{
+	font-family: 'Pacifico', cursive;
+        
+}
+#efecto-quadrum{
+    background-color: #AA2024;
+    color: #fff;
+    border-color: #AA2024;
+    margin-bottom: 15px;
+}
+.letra-grande{
+    font-size: 4.5em;
+}
+
+.mischeckbox{
+    padding-left: 30px;
+}
