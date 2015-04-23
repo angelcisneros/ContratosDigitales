@@ -5,7 +5,6 @@
  */
 package mx.com.quadrum.service.impl;
 
-import java.io.File;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -123,6 +122,11 @@ public class UsuarioServiceImpl implements UsuarioService {
         usuario.setPassword(password);
         usuario.setPrimeraSesion(Boolean.FALSE);
         return usuarioRepository.cambiarPassword(usuario);
+    }
+
+    @Override
+    public Boolean tienePermiso(Usuario u, String nombre) {
+        return usuarioRepository.buscarPermisoPorUsuario(u.getId(), nombre) != null;
     }
 
 }

@@ -37,6 +37,8 @@ public class UsuarioController {
 
     @Autowired
     PermisoService permisoService;
+    
+    
 
     @RequestMapping(value = "usuario", method = RequestMethod.GET)
     public String usuario(Model model, HttpSession session) {
@@ -45,6 +47,10 @@ public class UsuarioController {
 
         if (usuario == null && permisos == null) {
             return "templates/index";
+        }
+        
+         if(!usuarioService.tienePermiso(usuario, "catalogo")){
+            return "templates/noAutorizado";
         }
         model.addAttribute("permisos", permisos);
         model.addAttribute("asignarPermisos", permisoService.buscarTodos());

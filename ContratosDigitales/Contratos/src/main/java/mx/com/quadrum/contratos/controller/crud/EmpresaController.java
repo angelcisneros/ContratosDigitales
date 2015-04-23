@@ -12,6 +12,7 @@ import mx.com.quadrum.entity.Empresa;
 import mx.com.quadrum.entity.Permiso;
 import mx.com.quadrum.entity.Usuario;
 import mx.com.quadrum.service.EmpresaService;
+import mx.com.quadrum.service.UsuarioService;
 import static mx.com.quadrum.service.util.Llave.PERMISOS;
 import static mx.com.quadrum.service.util.MensajesCrud.ERROR_DATOS;
 import static mx.com.quadrum.service.util.MensajesCrud.SESION_CADUCA;
@@ -34,6 +35,9 @@ public class EmpresaController {
     @Autowired
     EmpresaService empresaService;
 
+    @Autowired
+    UsuarioService usuarioService;
+    
     @RequestMapping(value = "empresa", method = RequestMethod.GET)
     public String empresa(Model model, HttpSession session) {
         Usuario usuario = (Usuario) session.getAttribute("usuario");
@@ -41,6 +45,9 @@ public class EmpresaController {
                 
         if(usuario == null || permisos == null){
             return "templates/index";
+        }
+         if(!usuarioService.tienePermiso(usuario, "catalogo")){
+            return "templates/noAutorizado";
         }
         model.addAttribute("permisos", permisos);
         model.addAttribute("empresa",empresaService.buscarTodos());

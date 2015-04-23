@@ -9,6 +9,7 @@ import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 import mx.com.quadrum.entity.Estatus;
 import mx.com.quadrum.service.EstatusService;
+import mx.com.quadrum.service.UsuarioService;
 import static mx.com.quadrum.service.util.MensajesCrud.ERROR_DATOS;
 import static mx.com.quadrum.service.util.MensajesCrud.SESION_CADUCA;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,7 +29,6 @@ public class EstatusController {
 
     @Autowired
     EstatusService estatusService;
-
 
     @ResponseBody
     @RequestMapping(value = "agregarEstatus", method = RequestMethod.POST)

@@ -34,7 +34,11 @@ public class HomeController {
     PermisoService permisoService;
 
     @RequestMapping(value = "/")
-    public String homeController() {
+    public String homeController(HttpSession session) {
+        Usuario u = (Usuario) session.getAttribute(USUARIO);
+        if(u != null){
+            return "templates/inicio";
+        }
         return "templates/index";
     }
 

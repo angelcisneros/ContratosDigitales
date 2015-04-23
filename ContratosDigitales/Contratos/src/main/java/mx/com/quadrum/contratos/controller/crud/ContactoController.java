@@ -14,6 +14,7 @@ import mx.com.quadrum.entity.Usuario;
 import mx.com.quadrum.service.ContactoService;
 import mx.com.quadrum.service.EmpresaService;
 import mx.com.quadrum.service.GradoService;
+import mx.com.quadrum.service.UsuarioService;
 import static mx.com.quadrum.service.util.Llave.PERMISOS;
 import static mx.com.quadrum.service.util.MensajesCrud.ERROR_DATOS;
 import static mx.com.quadrum.service.util.MensajesCrud.SESION_CADUCA;
@@ -41,6 +42,9 @@ public class ContactoController {
 
     @Autowired
     EmpresaService empresaService;
+    
+    @Autowired
+    UsuarioService usuarioService;
 
     @RequestMapping(value = "contacto", method = RequestMethod.GET)
     public String contactos(Model model, HttpSession session) {
@@ -49,6 +53,9 @@ public class ContactoController {
                 
         if(usuario == null || permisos == null){
             return "templates/index";
+        }
+         if(!usuarioService.tienePermiso(usuario, "catalogo")){
+            return "templates/noAutorizado";
         }
         model.addAttribute("permisos", permisos);
         model.addAttribute("contactos", contactoService.buscarTodos());

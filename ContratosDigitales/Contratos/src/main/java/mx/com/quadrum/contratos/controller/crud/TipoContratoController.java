@@ -9,6 +9,7 @@ import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 import mx.com.quadrum.entity.TipoContrato;
 import mx.com.quadrum.service.TipoContratoService;
+import mx.com.quadrum.service.UsuarioService;
 import static mx.com.quadrum.service.util.MensajesCrud.ERROR_DATOS;
 import static mx.com.quadrum.service.util.MensajesCrud.SESION_CADUCA;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,7 +30,7 @@ public class TipoContratoController {
 
     @Autowired
     TipoContratoService tipoContratoService;
-
+    
     @ResponseBody
     @RequestMapping(value = "agregarTipoContrato", method = RequestMethod.POST)
     public String agregarTipoContrato(@Valid @ModelAttribute("tipoContrato") TipoContrato tipoContrato, MultipartFile formato, BindingResult bindingResult, HttpSession session) {

@@ -7,7 +7,7 @@
 package mx.com.quadrum.repository;
 
 import java.util.List;
-import mx.com.quadrum.entity.Permiso;
+import mx.com.quadrum.entity.PermisoUsuario;
 import mx.com.quadrum.entity.Usuario;
 
 /**
@@ -28,6 +28,7 @@ public interface UsuarioRepository {
     List<Usuario> buscarTodos();
 
     Boolean cambiarPassword(Usuario usuario);
+    PermisoUsuario buscarPermisoPorUsuario(Integer id, String nombre);
 }
 
 

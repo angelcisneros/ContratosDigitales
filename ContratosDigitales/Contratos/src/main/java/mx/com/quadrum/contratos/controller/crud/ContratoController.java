@@ -54,7 +54,9 @@ public class ContratoController{
         if(usuario == null || permisos == null){
             return "templates/index";
         }
-        
+         if(!usuarioService.tienePermiso(usuario, "catalogo")){
+            return "templates/noAutorizado";
+        }
         model.addAttribute("permisos", permisos);
         model.addAttribute("tipoContrato", tipoContratoService.buscarTodos());
         model.addAttribute("estado", estatusService.buscarTodos());

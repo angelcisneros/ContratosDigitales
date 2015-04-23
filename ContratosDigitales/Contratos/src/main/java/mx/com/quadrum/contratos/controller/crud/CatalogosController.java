@@ -14,6 +14,7 @@ import mx.com.quadrum.entity.Usuario;
 import mx.com.quadrum.service.EstatusService;
 import mx.com.quadrum.service.GradoService;
 import mx.com.quadrum.service.TipoContratoService;
+import mx.com.quadrum.service.UsuarioService;
 import static mx.com.quadrum.service.util.Llave.PERMISOS;
 import static mx.com.quadrum.service.util.Llave.USUARIO;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,12 +40,19 @@ public class CatalogosController {
     @Autowired
     EstatusService estatusService;
     
+    @Autowired
+    UsuarioService usuarioService;
+    
     @RequestMapping(value = "catalogo", method = RequestMethod.GET)
     public String tipoContrato(Model model, HttpSession session) {
         Usuario usuario = (Usuario) session.getAttribute(USUARIO);
         List<Permiso> permisos = (List<Permiso>) session.getAttribute(PERMISOS);
+        
         if(usuario == null || permisos == null){
             return "templates/index";
+        }
+        if(!usuarioService.tienePermiso(usuario, "catalogo")){
+            return "templates/noAutorizado";
         }
         model.addAttribute("permisos", permisos);
         model.addAttribute("estatus", estatusService.buscarTodos());

@@ -7,13 +7,14 @@
 package mx.com.quadrum.repository.impl;
 
 import java.util.List;
-import mx.com.quadrum.entity.Permiso;
+import mx.com.quadrum.entity.PermisoUsuario;
 import mx.com.quadrum.entity.Usuario;
 import mx.com.quadrum.repository.*;
 import org.hibernate.FetchMode;
 import org.hibernate.HibernateException;
 import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Restrictions;
+import org.hibernate.sql.JoinType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
@@ -95,5 +96,14 @@ public class UsuarioRepositoryImpl implements UsuarioRepository{
     @Override
     public Boolean cambiarPassword(Usuario usuario) {
         return editar(usuario);
+    }
+
+    @Override
+    public PermisoUsuario buscarPermisoPorUsuario(Integer id, String nombre) {
+        return (PermisoUsuario)sessionFactory.getCurrentSession().createCriteria(PermisoUsuario.class)
+                .createAlias("permiso", "p", JoinType.INNER_JOIN)
+                .add(Restrictions.eq("id.usuario", id))
+                .add(Restrictions.eq("p.nombre", nombre))
+                .uniqueResult();
     }
 }

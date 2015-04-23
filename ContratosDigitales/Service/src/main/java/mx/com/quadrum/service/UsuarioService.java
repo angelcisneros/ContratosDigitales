@@ -24,4 +24,5 @@ public interface UsuarioService {
     Boolean esValid(Usuario usuario);
     Boolean estaRegistrado(String mail, String password);
     Boolean cambiarPassword(Usuario usuario, String password);
+    Boolean tienePermiso(Usuario u, String nombre);
 }
