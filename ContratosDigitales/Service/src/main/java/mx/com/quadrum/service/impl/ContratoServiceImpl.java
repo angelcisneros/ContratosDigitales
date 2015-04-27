@@ -70,6 +70,7 @@ public class ContratoServiceImpl implements ContratoService, BusquedasContratos 
         contrato.setUsuario(usuario);
         contrato.setVisibleCliente(Boolean.FALSE);
         contrato.setTieneArchivos(Boolean.FALSE);
+        contrato.setEditable(Boolean.TRUE);
         contratoRepository.agregar(contrato);
         
         RepresentacionImpresa ri = new RepresentacionImpresa(firma, usuario.getMail());

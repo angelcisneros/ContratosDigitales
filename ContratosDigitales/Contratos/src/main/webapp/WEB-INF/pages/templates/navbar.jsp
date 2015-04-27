@@ -19,7 +19,10 @@
 
                 <c:forEach items="${permisos}" var="p" varStatus="status">
                     <li><a href="${p.url}">${p.nombre}</a></li>
-                </c:forEach>
+                    </c:forEach>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="cerrarSesion">Cerrar Sesión</a></li>
             </ul>
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->

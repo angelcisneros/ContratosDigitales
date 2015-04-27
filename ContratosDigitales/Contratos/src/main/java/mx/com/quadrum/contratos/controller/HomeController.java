@@ -72,5 +72,10 @@ public class HomeController {
         return "cliente/index";
     }
     
+    @RequestMapping(value = "cerrarSesion")
+    public String cerrarSession(HttpSession session){
+        session.invalidate();
+        return "templates/index";
+    }
    
 }

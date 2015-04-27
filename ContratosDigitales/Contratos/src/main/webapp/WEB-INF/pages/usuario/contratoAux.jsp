@@ -1,9 +1,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <c:forEach items="${contratos}" var="c" varStatus="status">
     <c:set var="clase" value=""></c:set>
-    <c:if test="${c.pendiente}">
-        <c:set var="clase" value="class=\"warning\""></c:set>
-    </c:if>
+    
     <tr valign="top" ${clase}>
             <td class="id">
                 <label class="nombre">${c.nombre}</label>

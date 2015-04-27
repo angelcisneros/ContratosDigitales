@@ -49,9 +49,9 @@ public class UsuarioController {
             return "templates/index";
         }
         
-         if(!usuarioService.tienePermiso(usuario, "catalogo")){
-            return "templates/noAutorizado";
-        }
+//         if(!usuarioService.tienePermiso(usuario, "catalogo")){
+//            return "templates/noAutorizado";
+//        }
         model.addAttribute("permisos", permisos);
         model.addAttribute("asignarPermisos", permisoService.buscarTodos());
         model.addAttribute("usuarios", usuarioService.buscarTodos());

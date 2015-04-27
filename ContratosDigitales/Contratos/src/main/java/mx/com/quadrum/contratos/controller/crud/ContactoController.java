@@ -54,9 +54,9 @@ public class ContactoController {
         if(usuario == null || permisos == null){
             return "templates/index";
         }
-         if(!usuarioService.tienePermiso(usuario, "catalogo")){
-            return "templates/noAutorizado";
-        }
+//         if(!usuarioService.tienePermiso(usuario, "catalogo")){
+//            return "templates/noAutorizado";
+//        }
         model.addAttribute("permisos", permisos);
         model.addAttribute("contactos", contactoService.buscarTodos());
         model.addAttribute("grado", gradoService.buscarTodos());

@@ -46,9 +46,9 @@ public class EmpresaController {
         if(usuario == null || permisos == null){
             return "templates/index";
         }
-         if(!usuarioService.tienePermiso(usuario, "catalogo")){
-            return "templates/noAutorizado";
-        }
+//         if(!usuarioService.tienePermiso(usuario, "empresa")){
+//            return "templates/noAutorizado";
+//        }
         model.addAttribute("permisos", permisos);
         model.addAttribute("empresa",empresaService.buscarTodos());
         return "crud/empresa";
