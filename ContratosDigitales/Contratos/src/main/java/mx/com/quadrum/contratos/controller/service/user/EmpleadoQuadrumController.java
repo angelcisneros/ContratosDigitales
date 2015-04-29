@@ -58,6 +58,9 @@ public class EmpleadoQuadrumController {
         if (usuario == null && permisos == null) {
             return "templates/index";
         }
+        if(usuario.getEsAdmin()){
+            model.addAttribute("esAdmin", "esAdmin");
+        }
         model.addAttribute("permisos", permisos);
         model.addAttribute("ocultarTxt", "ocultar");
         model.addAttribute("ocultarPdf", "ocultar");

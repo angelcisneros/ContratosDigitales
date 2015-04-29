@@ -57,6 +57,11 @@ public class ContactoServiceImpl implements ContactoService {
         Contacto antiguo = contactoRepository.buscarPorId(contacto.getId());
         contacto.setActivo(antiguo.getActivo());
         contacto.setPrimeraSesion(antiguo.getPrimeraSesion());
+        if(contacto.getGrado() != null){
+            if(contacto.getGrado().getId() == 0){
+                contacto.setGrado(null);
+            }
+        }
         if (contactoRepository.editar(contacto)) {
             return UPDATE_CORRECT + CONTACTO;
         }

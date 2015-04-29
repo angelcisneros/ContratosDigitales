@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="freePlantilla" pageWidth="612" pageHeight="792" whenNoDataType="AllSectionsNoDetail" columnWidth="612" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" whenResourceMissingType="Empty" uuid="b45952cc-8c06-4ea7-a58d-db257791e266">
+	<property name="ireport.zoom" value="1.363636363636386"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<property name="ireport.background.image.properties" value="true,true,0.25,-8,-8,0,0,503,268"/>
+	<style name="style1">
+		<conditionalStyle>
+			<style/>
+		</conditionalStyle>
+	</style>
+	<style name="table">
+		<box>
+			<pen lineWidth="1.0" lineColor="#6666FF"/>
+		</box>
+	</style>
+	<style name="table_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#6666FF"/>
+		</box>
+	</style>
+	<style name="table_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#6666FF"/>
+		</box>
+	</style>
+	<subDataset name="Table Dataset 1" uuid="79e8291d-ee1f-4126-968d-b152cf50cc08"/>
+	<parameter name="nombre_contrato" class="java.lang.String"/>
+	<parameter name="monto" class="java.lang.String"/>
+	<parameter name="empresa" class="java.lang.String"/>
+	<parameter name="fecha_inicio" class="java.lang.String"/>
+	<parameter name="fecha_fin" class="java.lang.String"/>
+	<parameter name="representante_legal" class="java.lang.String"/>
+	<parameter name="rfc_empresa" class="java.lang.String"/>
+	<parameter name="sello" class="java.lang.String"/>
+	<parameter name="firma" class="java.io.InputStream"/>
+	<field name="uno" class="net.sf.jasperreports.engine.JRDataSource"/>
+	<field name="dos" class="net.sf.jasperreports.engine.JRDataSource"/>
+	<field name="tres" class="net.sf.jasperreports.engine.JRDataSource"/>
+	<group name="Conceptos" keepTogether="true">
+		<groupFooter>
+			<band height="5"/>
+			<band height="8"/>
+		</groupFooter>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="156" splitType="Prevent">
+			<rectangle>
+				<reportElement x="-85" y="-168" width="293" height="19" forecolor="#660000" backcolor="#EEEBEB" uuid="690ba071-55ec-4360-90a6-4cb14269fa8a"/>
+				<graphicElement>
+					<pen lineWidth="0.0"/>
+				</graphicElement>
+			</rectangle>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="14" y="-153" width="284" height="30" uuid="31fa34cf-d72c-4986-b00b-d342c23734ad"/>
+				<textFieldExpression><![CDATA[]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="14" y="-168" width="102" height="18" uuid="cd8c5231-82d4-430d-baf5-9f62351cc0cd"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Domicilio Fiscal]]></text>
+			</staticText>
+			<subreport>
+				<reportElement stretchType="RelativeToTallestObject" x="0" y="0" width="612" height="47" uuid="6b9a6b8d-1fbd-4059-abf7-ebfdba1836bd"/>
+				<subreportParameter name="cliente"/>
+				<subreportParameter name="rfc"/>
+				<subreportParameter name="correo"/>
+				<subreportParameter name="empresa"/>
+				<subreportParameter name="domicilio"/>
+				<dataSourceExpression><![CDATA[$F{uno}]]></dataSourceExpression>
+				<subreportExpression><![CDATA["C:\\jboss-as-7.1.1.Final\\bin\\ContratosDigitales\\formatos\\uno.jasper"]]></subreportExpression>
+			</subreport>
+			<subreport>
+				<reportElement stretchType="RelativeToTallestObject" x="0" y="50" width="612" height="33" uuid="34f91176-754f-4485-8034-158065942473"/>
+				<subreportParameter name="cliente"/>
+				<subreportParameter name="rfc"/>
+				<subreportParameter name="correo"/>
+				<subreportParameter name="empresa"/>
+				<subreportParameter name="domicilio"/>
+				<dataSourceExpression><![CDATA[$F{dos}]]></dataSourceExpression>
+				<subreportExpression><![CDATA["C:\\jboss-as-7.1.1.Final\\bin\\ContratosDigitales\\formatos\\dos.jasper"]]></subreportExpression>
+			</subreport>
+			<break>
+				<reportElement x="0" y="48" width="612" height="1" uuid="5d45c3d5-2e10-4b65-99f7-448931e8ef44"/>
+			</break>
+			<break>
+				<reportElement x="0" y="86" width="612" height="1" uuid="136ad29d-d56e-4392-bdba-8a3979cf9250"/>
+			</break>
+			<subreport>
+				<reportElement stretchType="RelativeToTallestObject" x="0" y="90" width="612" height="37" uuid="cd8ba063-ac4e-428b-9a60-8bf49f517dc8"/>
+				<subreportParameter name="cliente"/>
+				<subreportParameter name="rfc"/>
+				<subreportParameter name="correo"/>
+				<subreportParameter name="empresa"/>
+				<subreportParameter name="domicilio"/>
+				<subreportParameter name="folios"/>
+				<subreportParameter name="monto"/>
+				<subreportParameter name="monto_letra"/>
+				<dataSourceExpression><![CDATA[$F{tres}]]></dataSourceExpression>
+				<subreportExpression><![CDATA["C:\\jboss-as-7.1.1.Final\\bin\\ContratosDigitales\\formatos\\tres.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+	</title>
+	<detail>
+		<band height="6" splitType="Stretch"/>
+	</detail>
+	<pageFooter>
+		<band height="14"/>
+	</pageFooter>
+</jasperReport>

@@ -1,0 +1,329 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="freePlantilla" pageWidth="612" pageHeight="792" whenNoDataType="AllSectionsNoDetail" columnWidth="612" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" whenResourceMissingType="Empty" uuid="b45952cc-8c06-4ea7-a58d-db257791e266">
+	<property name="ireport.zoom" value="1.6500000000000414"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="408"/>
+	<property name="ireport.background.image.properties" value="true,true,0.25,-8,-8,0,0,503,268"/>
+	<style name="style1">
+		<conditionalStyle>
+			<style/>
+		</conditionalStyle>
+	</style>
+	<style name="table">
+		<box>
+			<pen lineWidth="1.0" lineColor="#6666FF"/>
+		</box>
+	</style>
+	<style name="table_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#6666FF"/>
+		</box>
+	</style>
+	<style name="table_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#6666FF"/>
+		</box>
+	</style>
+	<subDataset name="Table Dataset 1" uuid="79e8291d-ee1f-4126-968d-b152cf50cc08"/>
+	<parameter name="cliente" class="java.lang.String"/>
+	<parameter name="rfc" class="java.lang.String"/>
+	<parameter name="correo" class="java.lang.String"/>
+	<parameter name="empresa" class="java.lang.String"/>
+	<parameter name="domicilio" class="java.lang.String"/>
+	<group name="Conceptos" keepTogether="true"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="739" splitType="Prevent">
+			<staticText>
+				<reportElement x="333" y="550" width="252" height="28" uuid="56a24a64-7e08-4db6-99d7-7005da3624e6"/>
+				<textElement textAlignment="Justified" verticalAlignment="Top">
+					<font size="7"/>
+				</textElement>
+				<text><![CDATA[      Las demás necesarias para el adecuado cumplimiento del objeto establecido en el presente Contrato.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="37" y="455" width="252" height="28" uuid="558665bf-688b-4f15-b5f7-62b41a6afa85"/>
+				<textElement textAlignment="Justified" verticalAlignment="Top">
+					<font size="7"/>
+				</textElement>
+				<text><![CDATA[                                                                                                 Las partes acuerdan que para la prestación de los servicios establecidos en la cláusula anterior en todo momento se estará a lo siguiente:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="333" y="517" width="252" height="28" uuid="aaa3ddec-eacb-4b31-bbc5-d9d0a904c55a"/>
+				<textElement textAlignment="Justified" verticalAlignment="Top">
+					<font size="7"/>
+				</textElement>
+				<text><![CDATA[     Guardar absoluta confidencialidad con respecto a los datos y documentos que el adquirente le proporcione para las actividades que desarrolle, ni dar informes a personas distintas a las autorizadas por el “CLIENTE”. ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="332" y="427" width="252" height="56" uuid="f2110b0c-9c65-48b4-ac43-3e1e8271d539"/>
+				<textElement textAlignment="Justified" verticalAlignment="Top">
+					<font size="7"/>
+				</textElement>
+				<text><![CDATA[     Brindar los servicios de uso y acceso en la generación, y certificación de CFDI; así como la recepción y cancelación de los CFDI´s en la emisión de facturas electrónicas, dedicándole todo el tiempo que sea necesario para la realización de los servicios señalados en la Cláusula Primera, garantizando que la prestación de los mismos sea de forma óptima y de manera ininterrumpida concluyéndolos en un año, salvo la renovación del mismo. ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="47" y="489" width="242" height="99" uuid="ffc0a3b8-fe55-4b2b-8055-e726bf289ec5"/>
+				<textElement textAlignment="Justified" verticalAlignment="Top">
+					<font size="7"/>
+				</textElement>
+				<text><![CDATA[                                            “EL PRESTADOR DEL SERVICIO” dará soporte técnico a “EL CLIENTE”, de conformidad con los lineamientos que para tal efecto se establezcan en el SITIO WEB y siempre en cumplimiento de las disposiciones de carácter general expedidas por el SAT para tal efecto. En cualquier caso las solicitudes de soporte técnico y quejas, que realice “EL CLIENTE”, serán atendidas de lunes a viernes hábiles, en un horario de 9:00 de la mañana a las 19:00 horas y resueltas en un plazo no mayor a 2 horas. En caso de que “EL CLIENTE” tenga contratado algún servicio que por su naturaleza se tenga que especificar en alguno de sus anexos, el soporte técnico podrá ser personalizado o avanzado de acuerdo a las características del servicio prestado y establecido en el contrato.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="37" y="155" width="252" height="44" uuid="c8e77873-c605-4171-99d1-f31386b10c29"/>
+				<textElement textAlignment="Justified" verticalAlignment="Top">
+					<font size="7"/>
+				</textElement>
+				<text><![CDATA[                                           “EL PRESTADOR DEL SERVICIO” se obliga a Certificar y cancelar todos los CFDI que “EL CLIENTE” emita o envíe siempre y cuando el CFDI generado cumpla con todas las disposiciones legales y fiscales aplicables y vigentes en la República Mexicana y en especial con lo siguiente:]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="-85" y="-168" width="293" height="19" forecolor="#660000" backcolor="#EEEBEB" uuid="690ba071-55ec-4360-90a6-4cb14269fa8a"/>
+				<graphicElement>
+					<pen lineWidth="0.0"/>
+				</graphicElement>
+			</rectangle>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="14" y="-153" width="284" height="30" uuid="31fa34cf-d72c-4986-b00b-d342c23734ad"/>
+				<textFieldExpression><![CDATA[]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="14" y="-168" width="102" height="18" uuid="cd8c5231-82d4-430d-baf5-9f62351cc0cd"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Domicilio Fiscal]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="342" y="125" width="242" height="63" uuid="9898ab8a-ee62-4739-9996-f1158c1c14bd"/>
+				<textElement textAlignment="Justified" verticalAlignment="Top">
+					<font size="7"/>
+				</textElement>
+				<text><![CDATA[Es voluntad de las partes que las Claves de Acceso que “EL CLIENTE” genere y utilice serán a efectos de ingresar a la página web, por lo que de igual forma requerirá de que “EL CLIENTE” cuente con el Certificado de Sello Digital (CSD) plenamente vigente, válido y reconocido para los efectos de generar el comprobante en materia de los servicios contratados o utilizados por las partes que se efectúen entre el “EL PRESTADOR DEL SERVICIO” y “EL CLIENTE”, con motivo del presente contrato. ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="37" y="201" width="252" height="196" uuid="ce905861-c480-4dd6-8829-193ff33e72fc"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
+					<font size="7"/>
+				</textElement>
+				<text><![CDATA[A. Que el periodo de tiempo entre la fecha de expedición del CFDI y la fecha en la que se pretende certificar no exceda de 72 horas;
+B. Que el documento no haya sido previamente certificado por el “EL PRESTADOR DEL SERVICIO”
+C. Que el CSD del contribuyente emisor, con el que se selló el CFDI haya estado vigente en la fecha de generación del CFDI generado y no haya sido cancelado;
+D. Que el CSD con el que se selló el CFDI corresponda al contribuyente que aparece como emisor del CFDI, y que el sello digital corresponda al CFDI generado;
+E. Que el documento cumpla con la especificación técnica del referido Anexo 20 en sus rubros II.A y II.B.
+Si el CFDI cumple con los requisitos anteriores y en general con todos los requisitos previstos para tal efecto en cualquier disposición legal o fiscal aplicable y vigente, el “EL PRESTADOR DEL SERVICIO” dará respuesta afirmativa incorporando el complemento que integre los siguientes datos:
+a) Folio asignado por el SAT.
+b) Fecha y hora de certificación.
+c) Sello digital del CFDI.
+d) Número de serie del certificado digital del SAT con el que se realizó la certificación del CFDI.
+e) Sello digital del SAT.
+]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="323" y="8" width="214" height="10" uuid="406407ad-4854-4f3e-a35e-ac99d2fb1954"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
+					<font size="7"/>
+				</textElement>
+				<text><![CDATA[“CENTRO DE VALIDACION DIGITAL CVDSA S. A. DE C. V”]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="37" y="39" width="252" height="39" uuid="2bb0cde9-e7dd-482f-b988-f19b20706720"/>
+				<textElement textAlignment="Justified" verticalAlignment="Top">
+					<font size="7"/>
+				</textElement>
+				<text><![CDATA[Las partes acuerdan que, si “EL CLIENTE” requiera adendas, complementación o certificación masiva deberá de acordarlo con “EL PRESTADOR DEL SERVICIO”, por escrito y estos se considerarán servicios adicionales, por lo que generarán costos extras.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="37" y="80" width="252" height="65" uuid="a705d390-c619-4461-b2e1-6a037f1d25c9"/>
+				<textElement textAlignment="Justified" verticalAlignment="Top">
+					<font size="7"/>
+				</textElement>
+				<text><![CDATA[El “EL PRESTADOR DEL SERVICIO” se obliga a almacenar los comprobantes, conservando los documentos por lo menos tres meses posteriores a la certificación, para permitir al CLIENTE su consulta o impresión de acuerdo a las disposiciones fiscales vigentes; como servicio adicional o complementario podrá proporcionarse almacenamiento por un período adicional contado a partir del vencimiento del período mínimo de tres meses ya mencionado con el costo que las partes establezcan.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="37" y="155" width="102" height="10" uuid="d6c14a4d-1e3c-4db9-973c-4bf83358841e"/>
+				<textElement textAlignment="Justified" verticalAlignment="Top">
+					<font size="7" isBold="true"/>
+				</textElement>
+				<text><![CDATA[1.2. Certificación de CFDI.- ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="37" y="400" width="252" height="52" uuid="a25d8be8-1bdd-4e7a-9eb3-6e571412ffa5"/>
+				<textElement textAlignment="Justified" verticalAlignment="Top">
+					<font size="7"/>
+				</textElement>
+				<text><![CDATA[Posteriormente “EL PRESTADOR DEL SERVICIO”, cumpliendo con todas las regulaciones aplicables, enviará al SAT copia de los CFDI`s una vez que hayan sido certificados, en un plazo que no excederá las 72 horas contadas a partir de la certificación del CFDI, para lo cual “EL CLIENTE” lo autoriza expresamente, en términos de las disposiciones de carácter general aplicables. ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="37" y="455" width="185" height="10" uuid="1c238d13-b04b-41ee-9a6f-a9f7d60359fd"/>
+				<textElement textAlignment="Justified" verticalAlignment="Top">
+					<font size="7" isBold="true"/>
+				</textElement>
+				<text><![CDATA[1.3. REGLAS PARA LA PRESTACIÓN DEL SERVICIO.-]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="47" y="489" width="94" height="10" uuid="3db449a2-9ef8-45e8-84e4-9f474c50495a"/>
+				<textElement textAlignment="Justified" verticalAlignment="Top">
+					<font size="7" isBold="true"/>
+				</textElement>
+				<text><![CDATA[1.3.1. SOPORTE TÉCNICO.-]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="47" y="592" width="242" height="46" uuid="d3203f6f-554f-48e4-936c-9046af7b0065"/>
+				<textElement textAlignment="Justified" verticalAlignment="Top">
+					<font size="7"/>
+				</textElement>
+				<text><![CDATA[                                                                Es voluntad de las partes pactar que “EL CLIENTE” para que pueda iniciar sesión en la APLICACIÓN WEB, deberá de crear y registrar en la base de datos del “EL PRESTADOR DEL SERVICIO” una cuenta de usuario, siguiendo, para tal efecto, el procedimiento establecido en el SITIO WEB.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="47" y="592" width="139" height="10" uuid="ca640de8-cc31-426f-912b-df3a03397da8"/>
+				<textElement textAlignment="Justified" verticalAlignment="Top">
+					<font size="7" isBold="true"/>
+				</textElement>
+				<text><![CDATA[1.3.2. DE LAS CUENTAS DE USUARIO.-]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="47" y="643" width="242" height="89" uuid="2a3f7857-dc91-4417-927b-687c8c2fcc71"/>
+				<textElement textAlignment="Justified" verticalAlignment="Top">
+					<font size="7"/>
+				</textElement>
+				<text><![CDATA[Las cuentas de usuario de “EL CLIENTE” se conformarán por un nombre de usuario que será igual al RFC de “EL CLIENTE” generando una contraseña, elementos que en su conjunto serán denominados como Claves de Acceso para los efectos del presente contrato. Las partes acuerdan que el uso de las Claves de Acceso, es absoluta y entera responsabilidad de “EL CLIENTE” por lo que este deberá de resguardarlas en un lugar seguro, debiendo hacer un uso diligente de las mismas, así como a no ponerlas a disposición de terceros, obligándose a comunicar a “EL PRESTADOR DEL SERVICIO” cualquier situación que pudiese comprometer la seguridad de dichas Claves de Acceso, como pueden ser la pérdida o extravío  de  las mismas, obtención ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="342" y="39" width="242" height="81" uuid="c2bf255d-4dc2-4c32-ab3a-0ef866191718"/>
+				<textElement textAlignment="Justified" verticalAlignment="Top">
+					<font size="7"/>
+				</textElement>
+				<text><![CDATA[de las mismas por una persona no autorizada y/o olvido, pérdida o extravío de la contraseña o contraseñas que conforman dichas Claves de Acceso. Cuando “EL CLIENTE” lo solicite “EL PRESTADOR DEL SERVICIO” podrá brindar asesoría y soporte técnico a “EL CLIENTE” con cualquier situación referente a sus Claves de Acceso, como puede ser el caso de restablecimiento de contraseña extraviada u olvidada. Las Claves de Acceso, en cualquier momento deberán de cumplir con los requisitos de seguridad establecidos por “EL PRESTADOR DEL SERVICIO” en la APLICACIÓN WEB.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="342" y="198" width="242" height="72" uuid="66337505-ff66-4450-a34b-eb7304a473bb"/>
+				<textElement textAlignment="Justified" verticalAlignment="Top">
+					<font size="7"/>
+				</textElement>
+				<text><![CDATA[                                                            “EL CLIENTE” se obliga a usar y acceder a la aplicación WEB, de un modo que no viole derechos de “EL PRESTADOR DEL SERVICIO” ni de terceros y respetando en todo momento la legislación y disposiciones legales aplicables y vigentes en la República Mexicana. “EL CLIENTE” no podrá utilizar la Aplicación Web, con fines ilícitos, ilegales o delictivos.
+Es obligación de “EL CLIENTE”, utilizar la aplicación WEB conforme a lo estipulado en el presente contrato, de acuerdo con las siguientes reglas:
+]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="342" y="198" width="133" height="10" uuid="2a282035-caa8-4369-b9ec-6f0469e45693"/>
+				<textElement textAlignment="Justified" verticalAlignment="Top">
+					<font size="7" isBold="true"/>
+				</textElement>
+				<text><![CDATA[1.3.4. USO DE LA APLICACIÓN WEB.- ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="342" y="274" width="242" height="36" uuid="2559ca65-6ddd-40a0-82fe-b8306fe3a817"/>
+				<textElement textAlignment="Justified" verticalAlignment="Top">
+					<font size="7"/>
+				</textElement>
+				<text><![CDATA[“EL PRESTADOR DEL SERVICIO” por virtud del presente contrato otorga y concede a “EL CLIENTE” el derecho, no exclusivo, revocable, e intransferible de ver y utilizar la aplicación WEB, así como de iniciar sesión con su cuenta de usuario. ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="342" y="315" width="242" height="72" uuid="47d1bcb7-0177-40d8-8853-5a9c0c3fb0c2"/>
+				<textElement textAlignment="Justified" verticalAlignment="Top">
+					<font size="7"/>
+				</textElement>
+				<text><![CDATA[“EL CLIENTE” deberá de usar la aplicación WEB para la generación y certificación de CFDI; recepción y validación de CFDI y cancelación de CFDI, según corresponda al servicio contratado de conformidad con la legislación y la normatividad aplicable en la República Mexicana en materia de Facturación Electrónica, y para utilizar los servicios que “EL PRESTADOR DEL SERVICIO” preste o llegare a prestar, de conformidad con el presente contrato, “EL CLIENTE” no podrá utilizar la aplicación WEB, con fines ilícitos, ilegales o delictivos.
+
+]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="323" y="402" width="262" height="19" uuid="17fa90c5-9e13-4536-9e0c-0feb940904fc"/>
+				<textElement textAlignment="Justified" verticalAlignment="Top">
+					<font size="7"/>
+				</textElement>
+				<text><![CDATA[Para el cumplimiento del presente Contrato “EL PRESTADOR DEL SERVICIO” se obliga con “EL CLIENTE” a llevar a cabo las siguientes acciones:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="323" y="393" width="262" height="10" uuid="e1479b3f-cd56-4d86-a28e-6748a9ff23ba"/>
+				<textElement textAlignment="Justified" verticalAlignment="Top">
+					<font size="7" isBold="true"/>
+				</textElement>
+				<text><![CDATA[SEGUNDA.- OBLIGACIONES DE "EL PRESTADOR DEL SERVICIO"]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="332" y="427" width="11" height="10" uuid="fa888bac-8091-4389-a3c5-282bc61e0486"/>
+				<textElement textAlignment="Justified" verticalAlignment="Top">
+					<font size="7" isBold="true"/>
+				</textElement>
+				<text><![CDATA[a)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="333" y="486" width="252" height="27" uuid="4dc730ec-f80e-486f-a89b-875b245f169b"/>
+				<textElement textAlignment="Justified" verticalAlignment="Top">
+					<font size="7"/>
+				</textElement>
+				<text><![CDATA[      Resguardar los CFDI a los que se hayan aplicado las acciones contenidas en los incisos que anteceden, por un periodo de tres meses posteriores al de su certificación.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="333" y="486" width="11" height="10" uuid="78fc3ec1-483d-4f37-8b54-75fb3ab0712b"/>
+				<textElement textAlignment="Justified" verticalAlignment="Top">
+					<font size="7" isBold="true"/>
+				</textElement>
+				<text><![CDATA[b)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="333" y="517" width="11" height="10" uuid="358caed9-4584-48d0-837c-4605ae26efa2"/>
+				<textElement textAlignment="Justified" verticalAlignment="Top">
+					<font size="7" isBold="true"/>
+				</textElement>
+				<text><![CDATA[c)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="333" y="550" width="11" height="10" uuid="08d16a13-80a5-4880-abf0-827f12a2440f"/>
+				<textElement textAlignment="Justified" verticalAlignment="Top">
+					<font size="7" isBold="true"/>
+				</textElement>
+				<text><![CDATA[d)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="333" y="592" width="252" height="71" uuid="cf827d42-e90d-409b-af9a-9b8472bf7bc6"/>
+				<textElement textAlignment="Justified" verticalAlignment="Top">
+					<font size="7"/>
+				</textElement>
+				<text><![CDATA[a)Pagar por los servicios contratados, en tiempo y forma pactados.
+b)Cumplir con las CLÁUSULAS del presente contrato.
+c)Proporcionar al “PRESTADOR DEL SERVICIO” la información necesaria y veraz para que éste pueda cumplir con su encomienda.
+d)Autorizar al “PRESTADOR DEL SERVICIO” para que remita al SAT todos los CFDI que le certifique.
+e)Abstenerse de realizar cualquier acción que cause daño o vulnere la seguridad de los sistemas informáticos del “PRESTADOR DEL SERVICIO”
+]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="323" y="582" width="262" height="10" uuid="bb9b4a9e-b8ea-4328-ae39-9a6f0a044a41"/>
+				<textElement textAlignment="Justified" verticalAlignment="Top">
+					<font size="7" isBold="true"/>
+				</textElement>
+				<text><![CDATA[TERCERA.- OBLIGACIONES DEL "CLIENTE": ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="323" y="668" width="262" height="64" uuid="c5fe14e5-22d9-4dd3-bff1-9da9bfd5db00"/>
+				<textElement textAlignment="Justified" verticalAlignment="Top">
+					<font size="7"/>
+				</textElement>
+				<text><![CDATA[Es voluntad de las partes, pactar que queda expresamente prohibido para “EL CLIENTE”:
+A. Modificar, sustituir, cambiar o en forma alguna alterar el contenido, textos, dibujos, diseños, programación, lenguaje de programación y en general alterar en forma sustancial o accesoria cualquier componente o programación de la aplicación WEB y los servicios generación, validación y certificación de CFDI; recepción de CFDI y cancelación de CFDI;
+]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageFooter>
+		<band height="14">
+			<textField>
+				<reportElement positionType="Float" x="10" y="0" width="288" height="14" isPrintWhenDetailOverflows="true" uuid="ad015334-0377-4562-a074-4521c335eec7"/>
+				<textElement textAlignment="Right">
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Página "+$V{PAGE_NUMBER}+" de"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement positionType="Float" x="298" y="0" width="285" height="14" isPrintWhenDetailOverflows="true" uuid="4dff9384-8594-4c0f-89a8-5b5e1448ea4b"/>
+				<textElement>
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+</jasperReport>

@@ -38,8 +38,7 @@
                             <th>Empresa</th>
                             <th>Tipo de Contrato</th>
                             <th>Estado</th>
-                            <th>Fecha de Inicio</th>
-                            <th>Fecha de Vencimiento</th>
+                            <th>Vigencia</th>
                             <th>Fecha de Firma</th>
                             <th>Monto</th>
                             <th>Opciones</th>

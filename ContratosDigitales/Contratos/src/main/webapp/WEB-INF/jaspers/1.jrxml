@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="freePlantilla" pageWidth="612" pageHeight="792" whenNoDataType="AllSectionsNoDetail" columnWidth="612" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" whenResourceMissingType="Empty" uuid="b45952cc-8c06-4ea7-a58d-db257791e266">
+	<property name="ireport.zoom" value="1.6500000000000419"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="384"/>
+	<property name="ireport.background.image.properties" value="true,true,0.25,-8,-8,0,0,503,268"/>
+	<style name="style1">
+		<conditionalStyle>
+			<style/>
+		</conditionalStyle>
+	</style>
+	<style name="table">
+		<box>
+			<pen lineWidth="1.0" lineColor="#6666FF"/>
+		</box>
+	</style>
+	<style name="table_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#6666FF"/>
+		</box>
+	</style>
+	<style name="table_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#6666FF"/>
+		</box>
+	</style>
+	<subDataset name="Table Dataset 1" uuid="79e8291d-ee1f-4126-968d-b152cf50cc08"/>
+	<parameter name="cliente" class="java.lang.String"/>
+	<parameter name="rfc" class="java.lang.String"/>
+	<parameter name="correo" class="java.lang.String"/>
+	<parameter name="empresa" class="java.lang.String"/>
+	<parameter name="domicilio" class="java.lang.String"/>
+	<parameter name="folios" class="java.lang.String"/>
+	<parameter name="monto" class="java.lang.String"/>
+	<parameter name="monto_letra" class="java.lang.String"/>
+	<group name="Conceptos" keepTogether="true"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="739" splitType="Prevent">
+			<staticText>
+				<reportElement x="37" y="596" width="252" height="72" uuid="439adb6a-885f-42a9-a293-28f082d55315"/>
+				<textElement textAlignment="Justified" verticalAlignment="Top">
+					<font size="7"/>
+				</textElement>
+				<text><![CDATA[                                                                                         En todo momento será obligación única exclusiva y absoluta de “EL CLIENTE”, resguardar y respaldar los CFDI que emita y que sean certificados por “EL PRESTADOR DEL SERVICIO” en términos del presente contrato, así como los acuses de rechazo correspondientes, en un medio óptico, electrónico, tecnológico o cualquier otro de naturaleza similar o análoga, que sea seguro, como puede ser su computadora personal. “EL PRESTADOR DEL SERVICIO” no será responsable de la integridad, resguardo, o respaldo de los CFDI`s de “EL CLIENTE”, salvo por lo expresamente establecido en las reglas de carácter general aplicables y vigentes emitidas por el SAT. Por tal virtud, “EL CLIENTE” libera al “EL PRESTADOR DEL SERVICIO” de cualquier situación que se derive de lo descrito en este punto.]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="-85" y="-168" width="293" height="19" forecolor="#660000" backcolor="#EEEBEB" uuid="690ba071-55ec-4360-90a6-4cb14269fa8a"/>
+				<graphicElement>
+					<pen lineWidth="0.0"/>
+				</graphicElement>
+			</rectangle>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="14" y="-153" width="284" height="30" uuid="31fa34cf-d72c-4986-b00b-d342c23734ad"/>
+				<textFieldExpression><![CDATA[]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="14" y="-168" width="102" height="18" uuid="cd8c5231-82d4-430d-baf5-9f62351cc0cd"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Domicilio Fiscal]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="27" y="39" width="262" height="553" uuid="2bb0cde9-e7dd-482f-b988-f19b20706720"/>
+				<textElement textAlignment="Justified" verticalAlignment="Top">
+					<font size="7"/>
+				</textElement>
+				<text><![CDATA[B. Limitar, bloquear, impedir o en cualquier forma restringir el acceso a la aplicación WEB y los servicios de generación y certificación de CFDI; recepción de CFDI y cancelación de CFDI;
+C. Guardar copia o copiar, en su computadora o de terceros, o en cualquier medio óptico, electrónico o de naturaleza similar o análoga de cualquier elemento, dibujo, diseño, marca, o nombre comercial contenido o desplegado en la aplicación WEB ;
+D. Hackear, Crackear o violentar o de cualquier forma obtener acceso no autorizado a la aplicación WEB, o a través de ella obtener acceso a los servidores de “EL PRESTADOR DEL SERVICIO”
+E. Violentar la aplicación WEB para obtener acceso a los servidores, bases de datos, componentes, infraestructura, hardware o cualquier tipo de estructura, cualquiera sea su naturaleza, propiedad de “EL PRESTADOR DEL SERVICIO” o de terceros, con el objetivo de realizar cualquier actividad lícita, ilícita o ilegal como robo o supresión de información;
+F. Obtener acceso de forma ilegal o no autorizada a los servicios que presta “EL PRESTADOR DEL SERVICIO”
+G. Utilizar software no autorizado, ilegal, falso o modificado en conexión con la aplicación WEB, salvo autorización expresa y por escrito de “EL PRESTADOR DEL SERVICIO”, ni usar herramientas que le permitan burlar, inhabilitar o evitar cualesquiera mecanismos de codificación, seguridad o autenticación creados para la aplicación WEB; así como explotar la misma de cualquier forma, ilegal o ilícita o incluso de cualquier forma legal o lícita.
+H. Editar o modificar el material de la aplicación WEB;
+I. Utilizar la aplicación WEB, identificándose como personal autorizado de “EL PRESTADOR DEL SERVICIO” y con ello actuar a su nombre;
+J. Utilizar la aplicación WEB y los servicios generación, validación y certificación de CFDI; recepción y validación de CFDI y cancelación de CFDI, para realizar actividades ilícitas o ilegales, como pueden ser, emitir facturas falsas o con datos incorrectos que puedan derivar en delitos como defraudación o evasión fiscal, o en general cualquier delito en la República Mexicana;
+K. Reproducir, distribuir, vender, publicar, transmitir, circular o licenciar, total o parcialmente la aplicación WEB y los servicios generación, y certificación de CFDI; recepción y certificación de CFDI y cancelación de CFDI;
+L. Colocar el contenido de la aplicación WEB y los servicios generación, y certificación de CFDI; recepción y validación de CFDI y cancelación de CFDI en noticias de grupo, correos electrónicos de grupo, en carteles de anuncios, así como la red social o cualquier sitio de naturaleza similar o análoga;
+M. Descifrar, descompilar, desensamblar o adquirir por cualquier medio físico o tecnológicamente posible, como puede ser la aplicación de técnicas de ingeniería inversa, parte o código ya sea fuente u objeto de la aplicación WEB y los servicios generación, y certificación de CFDI; recepción y validación de CFDI y cancelación de CFDI;
+N. Crear por cualquier medio una obra derivada o de otro modo tratar de crear código fuente de la aplicación WEB, partiendo de su código objeto;
+O. Usar herramientas que le permitan burlar, inhabilitar, o evitar cualesquiera mecanismos de codificación, seguridad o autenticación creados para la aplicación WEB y los servicios generación,  y certificación de CFDI; recepción y validación de CFDI y cancelación de CFDI;
+P. Crear o programar una aplicación WEB similar o idéntica a la de “EL PRESTADOR DEL SERVICIO” obteniendo ilegalmente acceso a los códigos fuente u objeto de la misma y basándose en los referidos códigos para tal efecto y;
+Q. En general cualquier otro acto de naturaleza similar o análoga que pueda afectar derechos de terceros o de “EL PRESTADOR DEL SERVICIO”
+Está expresamente acordado por las partes, que si “EL CLIENTE” incurre en alguna de las conductas enumeradas en el párrafo anterior, “EL PRESTADOR DEL SERVICIO” tendrá la facultad de rescindir el presente contrato sin necesidad de declaración judicial o administrativa para tal efecto, sin responsabilidad para “EL PRESTADOR DEL SERVICIO” por lo que “EL CLIENTE” no podrá reclamar ningún tipo de indemnización bajo ningún concepto, sin embargo el “EL PRESTADOR DEL SERVICIO” será acreedor a una indemnización de conformidad con el presente contrato.
+]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="323" y="39" width="261" height="267" uuid="c2bf255d-4dc2-4c32-ab3a-0ef866191718"/>
+				<textElement textAlignment="Justified" verticalAlignment="Top">
+					<font size="7"/>
+				</textElement>
+				<text><![CDATA[integrante del presente contrato en su totalidad, y “EL PRESTADOR DEL SERVICIO” se obliga a cumplir con lo establecido en dicho documento en materia de la Ley Federal de Protección de Datos Personales en Posesión de los particulares, para lo cual “EL CLIENTE” puede consultar dicho aviso en el sitio web http://www.cfdiquadrum.com.mx/Avisoprivacidad.html
+
+Asimismo “EL CLIENTE” se obliga a guardar la entera confidencialidad y a la no divulgación de datos, propiedad de “EL PRESTADOR DEL SERVICIO” así como los que se encuentren establecidos en el SITIO WEB o LA APLICACIÓN WEB, por un término indefinido, obligación que subsistirá aun cuando el presente contrato haya terminado su vigencia.
+La confidencialidad de la información a que se refiere la presente cláusula incluye expresamente la prohibición para el “EL PRESTADOR DEL SERVICIO” de ceder o transmitir a terceros incluso con fines mercadotécnicos o publicitarios los datos e información a que se refiere esta cláusula, o de enviar publicidad sobre los bienes y servicios, salvo que conste la autorización expresa y por escrito del “CLIENTE”.
+El contenido de la presente Cláusula se regulará, en lo conducente, por el Código Fiscal de la Federación, la Resolución Miscelánea Fiscal vigente, las condiciones de otorgamiento de la autorización para operar como proveedor de certificación de comprobantes fiscales digitales por Internet y la Ley Federal de Protección de Datos Personales en Posesión de los Particulares, publicada en el Diario Oficial de la Federación el 05 de julio de 2010.
+
+Las partes en el CONTRATO se obligan a respetar las disposiciones contenidas en la presente Clausula, aun después de que haya concluido la prestación de los SERVICIOS, o se haya dado por terminado el CONTRATO anticipadamente, quedando subsistente su obligación de no revelar la información que haya llegado a conocer y que le haya sido entregada con el carácter de confidencial, por un lapso de 5 (cinco) años después de terminada su relación contractual.
+]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="37" y="596" width="149" height="10" uuid="63aa0208-1a68-48b7-98bb-53b55cb64eb5"/>
+				<textElement textAlignment="Justified" verticalAlignment="Top">
+					<font size="7" isBold="true"/>
+				</textElement>
+				<text><![CDATA[3.1.  RESGUARDO Y RESPALDOS DE CFDI.-]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="27" y="684" width="262" height="48" uuid="6971607e-e464-41a1-9755-30e3c7714854"/>
+				<textElement textAlignment="Justified" verticalAlignment="Top">
+					<font size="7"/>
+				</textElement>
+				<text><![CDATA[“EL CONSUMIDOR” deberá respetar las POLÍTICAS DE PRIVACIDAD establecidas en el presente contrato a través del cual “EL PRESTADOR DEL SERVICIO” se compromete a asegurar la confidencialidad de la Información y Privacidad de la Información Personal que se obtiene de “EL CLIENTE” a través de sus servicios en línea. El AVISO DE PRIVACIDAD, formará parte integrante ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="28" y="674" width="262" height="10" uuid="cfa1ce44-0cbe-4068-93c6-1d9678797178"/>
+				<textElement textAlignment="Justified" verticalAlignment="Top">
+					<font size="7" isBold="true"/>
+				</textElement>
+				<text><![CDATA[CUARTA- POLÍTICAS DE PRIVACIDAD:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="323" y="311" width="262" height="10" uuid="721b3201-fda6-481e-bfa7-978925827e6f"/>
+				<textElement textAlignment="Justified" verticalAlignment="Top">
+					<font size="7" isBold="true"/>
+				</textElement>
+				<text><![CDATA[QUINTA. PAGO POR EL USO DEL SERVICIO. ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="322" y="478" width="262" height="10" uuid="b907cc8e-10af-4ae7-906d-3853ecf7d14e"/>
+				<textElement textAlignment="Justified" verticalAlignment="Top">
+					<font size="7" isBold="true"/>
+				</textElement>
+				<text><![CDATA[SEXTA. VIGENCIA:]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageFooter>
+		<band height="14"/>
+	</pageFooter>
+</jasperReport>

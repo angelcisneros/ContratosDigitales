@@ -37,27 +37,30 @@ public class EmpresaController {
 
     @Autowired
     UsuarioService usuarioService;
-    
+
     @RequestMapping(value = "empresa", method = RequestMethod.GET)
     public String empresa(Model model, HttpSession session) {
         Usuario usuario = (Usuario) session.getAttribute("usuario");
         List<Permiso> permisos = (List<Permiso>) session.getAttribute(PERMISOS);
-                
-        if(usuario == null || permisos == null){
+
+        if (usuario == null || permisos == null) {
             return "templates/index";
         }
-//         if(!usuarioService.tienePermiso(usuario, "empresa")){
-//            return "templates/noAutorizado";
-//        }
+        if (usuario.getEsAdmin()) {
+            model.addAttribute("esAdmin", "esAdmin");
+        }
+        if (usuarioService.tienePermiso(usuario, "empresa")) {
+            return "templates/noAutorizado";
+        }
         model.addAttribute("permisos", permisos);
-        model.addAttribute("empresa",empresaService.buscarTodos());
+        model.addAttribute("empresa", empresaService.buscarTodos());
         return "crud/empresa";
     }
 
     @ResponseBody
     @RequestMapping(value = "agregarEmpresa", method = RequestMethod.POST)
     public String agregarEmpresa(@Valid @ModelAttribute("empresa") Empresa empresa, BindingResult bindingResult, HttpSession session) {
-        if (session.getAttribute("usuario") == null){
+        if (session.getAttribute("usuario") == null) {
             return SESION_CADUCA;
         }
         if (bindingResult.hasErrors()) {
@@ -69,7 +72,7 @@ public class EmpresaController {
     @ResponseBody
     @RequestMapping(value = "editarEmpresa", method = RequestMethod.POST)
     public String editarEmpresa(@Valid @ModelAttribute("empresa") Empresa empresa, BindingResult bindingResult, HttpSession session) {
-        if (session.getAttribute("usuario") == null){
+        if (session.getAttribute("usuario") == null) {
             return SESION_CADUCA;
         }
         if (bindingResult.hasErrors()) {
@@ -81,7 +84,7 @@ public class EmpresaController {
     @ResponseBody
     @RequestMapping(value = "eliminarEmpresa", method = RequestMethod.POST)
     public String eliminarEmpresa(Empresa empresa, BindingResult bindingResult, HttpSession session) {
-        if (session.getAttribute("usuario") == null){
+        if (session.getAttribute("usuario") == null) {
             return SESION_CADUCA;
         }
         return empresaService.eliminar(empresa);

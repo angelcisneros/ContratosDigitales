@@ -42,7 +42,7 @@ public class ContactoController {
 
     @Autowired
     EmpresaService empresaService;
-    
+
     @Autowired
     UsuarioService usuarioService;
 
@@ -50,13 +50,16 @@ public class ContactoController {
     public String contactos(Model model, HttpSession session) {
         Usuario usuario = (Usuario) session.getAttribute("usuario");
         List<Permiso> permisos = (List<Permiso>) session.getAttribute(PERMISOS);
-                
-        if(usuario == null || permisos == null){
+
+        if (usuario == null || permisos == null) {
             return "templates/index";
         }
-//         if(!usuarioService.tienePermiso(usuario, "catalogo")){
-//            return "templates/noAutorizado";
-//        }
+        if (usuario.getEsAdmin()) {
+            model.addAttribute("esAdmin", "esAdmin");
+        }
+        if (usuarioService.tienePermiso(usuario, "contacto")) {
+            return "templates/noAutorizado";
+        }
         model.addAttribute("permisos", permisos);
         model.addAttribute("contactos", contactoService.buscarTodos());
         model.addAttribute("grado", gradoService.buscarTodos());
@@ -73,6 +76,7 @@ public class ContactoController {
         if (bindingResult.hasErrors()) {
             return ERROR_DATOS;
         }
+        System.out.println(contacto.getMail());
         return contactoService.agregar(contacto);
     }
 
@@ -85,7 +89,7 @@ public class ContactoController {
         if (bindingResult.hasErrors()) {
             return ERROR_DATOS;
         }
-        
+
         return contactoService.editar(contacto);
     }
 

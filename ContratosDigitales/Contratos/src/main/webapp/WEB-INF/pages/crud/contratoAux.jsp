@@ -27,9 +27,7 @@
             <label>${c.estatus.nombre}</label>
         </td>
         <td>
-            <label>${c.fechaCreacion}</label>
-        </td>
-        <td>
+            Del <label>${c.fechaCreacion}</label> al 
             <label>${c.fechaVencimiento}</label>
         </td>
         <td>

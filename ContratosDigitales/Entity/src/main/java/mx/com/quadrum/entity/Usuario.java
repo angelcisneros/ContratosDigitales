@@ -48,7 +48,7 @@ public class Usuario implements java.io.Serializable {
     @Column(name = "log", length = 45)
     @Getter @Setter private String log;
     
-    @Column(name = "esAdmin")
+    @Column(name = "esAdmin", nullable = false)
     @Getter @Setter private Boolean esAdmin;
     
     @Column(name = "primeraSesion", nullable = false)

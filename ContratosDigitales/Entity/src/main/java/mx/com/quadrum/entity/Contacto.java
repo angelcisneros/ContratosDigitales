@@ -33,7 +33,7 @@ public class Contacto implements java.io.Serializable {
     @Getter @Setter private Grado grado;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "empresa", nullable = false)
+    @JoinColumn(name = "empresa")
     @Getter @Setter private Empresa empresa;
 
     @Column(name = "nombre", nullable = false, length = 45)

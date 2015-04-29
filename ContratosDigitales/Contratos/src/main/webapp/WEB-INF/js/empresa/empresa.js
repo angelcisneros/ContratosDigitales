@@ -9,19 +9,18 @@ $(document).on('ready', function() {
 
     //POPUP AGREGAR
     $('#addEmpresaButton').on('click', function() {
-        $('#nombreEmpresaUpdate').removeAttr('style');
         cierraPopUpChiquito($('#nombreEmpresaUpdate'));
         $('#popUpEmpresaAdd').modal('show');
     });
 
     //POPUP EDITAR
     $('.empresaUpdateButton').on('click', function() {
-        rellenaPopUpUpdate(this);
+        rellenaPopUpUpdateEmpresa(this);
     });
 
     //POPUP ELIMINAR
     $('.empresaDeleteButton').on('click', function() {
-        rellenaPopUpsDelete(this);
+        rellenaPopUpsDeleteEmpresa(this);
     });
 });
 
@@ -30,22 +29,21 @@ $(document).on('ready', function() {
 
     //AGREGAR EN BASE
     $('#addEmpresa').on('click', function() {
-        $('#nombreAdd').removeAttr('style');
         var requisitos = 0;
-        var nombre = $('#nombreAdd').val();
-        var direccion = $('#direccionAdd').val();
+        var nombre = $('#nombreAddEmpresa').val();
+        var direccion = $('#direccionAddEmpresa').val();
         if (nombre === '') {
-            muestraPopUpCampoNoVacio($('#nombreAdd'));
-            $('#nombreAdd').css("border", "1px solid red");
+            muestraPopUpCampoNoVacio($('#nombreAddEmpresa'));
+            $('#nombreAddEmpresa').css("border", "1px solid red");
         } else {
-            $('#nombreAdd').removeAttr('style');
+            $('#nombreAddEmpresa').removeAttr('style');
             requisitos++;
         }
         if (direccion === '') {
-            muestraPopUpCampoNoVacio($('#direccionAdd'));
-            $('#direccionAdd').css("border", "1px solid red");
+            muestraPopUpCampoNoVacio($('#direccionAddEmpresa'));
+            $('#direccionAddEmpresa').css("border", "1px solid red");
         } else {
-            $('#direccionAdd').removeAttr('style');
+            $('#direccionAddEmpresa').removeAttr('style');
             requisitos++;
         }
         if (requisitos === 2) {
@@ -93,22 +91,22 @@ $(document).on('ready', function() {
     //ACTUALIZAR BASE
     $('#updateEmpresa').on('click', function() {
         var requisitos = 0;
-        var nombre = $('#nombreUpdate').val();
-        var direccion = $('#direccionUpdate').val();
+        var nombre = $('#nombreUpdateEmpresa').val();
+        var direccion = $('#direccionUpdateEmpresa').val();
         if (nombre === '') {
-            muestraPopUpCampoNoVacio($('#nombreUpdate'));
-            $('#nombreUpdate').css("border", "1px solid red");
+            muestraPopUpCampoNoVacio($('#nombreUpdateEmpresa'));
+            $('#nombreUpdateEmpresa').css("border", "1px solid red");
         } else {
-            $('#nombreUpdate').removeAttr('style');
-            cierraPopUpChiquito($('#nombreUpdate'));
+            $('#nombreUpdateEmpresa').removeAttr('style');
+            cierraPopUpChiquito($('#nombreUpdateEmpresa'));
             requisitos++;
         }
         if (direccion === '') {
-            muestraPopUpCampoNoVacio($('#direccionUpdate'));
-            $('#direccionUpdate').css("border", "1px solid red");
+            muestraPopUpCampoNoVacio($('#direccionUpdateEmpresa'));
+            $('#direccionUpdateEmpresa').css("border", "1px solid red");
         } else {
-            $('#direccionUpdate').removeAttr('style');
-            cierraPopUpChiquito($('#direccionUpdate'));
+            $('#direccionUpdateEmpresa').removeAttr('style');
+            cierraPopUpChiquito($('#direccionUpdateEmpresa'));
             requisitos++;
         }
         if (requisitos === 2) {
@@ -167,37 +165,37 @@ $(document).on('ready', function() {
 
 
 $('#empresaTbody').on('click', '.empresaUpdateButton', function() {
-    rellenaPopUpUpdate(this);
+    rellenaPopUpUpdateEmpresa(this);
 });
 
 $('#empresaTbody').on('click', '.empresaDeleteButton', function() {
-    rellenaPopUpsDelete(this);
+    rellenaPopUpsDeleteEmpresa(this);
 });
 
-function rellenaPopUpsDelete(selector) {
+function rellenaPopUpsDeleteEmpresa(selector) {
     var tds = $($(selector).parent()).siblings('td');
     var id = $($($($(selector).parent()).siblings('td.id')).children('label.ocultar')).text();
     var nombre = $($(tds[0]).children('label.nombre')).text();
     var direccion = $(tds[1]).text();
     trClick = $($(selector).parent()).parent();
 
-    $('#idDelete').val(id);
-    $('#nombreDelete').text(nombre);
-    $('#direccionDelete').text(direccion);
+    $('#idDeleteEmpresa').val(id);
+    $('#nombreDeleteEmpresa').text(nombre);
+    $('#direccionDeleteEmpresa').text(direccion);
 
     $('#popUpEmpresaDelete').modal('show');
 }
 
-function rellenaPopUpUpdate(selector) {
+function rellenaPopUpUpdateEmpresa(selector) {
     var tds = $($(selector).parent()).siblings('td');
     var id = $($($($(selector).parent()).siblings('td.id')).children('label.ocultar')).text();
     var nombre = $($(tds[0]).children('label.nombre')).text();
     var direccion = $($(tds[1]).children()).text();
     trClick = $($(selector).parent()).parent();
 
-    $('#idUpdate').val(id);
-    $('#nombreUpdate').val(nombre);
-    $('#direccionUpdate').val(direccion);
+    $('#idUpdateEmpresa').val(id);
+    $('#nombreUpdateEmpresa').val(nombre);
+    $('#direccionUpdateEmpresa').val(direccion);
 
     $('#popUpEmpresaUpdate').modal('show');
 }

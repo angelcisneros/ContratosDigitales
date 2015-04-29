@@ -37,8 +37,6 @@ public class UsuarioController {
 
     @Autowired
     PermisoService permisoService;
-    
-    
 
     @RequestMapping(value = "usuario", method = RequestMethod.GET)
     public String usuario(Model model, HttpSession session) {
@@ -48,10 +46,12 @@ public class UsuarioController {
         if (usuario == null && permisos == null) {
             return "templates/index";
         }
-        
-//         if(!usuarioService.tienePermiso(usuario, "catalogo")){
-//            return "templates/noAutorizado";
-//        }
+        if (usuario.getEsAdmin()) {
+            model.addAttribute("esAdmin", "esAdmin");
+        }
+        if (usuarioService.tienePermiso(usuario, "usuario")) {
+            return "templates/noAutorizado";
+        }
         model.addAttribute("permisos", permisos);
         model.addAttribute("asignarPermisos", permisoService.buscarTodos());
         model.addAttribute("usuarios", usuarioService.buscarTodos());
@@ -92,16 +92,21 @@ public class UsuarioController {
     }
 
     @RequestMapping(value = "inicioCambioPassword", method = RequestMethod.POST)
-    public ModelAndView cambiarPassword(String password, HttpSession session) {
+    public String cambiarPassword(String password, HttpSession session, Model model) {
         Usuario usuario = (Usuario) session.getAttribute("usuario");
-        System.out.println("Password");
         if (usuario == null) {
-            return new ModelAndView("templates/error", "error", "No se pudo cambiar el password");
+            model.addAttribute("error", "No se pudo cambiar el password");
+            return "templates/error";
         }
         if (usuarioService.cambiarPassword(usuario, password)) {
-            return new ModelAndView("templates/inicio", "permisos", session.getAttribute("permisos"));
+            if (usuario.getEsAdmin()) {
+                model.addAttribute("esAdmin", "esAdmin");
+            }
+            model.addAttribute("permisos", session.getAttribute("permisos"));
+            return "templates/inicio";
         }
-        return new ModelAndView("templates/error", "error", "No se pudo cambiar el password");
+        model.addAttribute("error", "No se pudo cambiar el password");
+        return "templates/error";
     }
-    
-  }
+
+}

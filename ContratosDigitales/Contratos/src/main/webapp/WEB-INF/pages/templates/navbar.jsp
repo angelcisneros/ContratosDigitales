@@ -1,5 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<nav id="font-nav" class="navbar navbar-default font-navbar navbar-fixed-top" role="navigation">
+<nav id="font-nav" class="navbar navbar-default font-navbar navbar-fixed-top ${esAdmin}" role="navigation">
     <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header" id="brand">
@@ -15,10 +15,10 @@
         </a>
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav">
+            <ul class="nav navbar-nav" >
 
                 <c:forEach items="${permisos}" var="p" varStatus="status">
-                    <li><a href="${p.url}">${p.nombre}</a></li>
+                    <li class="elemenots-nav"><a href="${p.url}">${p.nombre}</a></li>
                     </c:forEach>
             </ul>
             <ul class="nav navbar-nav navbar-right">

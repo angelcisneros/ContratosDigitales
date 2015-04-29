@@ -66,15 +66,16 @@ public class ContactoRepositoryImpl implements ContactoRepository {
     @Override
     public List<Contacto> buscarTodos() {
         return (List<Contacto>) sessionFactory.getCurrentSession().createCriteria(Contacto.class)
-                .createAlias("empresa", "e", JoinType.INNER_JOIN)
-                .createAlias("grado", "g", JoinType.INNER_JOIN)
+                .createAlias("empresa", "e", JoinType.LEFT_OUTER_JOIN)
+                .createAlias("grado", "g", JoinType.LEFT_OUTER_JOIN)
                 .list();
     }
 
     @Override
     public Contacto buscarPorId(Integer id) {
         return (Contacto) sessionFactory.getCurrentSession().createCriteria(Contacto.class)
-                .createAlias("empresa", "e", JoinType.INNER_JOIN)
+                .createAlias("empresa", "e", JoinType.LEFT_OUTER_JOIN)
+                .createAlias("grado", "g", JoinType.LEFT_OUTER_JOIN)
                 .add(Restrictions.eq("id", id))
                 .uniqueResult();
     }

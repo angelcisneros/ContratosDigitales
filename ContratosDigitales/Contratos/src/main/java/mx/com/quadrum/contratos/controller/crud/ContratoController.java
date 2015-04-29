@@ -32,17 +32,17 @@ import org.springframework.web.bind.annotation.ResponseBody;
  * @author vcisneros
  */
 @Controller
-public class ContratoController{
+public class ContratoController {
 
     @Autowired
     ContratoService contratoService;
-    
+
     @Autowired
-    TipoContratoService tipoContratoService;    
-    
+    TipoContratoService tipoContratoService;
+
     @Autowired
     EstatusService estatusService;
-    
+
     @Autowired
     UsuarioService usuarioService;
 
@@ -50,13 +50,16 @@ public class ContratoController{
     public String contrato(Model model, HttpSession session) {
         Usuario usuario = (Usuario) session.getAttribute("usuario");
         List<Permiso> permisos = (List<Permiso>) session.getAttribute(PERMISOS);
-                
-        if(usuario == null || permisos == null){
+
+        if (usuario == null || permisos == null) {
             return "templates/index";
         }
-//         if(!usuarioService.tienePermiso(usuario, "catalogo")){
-//            return "templates/noAutorizado";
-//        }
+        if (usuario.getEsAdmin()) {
+            model.addAttribute("esAdmin", "esAdmin");
+        }
+        if (usuarioService.tienePermiso(usuario, "contratoUsuario")) {
+            return "templates/noAutorizado";
+        }
         model.addAttribute("permisos", permisos);
         model.addAttribute("tipoContrato", tipoContratoService.buscarTodos());
         model.addAttribute("estado", estatusService.buscarTodos());
@@ -68,7 +71,7 @@ public class ContratoController{
     @ResponseBody
     @RequestMapping(value = "agregarContrato", method = RequestMethod.POST)
     public String agregarContrato(@Valid @ModelAttribute("contrato") Contrato contrato, BindingResult bindingResult, HttpSession session) {
-        if (session.getAttribute("usuario") == null){
+        if (session.getAttribute("usuario") == null) {
             return SESION_CADUCA;
         }
         if (bindingResult.hasErrors()) {
@@ -80,7 +83,7 @@ public class ContratoController{
     @ResponseBody
     @RequestMapping(value = "editarContrato", method = RequestMethod.POST)
     public String editarContrato(@Valid @ModelAttribute("contrato") Contrato contrato, BindingResult bindingResult, HttpSession session) {
-        if (session.getAttribute("usuario") == null){
+        if (session.getAttribute("usuario") == null) {
             return SESION_CADUCA;
         }
         if (bindingResult.hasErrors()) {
@@ -92,7 +95,7 @@ public class ContratoController{
     @ResponseBody
     @RequestMapping(value = "eliminarContrato", method = RequestMethod.POST)
     public String eliminarContrato(Contrato contrato, BindingResult bindingResult, HttpSession session) {
-        if (session.getAttribute("usuario") == null){
+        if (session.getAttribute("usuario") == null) {
             return SESION_CADUCA;
         }
         return contratoService.eliminar(contrato);

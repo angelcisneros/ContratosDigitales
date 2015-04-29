@@ -38,9 +38,9 @@
             <div class="btn-group" role="group" aria-label="">
                 <button class="btn btn-primary contratoUpdateButton">Editar</button>
                 <button class="btn btn-danger contratoDeleteButton">Eliminar</button>
-                <button class="btn btn-warning mostrarAlClienteButton">Mostrar Al Cliente</button>
-                <button class="btn btn-info verButton">Ver/button>
-                <button class="btn btn-success tieneArchivos${c.tieneArchivos}">Descargar Archivos</button>
+                <button class="btn btn-warning mostrarAlClienteButton">Mostrar/Ocultar</button>
+                <button class="btn btn-info verButton">Leer</button>
+                <button class="btn btn-success tieneArchivos${c.tieneArchivos}">Descargar</button>
             </div>
         </td>
     </tr>

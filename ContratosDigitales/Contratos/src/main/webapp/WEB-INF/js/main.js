@@ -107,3 +107,14 @@ function limpiarInputs(){
     });
 }
 
+$(document).on('ready', function (){
+    if ($('#font-nav').hasClass('esAdmin')){
+        $.each($('.elemenots-nav'), function (indice, valor){
+            var a = $(valor).children('a');
+            var href = $(a).attr('href');
+            if(href === 'cuentasCliente' || href === 'contrato'){
+                $(valor).remove();
+            }
+        });
+    }
+});

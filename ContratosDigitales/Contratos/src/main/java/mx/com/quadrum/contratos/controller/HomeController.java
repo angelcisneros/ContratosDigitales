@@ -18,7 +18,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.servlet.ModelAndView;
 
 /**
  *
@@ -26,56 +25,71 @@ import org.springframework.web.servlet.ModelAndView;
  */
 @Controller
 public class HomeController {
-    
+
     @Autowired
     UsuarioService usuarioService;
-    
+
     @Autowired
     PermisoService permisoService;
 
     @RequestMapping(value = "/")
-    public String homeController(HttpSession session) {
+    public String homeController(HttpSession session, Model model) {
         Usuario u = (Usuario) session.getAttribute(USUARIO);
-        if(u != null){
+        if (u != null) {
+
+            if (u.getEsAdmin()) {
+                model.addAttribute("esAdmin", "esAdmin");
+            }
             return "templates/inicio";
         }
         return "templates/index";
     }
 
     @RequestMapping(value = "*")
-    public String error404(HttpSession session) {
-        if (session.getAttribute("usuario") == null) {
+    public String error404(HttpSession session, Model model) {
+        Usuario usuario = (Usuario) session.getAttribute("usuario");
+        if (usuario == null) {
             return "templates/index";
+        }
+
+        if (usuario.getEsAdmin()) {
+            model.addAttribute("esAdmin", "esAdmin");
         }
         return "templates/404";
     }
 
     @RequestMapping(value = "inicio")
-    public ModelAndView inicio(String rfc, String password, Model model, HttpSession session) {
-        if(usuarioService.estaRegistrado(rfc, password)){
+    public String inicio(String rfc, String password, Model model, HttpSession session) {
+        if (usuarioService.estaRegistrado(rfc, password)) {
             Usuario usuario = usuarioService.buscarPorCorreo(rfc);
             List<Permiso> permisos = permisoService.buscarPorUsuario(usuario.getId());
             System.out.println("permisos: " + permisos.size());
             session.setAttribute(USUARIO, usuario);
             session.setAttribute(PERMISOS, permisos);
             session.setAttribute(CLIENTE, null);
-            if(usuario.getPrimeraSesion()){
-                return new ModelAndView("usuario/cambiarPass");
+
+            if (usuario.getPrimeraSesion()) {
+                return ("usuario/cambiarPass");
             }
-            return new ModelAndView("templates/inicio", "permisos", permisos);
+            model.addAttribute("permisos", permisos);
+            if (usuario.getEsAdmin()) {
+                model.addAttribute("esAdmin", "esAdmin");
+            }
+            return ("templates/inicio");
         }
-        return new ModelAndView("templates/index", "estaRegistrado", false);
+        model.addAttribute("estaRegistrado", false);
+        return ("templates/index");
     }
-    
+
     @RequestMapping(value = "cliente")
     public String homeClienteController() {
         return "cliente/index";
     }
-    
+
     @RequestMapping(value = "cerrarSesion")
-    public String cerrarSession(HttpSession session){
+    public String cerrarSession(HttpSession session) {
         session.invalidate();
         return "templates/index";
     }
-   
+
 }

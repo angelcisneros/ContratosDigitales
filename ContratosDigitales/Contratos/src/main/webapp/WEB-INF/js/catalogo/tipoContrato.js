@@ -6,6 +6,10 @@
 var trClick;
 //MUESTRA LOS POPUPS CON SUS VALORES
 $(document).on('ready', function() {
+    
+    if($('#contenido').hasClass('resultado')){
+        
+    }
 
     //POPUP AGREGAR
     $('#addTipoContratoButton').on('click', function() {
@@ -142,11 +146,11 @@ $(document).on('ready', function() {
 
 
 $('#tipoContratoTbody').on('click', '.tipoContratoUpdateButton', function() {
-    rellenaPopUpUpdate(this);
+    rellenaPopUpTipoContratoUpdate(this);
 });
 
 $('#tipoContratoTbody').on('click', '.tipoContratoDeleteButton', function() {
-    rellenaPopUpsDelete(this);
+    rellenaPopUpTipoContratoDelete(this);
 });
 
 function rellenaPopUpTipoContratoDelete(selector) {

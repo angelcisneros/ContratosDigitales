@@ -1,0 +1,447 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="freePlantilla" pageWidth="612" pageHeight="792" whenNoDataType="AllSectionsNoDetail" columnWidth="612" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" whenResourceMissingType="Empty" uuid="b45952cc-8c06-4ea7-a58d-db257791e266">
+	<property name="ireport.zoom" value="1.8150000000000437"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<property name="ireport.background.image.properties" value="true,true,0.25,-8,-8,0,0,503,268"/>
+	<style name="style1">
+		<conditionalStyle>
+			<style/>
+		</conditionalStyle>
+	</style>
+	<style name="table">
+		<box>
+			<pen lineWidth="1.0" lineColor="#6666FF"/>
+		</box>
+	</style>
+	<style name="table_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#6666FF"/>
+		</box>
+	</style>
+	<style name="table_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#6666FF"/>
+		</box>
+	</style>
+	<subDataset name="Table Dataset 1" uuid="79e8291d-ee1f-4126-968d-b152cf50cc08"/>
+	<parameter name="cliente" class="java.lang.String"/>
+	<parameter name="rfc" class="java.lang.String"/>
+	<parameter name="correo" class="java.lang.String"/>
+	<parameter name="empresa" class="java.lang.String"/>
+	<parameter name="domicilio" class="java.lang.String"/>
+	<group name="Conceptos" keepTogether="true"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="739" splitType="Prevent">
+			<staticText>
+				<reportElement x="332" y="607" width="253" height="53" uuid="6413eb8b-2f28-4001-9422-bbf91f8423bd"/>
+				<textElement textAlignment="Justified" verticalAlignment="Top">
+					<font size="7"/>
+				</textElement>
+				<text><![CDATA[                                  Ambas partes acuerdan que "EL CLIENTE” se obliga a generar y a enviar los CFDI a “EL PRESTADOR DEL SERVICIO”  para su certificación o en su caso la cancelación de los CFDI, individual o masiva y, “EL PRESTADOR DEL SERVICIO”  se obliga a devolver a “EL CLIENTE” los CFDI¨s generados debidamente certificados o en su caso el acuse de rechazo correspondiente. ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="28" y="685" width="262" height="39" uuid="fb619fed-d0a0-4fc3-a4c7-5c396cd145ca"/>
+				<textElement textAlignment="Justified" verticalAlignment="Top">
+					<font size="7"/>
+				</textElement>
+				<text><![CDATA[                "El PRESTADOR DEL SERVICIO”  se obliga a prestar a “EL CLIENTE”, los servicios de generación y certificación de CFDI; recepción y cancelación de CFDI para generar facturas electrónicas, establecidos en el presente contrato, para lo cual las partes asumen las obligaciones siguientes: ]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="-85" y="-168" width="293" height="19" forecolor="#660000" backcolor="#EEEBEB" uuid="690ba071-55ec-4360-90a6-4cb14269fa8a"/>
+				<graphicElement>
+					<pen lineWidth="0.0"/>
+				</graphicElement>
+			</rectangle>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="14" y="-153" width="284" height="30" uuid="31fa34cf-d72c-4986-b00b-d342c23734ad"/>
+				<textFieldExpression><![CDATA[]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="14" y="-168" width="102" height="18" uuid="cd8c5231-82d4-430d-baf5-9f62351cc0cd"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Domicilio Fiscal]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="27" y="29" width="556" height="20" uuid="ef2ffa9b-ebad-43c6-bda2-5ff374b1e643"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[CONTRATO DE PRESTACIÓN DE SERVICIOS]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="27" y="64" width="166" height="10" uuid="515d17c4-8abb-47c2-8f80-65cb9d7b1e2b"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="7"/>
+				</textElement>
+				<text><![CDATA[CONTRATO DE PRESTACIÓN DE SERVICIOS DE ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="198" y="64" width="259" height="10" uuid="f129acd0-054c-4283-84fd-3432ae4f7e18"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="7" isBold="true"/>
+				</textElement>
+				<text><![CDATA[CERTIFICACIÓN DE COMPROBANTES FISCALES DIGITALES POR INTERNET]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="459" y="64" width="125" height="10" uuid="f7fc0afc-3c9d-4a06-ad36-8b782b1c46c9"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="7"/>
+				</textElement>
+				<text><![CDATA[QUE  CELEBRAN  POR  UNA  PARTE ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="27" y="151" width="262" height="11" uuid="5289eb18-1909-4102-ba76-a4852a2df040"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8" isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[DECLARA EL PRESTADOR DEL SERVICIO: ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="27" y="130" width="557" height="12" uuid="14e0c5bf-d189-4ef7-9951-71fbd93e5641"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="9" isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[DECLARACIONES:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="27" y="109" width="557" height="10" uuid="8f6e08f7-6757-4cba-96a3-0be8661b2859"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="7"/>
+				</textElement>
+				<text><![CDATA[DECLARACIONES Y CLÁUSULAS SIGUIENTES:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="434" y="100" width="150" height="10" uuid="29a820ec-333f-43e2-a786-6090b3b4d3af"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="7"/>
+				</textElement>
+				<text><![CDATA[RESPECTIVAMENTE,  SUJETÁNDOSE A LAS]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="259" y="100" width="175" height="10" uuid="659eec82-d21f-442e-ad9f-16224af7368d"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="7" isBold="true"/>
+				</textElement>
+				<text><![CDATA["EL PRESTADOR DEL SERVICIO"  Y  "EL CLIENTE"]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="27" y="100" width="232" height="10" uuid="c56e690d-ed49-4612-be64-0ff359bafa3b"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="7"/>
+				</textElement>
+				<text><![CDATA[PARTES A LAS QUE EN LO SUCESIVO SE LE  DENOMINARÁ COMO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="208" y="91" width="66" height="10" uuid="d86ee3ae-97e9-4c93-a3a5-48a516597360"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="7"/>
+				</textElement>
+				<text><![CDATA[Y POR LA OTRA,]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="27" y="91" width="181" height="10" uuid="1a82a744-c02b-4f03-a350-bc046d63e75e"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="7" isBold="true"/>
+				</textElement>
+				<text><![CDATA[SERVICIO DE ADMINISTRACIÒN TRIBUTARIA (SAT) ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="312" y="82" width="272" height="10" uuid="58970079-8daa-4be9-8f10-c71b80d65ae8"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="7" isBold="true"/>
+				</textElement>
+				<text><![CDATA[PROVEEDOR  AUTORIZADO DE CERTIFICACIÓN (PAC),  AUTORIZADO  POR  EL]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="27" y="82" width="285" height="10" uuid="41143234-5505-4142-9bc2-c959a0999864"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="7"/>
+				</textElement>
+				<text><![CDATA[LEGALES  A  QUE  HAYA  LUGAR  DERIVADO  DEL  PRESENTE  CONTRATO  COMO ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="224" y="73" width="360" height="10" uuid="8bba3ffb-79fb-425f-83ad-4e86e24ef5d3"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="7"/>
+				</textElement>
+				<text><![CDATA[REPRESENTADO EN ESTE ACTO POR EL LIC.GUILLERMO PÉREZ ZEPEDA Y PARA TODOS  LOS EFECTOS]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="27" y="73" width="197" height="10" uuid="e1dc724e-3f2a-49cc-8db9-5ab1bfc90dac"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="7" isBold="true"/>
+				</textElement>
+				<text><![CDATA["CENTRO DE VALIDACION DIGITAL CVDSA S. A. DE C. V",]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="274" y="92" width="310" height="9" uuid="59eb634b-bdde-45b8-98f2-5ad76efa4b6c"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="6" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{empresa}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="323" y="151" width="262" height="11" uuid="200204de-2105-4053-8fec-0dcbf0d71382"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8" isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[DECLARA EL CLIENTE: ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="333" y="665" width="252" height="71" uuid="bb8cee00-a201-4235-aefb-dd0027412b2b"/>
+				<textElement textAlignment="Justified" verticalAlignment="Top">
+					<font size="7"/>
+				</textElement>
+				<text><![CDATA[“EL PRESTADOR DEL SERVICIO” se obliga a permitir el procesamiento ágil y eficiente de los CFDI´s uno a uno, (es decir, uno por uno) sin adendas de ningún tipo, ni complementos de ninguna especie, salvo el “Sello Fiscal Digital”; de igual manera se obliga a aceptar la carga del  CSD de “EL CLIENTE” para el sellado de los CFDI; también se obliga a permitir pre-cargar los datos fiscales de “EL CLIENTE” emisor y a generar el CFDI del “EL CLIENTE” para su validación y certificación cumpliendo con todas las especificaciones técnicas requeridas por el SAT. ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="28" y="685" width="47" height="10" uuid="5add32da-86e9-452a-bf0f-5eef56a5322a"/>
+				<textElement textAlignment="Justified" verticalAlignment="Top">
+					<font size="7" isBold="true"/>
+				</textElement>
+				<text><![CDATA[1.- OBJETO.-]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="28" y="606" width="262" height="11" uuid="8a5f52ce-4903-4b0b-836c-db504eea5bb5"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[PRIMERA.- OBJETO. ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="27" y="511" width="262" height="18" uuid="447c42f1-2ff0-456e-a999-a4ea0b13f819"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
+					<font size="7"/>
+				</textElement>
+				<text><![CDATA[IX. Cuenta con la capacidad, los conocimientos profesionales, técnicos y la experiencia necesaria para realizar los servicios objeto de este Contrato. ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="28" y="480" width="262" height="19" uuid="5467d37e-d2e0-4887-b176-d94078630aa5"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
+					<font size="7"/>
+				</textElement>
+				<text><![CDATA[VIII. Que cumple con los requerimientos establecidos por el SAT y en las disposiciones de carácter general aplicables. ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="28" y="404" width="262" height="64" uuid="400cc40c-bf55-4e8d-b42b-77d4e64da4ab"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
+					<font size="7"/>
+				</textElement>
+				<text><![CDATA[VII. Que almacenará y conservará los CFDI que “EL CLIENTE” valide y certifique por medio del “PRESTADOR DEL SERVICIO” los servicios de generación y certificación de CFDI; recepción y cancelación de CFDI, en una base de datos segura, sujetándose estrictamente a todas y cada una de las disposiciones de carácter general aplicable y que mantendrá en todo momento a disposición del SAT los elementos necesarios para su verificación y cotejo, por así requerirlo la legislación aplicable y vigente; ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="28" y="347" width="262" height="45" uuid="3b0bbffb-cd4f-4bc8-87b5-cabd5d336f77"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
+					<font size="7"/>
+				</textElement>
+				<text><![CDATA[VI. Que Generará, y certificará los CFDI que emita “EL CLIENTE”, única y exclusivamente cumpliendo con las características funcionales, servicios generales y niveles de servicios mínimos, establecidos por las disposiciones de carácter general aplicables y vigentes, y de conformidad con los estándares y lineamientos publicados en la PÁGINA DE INTERNET del SAT; ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="28" y="273" width="262" height="62" uuid="946dac59-4819-4441-9679-cc7e5a5ce94e"/>
+				<textElement textAlignment="Justified" verticalAlignment="Top">
+					<font size="7"/>
+				</textElement>
+				<text><![CDATA[III. Que el Lic. Guillermo Pérez Zepeda cuenta con las facultades suficientes y el poder amplio para contratar y obligar a su representada en los términos del presente contrato, de conformidad con el Poder Notarial número 10845 de fecha 8 de Abril de 2011, otorgado ante la fe del Notario Público número  238 del Distrito Federal , mismo que en copia se agrega al presente, manifestando bajo protesta de decir verdad que este mandato no le ha sido modificado, revocado ni restringido, a la fecha de suscripción del presente contrato.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="28" y="232" width="262" height="28" uuid="19ac0c3f-e80c-4e94-9178-9c49a452e9d3"/>
+				<textElement textAlignment="Justified" verticalAlignment="Top">
+					<font size="7"/>
+				</textElement>
+				<text><![CDATA[II. Que es un Proveedor Autorizado Certificado denominado PAC mediante oficio emitido por el SAT con número de Certificación No.69901 de fecha 9 de Enero del 2013 para la emisión de Comprobantes Fiscales por Internet CFDI´s.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="27" y="167" width="262" height="53" uuid="44340aba-8305-4a4a-a82d-d2c43b7633f6"/>
+				<textElement textAlignment="Justified" verticalAlignment="Top">
+					<font size="7"/>
+				</textElement>
+				<text><![CDATA[I. Es una persona moral, debidamente constituida de acuerdo con las leyes mexicanas, según consta en Escritura Pública e inscrita en el Registro Federal de Contribuyentes del Servicio de Administración Tributaria (SAT) con RFC CVD110412TF6 su domicilio fiscal se encuentra ubicado en la calle Montecito 38, Colonia Nápoles, Delegación Benito Juárez, Código Postal 03810, México Distrito Federal. ]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="323" y="167" width="262" height="45" uuid="f30dc177-01ff-41ea-aa85-135d4dddc812"/>
+				<textElement textAlignment="Justified">
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA["I.- Ser una persona física de nacionalidad mexicana, con Registro Federal de Contribuyentes del Servicio de Administración Tributaria (SAT) con RFC " + $P{rfc} + " y correo electrónico " + $P{correo} + " y que manifiesta tener la capacidad jurídica para celebrar el presente contrato por su propio derecho."]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="323" y="217" width="262" height="50" uuid="23e8134e-6efb-4dd1-aa48-a655f6205102"/>
+				<textElement textAlignment="Justified">
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA["II. Su domicilio fiscal se encuentra ubicado en " + $P{domicilio} +", el cual es domicilio que señala para los efectos del presente Contrato."]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="323" y="272" width="262" height="11" uuid="f212127d-47cb-4466-8fb3-9f14bf7d0ee1"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8" isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[DECLARAN LAS PARTES QUE:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="323" y="289" width="31" height="10" uuid="b66c8b4b-004c-4d5b-b00d-53c7f365b90b"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
+					<font size="7" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ÚNICO.-]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="355" y="289" width="229" height="10" uuid="8425b6e1-da73-4e32-9461-9fab7f962e5c"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
+					<font size="7"/>
+				</textElement>
+				<text><![CDATA[Para efectos del presente contrato se entenderá por:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="323" y="304" width="262" height="10" uuid="aac5cd7d-2bc6-436a-bd9d-cf0f6076801f"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
+					<font size="7" isBold="true"/>
+				</textElement>
+				<text><![CDATA[PRESTADOR DEL SERVICIO: ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="323" y="313" width="262" height="18" uuid="8054a339-aa6c-4069-8cfe-e215d382a94d"/>
+				<textElement textAlignment="Justified" verticalAlignment="Top">
+					<font size="7"/>
+				</textElement>
+				<text><![CDATA[Persona moral que cuenta con autorización por parte del SAT para operar como proveedor de certificación de CFDI.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="323" y="345" width="262" height="27" uuid="144b8456-ee17-45ed-9e3c-e9c3b69c18d7"/>
+				<textElement textAlignment="Justified" verticalAlignment="Top">
+					<font size="7"/>
+				</textElement>
+				<text><![CDATA[Persona física o moral que adquiere y/o contrata los servicios básicos, los servicios adicionales o complementarios, respecto a la certificación de comprobantes fiscales digitales por internet (CFDI).]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="323" y="336" width="262" height="10" uuid="402a8015-7111-4525-89a1-7634313ca548"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
+					<font size="7" isBold="true"/>
+				</textElement>
+				<text><![CDATA[CLIENTE:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="323" y="386" width="262" height="27" uuid="27901f61-e127-4ace-bec8-54fd7ba3817d"/>
+				<textElement textAlignment="Justified" verticalAlignment="Top">
+					<font size="7"/>
+				</textElement>
+				<text><![CDATA[Comprobante fiscal digital por internet, que certifica un proveedor a un consumidor y que reúne los requisitos del artículo 29 y 29-A del Código Fiscal de la Federación y demás disposiciones aplicables.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="323" y="377" width="262" height="10" uuid="47fe2035-520a-46eb-863f-3fd8daa2075f"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
+					<font size="7" isBold="true"/>
+				</textElement>
+				<text><![CDATA[CFDI:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="323" y="418" width="262" height="10" uuid="943306a0-9c87-4ad4-9196-1cc527f5dbba"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
+					<font size="7" isBold="true"/>
+				</textElement>
+				<text><![CDATA[FIRMA ELECTRÓNICA AVANZADA (FIEL): ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="323" y="427" width="262" height="36" uuid="3c37c008-881a-49ab-b3e9-6f6b96d0c05f"/>
+				<textElement textAlignment="Justified" verticalAlignment="Top">
+					<font size="7"/>
+				</textElement>
+				<text><![CDATA[La firma electrónica que establece el artículo 17-D del Código Fiscal de la Federación, misma que se define como el mensaje de datos que se ampara por un certificado vigente que confirma el vínculo entre un firmante y los datos de creación de la misma.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="323" y="477" width="262" height="28" uuid="5df66ba5-42a6-4c81-84aa-0fce7b50b092"/>
+				<textElement textAlignment="Justified" verticalAlignment="Top">
+					<font size="7"/>
+				</textElement>
+				<text><![CDATA[Un certificado de sello digital, es un documento electrónico mediante el cual una autoridad de certificación (SAT) garantiza la vinculación entre la identidad de un sujeto o entidad y su clave pública. ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="323" y="468" width="262" height="10" uuid="9d77288f-cace-4653-a5ae-be59b7a23ab3"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
+					<font size="7" isBold="true"/>
+				</textElement>
+				<text><![CDATA[CERTIFICADO DE SELLO DIGITAL (CSD): ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="323" y="509" width="31" height="10" uuid="fe6323a9-d059-46cc-925c-48ccf0e539d8"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
+					<font size="7" isBold="true"/>
+				</textElement>
+				<text><![CDATA[SAT:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="355" y="509" width="229" height="10" uuid="38545114-2ba2-4650-9f93-a357ae3bc8e8"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
+					<font size="7"/>
+				</textElement>
+				<text><![CDATA[Servicio de Administración Tributaria.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="323" y="519" width="31" height="10" uuid="1c2eb1ec-ceb0-4308-b4f0-c408511632c1"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
+					<font size="7" isBold="true"/>
+				</textElement>
+				<text><![CDATA[CFF:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="355" y="519" width="229" height="10" uuid="a2ba7f8d-cf71-4e45-a53f-87b930b0de8d"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
+					<font size="7"/>
+				</textElement>
+				<text><![CDATA[Código Fiscal de la Federación.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="28" y="550" width="557" height="20" uuid="70e2869f-9dca-47be-8788-e7090ec46acb"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="7"/>
+				</textElement>
+				<text><![CDATA[De conformidad con las anteriores declaraciones, las partes reconocen su personalidad jurídica y la capacidad legal que ostentan, asimismo conocen el alcance y contenido de este contrato y están de acuerdo en someterse a las siguientes:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="28" y="584" width="557" height="12" uuid="d2e7c8f7-2813-4e22-8a8d-b4e97bb48319"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="9" isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[CLÁUSULAS]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="28" y="618" width="262" height="63" uuid="8b6d56a5-fe6c-4f6f-968d-899953a18565"/>
+				<textElement textAlignment="Justified">
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{cliente} + " EN LO SUCESIVO DENOMINADA “EL CLIENTE” ENCOMIENDA A  “CENTRO DE VALIDACIÓN DIGITAL CVDSA SA DE CV” DENOMINADA EN LO SUCESIVO “EL PRESTADOR DEL SERVICIO”  PARA TODOS LOS EFECTOS LEGALES A QUE HAYA LUGAR LOS DERIVADOS EN EL PRESENTE CONTRATO, PRESTAR LOS SERVICIOS DE CERTIFICACIÓN DE CFDI´s CONSISTENTES EN:"]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="332" y="607" width="76" height="10" uuid="00108975-a3d0-4c0a-b8ba-5629b72b307a"/>
+				<textElement textAlignment="Justified" verticalAlignment="Top">
+					<font size="7" isBold="true"/>
+				</textElement>
+				<text><![CDATA[1.1.- DEL SERVICIO.-]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageFooter>
+		<band height="14">
+			<textField>
+				<reportElement positionType="Float" x="10" y="0" width="288" height="14" isPrintWhenDetailOverflows="true" uuid="ad015334-0377-4562-a074-4521c335eec7"/>
+				<textElement textAlignment="Right">
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Página "+$V{PAGE_NUMBER}+" de"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement positionType="Float" x="298" y="0" width="285" height="14" isPrintWhenDetailOverflows="true" uuid="4dff9384-8594-4c0f-89a8-5b5e1448ea4b"/>
+				<textElement>
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+</jasperReport>

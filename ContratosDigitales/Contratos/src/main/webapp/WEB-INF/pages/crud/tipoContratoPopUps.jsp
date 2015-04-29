@@ -18,7 +18,6 @@
                         <br>
                         <label>Formato:</label>
                         <input id="formatoTipoCOntratoAdd" type="file" name="formato" class="filestyle form-control" data-buttonText=" Seleccione un Archivo" data-buttonName="btn-primary" data-iconName="glyphicon-folder-open" />
-
                     </div>
                     <div class="modal-footer amarillo">
                         <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
@@ -42,7 +41,7 @@
                 <h4 class="modal-title"><strong>Actualizar Formato</strong></h4>
             </div>
             <div class="modal-body">
-                <form id="tipoContratoUpdateForm">
+                <form id="tipoContratoUpdateForm" enctype="multipart/form-data">
                     <label>Nombre:</label>
                     <input id="nombreTipoContratoUpdate" name="nombre" class="form-control" type="text" placeholder="Ingrese el nombre del TipoContrato">
                     <label>Formato:</label>

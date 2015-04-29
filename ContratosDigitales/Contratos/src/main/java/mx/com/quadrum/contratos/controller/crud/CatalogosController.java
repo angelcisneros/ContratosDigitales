@@ -51,9 +51,12 @@ public class CatalogosController {
         if(usuario == null || permisos == null){
             return "templates/index";
         }
-//        if(!usuarioService.tienePermiso(usuario, "catalogo")){
-//            return "templates/noAutorizado";
-//        }
+        if (usuario.getEsAdmin()) {
+            model.addAttribute("esAdmin", "esAdmin");
+        }
+        if(usuarioService.tienePermiso(usuario, "catalogo")){
+            return "templates/noAutorizado";
+        }
         model.addAttribute("permisos", permisos);
         model.addAttribute("estatus", estatusService.buscarTodos());
         model.addAttribute("grado", gradoService.buscarTodos());

@@ -6,7 +6,6 @@
 package mx.com.quadrum.service.util.firma;
 
 import java.io.IOException;
-import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
@@ -19,7 +18,6 @@ import static mx.com.quadrum.service.util.ManejadorArchivos.crearArchivoContenid
 import static mx.com.quadrum.service.util.Rutas.USUARIOS;
 import static mx.com.quadrum.service.util.Validaciones.esRfcValido;
 import static mx.com.quadrum.service.util.Validaciones.isNullOrEmpty;
-import org.apache.commons.io.FileUtils;
 import org.springframework.web.multipart.MultipartFile;
 
 /**
