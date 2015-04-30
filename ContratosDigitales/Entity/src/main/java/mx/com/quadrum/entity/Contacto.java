@@ -68,6 +68,9 @@ public class Contacto implements java.io.Serializable {
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "contacto")
     @Getter @Setter private List<Contrato> contratos;
+    
+    @Column(name = "rfc")
+    @Getter @Setter private String rfc;
 
     public Contacto() {
     }

@@ -6,17 +6,20 @@
 package mx.com.quadrum.service.util.firma.jasper;
 
 import java.io.File;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import mx.com.quadrum.service.util.Rutas;
+import mx.com.quadrum.service.util.firma.ContratoDatos;
 import mx.com.quadrum.service.util.firma.Firma;
+import net.sf.jasperreports.engine.JRDataSource;
 import net.sf.jasperreports.engine.JRException;
 import net.sf.jasperreports.engine.JRExporterParameter;
 import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrint;
 import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
 import net.sf.jasperreports.engine.export.JRPdfExporter;
 import net.sf.jasperreports.engine.util.JRLoader;
 
@@ -25,58 +28,44 @@ import net.sf.jasperreports.engine.util.JRLoader;
  * @author vcisneros
  */
 public class RepresentacionImpresa {
-
-    private Firma firma;
+   
     private String jasper;
     private String path;
     private boolean creado;
-    private Map<String, Object> parametros;
-
+    List<ContratoDatos> ds;
+    
     public RepresentacionImpresa(Firma firma, String mail) {
-        this.firma = firma;
-        parametros = new HashMap<>();
+//        jasper = Rutas.FORMATOS + firma.getContrato().getTipoContrato().getId() + "/main.jasper";
+                jasper = Rutas.FORMATOS +  "1/main.jasper";
         path = Rutas.USUARIOS + mail + "/" + firma.getContrato().getId();
         if(new File(path).mkdir()){
             creado = true;
+            path += "/" + firma.getContrato().getId();
+            ds = new ArrayList<>();
+            ds.add(new ContratoDatos(firma));
         }else{
             creado = false;
         }
     }
 
     public String ejecutaJasper() {
-        jasper = Rutas.FORMATOS + firma.getContrato().getTipoContrato().getId();
-        path += "/" + firma.getContrato().getId();
-        System.out.println(path);
-        rellenaParametros();
+        
         ejecutaJasperOculto();
         return "";
     }
 
-    private void rellenaParametros() {
-        parametros.put("nombre_contrato", firma.getContrato().getNombre());
-        parametros.put("monto", firma.getContrato().getMonto().toString());
-        parametros.put("empresa", firma.getContacto().getEmpresa().getRazonSocial());
-        parametros.put("fecha_inicio", firma.getContrato().getFechaCreacion().toString());
-        parametros.put("fecha_fin", firma.getContrato().getFechaVencimiento().toString());
-        parametros.put("representante_legal", firma.getContacto().getNombre());
-//        parametros.put("rfc_empresa", firma.ge);
-//        parametros.put("sello",);
-//        parametros.put("firma",);
-
-    }
-
     private boolean ejecutaJasperOculto() {
+        List<RepresentacionImpresa> dataSource = new ArrayList<RepresentacionImpresa>();
+        dataSource.add(this);
         try {
-            System.out.println(jasper);
-            File file = new File(jasper + ".jasper");
+            File file = new File(jasper);
             JasperReport reporte = (JasperReport) JRLoader.loadObject(file);
-            JasperPrint jasperPrint = JasperFillManager.fillReport(reporte, parametros);
-
+            JasperPrint jasperPrint = JasperFillManager.fillReport(reporte, null, new JRBeanCollectionDataSource(dataSource));
+            
             JRPdfExporter exporter = new JRPdfExporter();
             exporter.setParameter(JRExporterParameter.JASPER_PRINT, jasperPrint);
             exporter.setParameter(JRExporterParameter.OUTPUT_FILE, new File(path + ".pdf"));
             exporter.exportReport();
-
             return true;
         } catch (JRException ex) {
             Logger.getLogger(RepresentacionImpresa.class.getName()).log(Level.SEVERE, null, ex);
@@ -84,4 +73,19 @@ public class RepresentacionImpresa {
         return false;
     }
 
+    public JRDataSource getUno() {
+        return new JRBeanCollectionDataSource(ds);
+    }
+    public JRDataSource getDos() {
+        return new JRBeanCollectionDataSource(ds);
+    }
+    public JRDataSource getTres() {
+        return new JRBeanCollectionDataSource(ds);
+    }
+    public JRDataSource getCuatro() {
+        return new JRBeanCollectionDataSource(ds);
+    }
+    public JRDataSource getCinco() {
+        return new JRBeanCollectionDataSource(ds);
+    }
 }

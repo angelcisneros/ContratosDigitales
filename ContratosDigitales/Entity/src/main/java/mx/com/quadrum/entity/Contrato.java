@@ -58,7 +58,7 @@ public class Contrato implements java.io.Serializable {
 
     @Temporal(TemporalType.DATE)
     @DateTimeFormat(pattern = "yyyy-MM-dd")
-    @Column(name = "fecha_firma", nullable = false, length = 10)
+    @Column(name = "fecha_firma", nullable = true, length = 10)
     @Getter @Setter private Date fechaFirma;
     
     @Column(name = "nombre", nullable = false, length = 145)
@@ -67,8 +67,8 @@ public class Contrato implements java.io.Serializable {
     @Column(name = "visibleCliente", nullable = false)
     @Getter @Setter private Boolean visibleCliente;
 
-    @Column(name = "rfc", length = 20)
-    @Getter @Setter private String rfc;
+    @Column(name = "folios", nullable = false)
+    @Getter @Setter private Integer folios;
     
     @Column(name = "monto", precision = 10)
     @Getter @Setter private BigDecimal monto;
