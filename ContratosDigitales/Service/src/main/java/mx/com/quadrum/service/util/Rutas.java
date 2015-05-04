@@ -23,4 +23,5 @@ public class Rutas {
     
     
     public static final String ACCESO_SISTEMA = "Credenciales del sistema Quadrum Contratos";
+     public static final String CADENA_ORIGINAL = System.getProperty("user.dir") + "/ContratosDigitales/cadenaoriginal_3_2.xslt";
 }

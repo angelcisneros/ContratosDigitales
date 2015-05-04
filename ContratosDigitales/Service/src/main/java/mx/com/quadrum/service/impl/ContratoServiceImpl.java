@@ -5,12 +5,15 @@
  */
 package mx.com.quadrum.service.impl;
 
+import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import mx.com.quadrum.entity.Contrato;
+import mx.com.quadrum.entity.Estatus;
 import mx.com.quadrum.entity.Usuario;
 import mx.com.quadrum.repository.ContratoRepository;
 import mx.com.quadrum.service.*;
@@ -18,7 +21,11 @@ import static mx.com.quadrum.service.util.MensajesCrud.ADD_CORRECT;
 import static mx.com.quadrum.service.util.MensajesCrud.DELETE_CORRECT;
 import static mx.com.quadrum.service.util.MensajesCrud.ERROR_HIBERNATE;
 import static mx.com.quadrum.service.util.MensajesCrud.UPDATE_CORRECT;
+import static mx.com.quadrum.service.util.Rutas.CADENA_ORIGINAL;
+import mx.com.quadrum.service.util.firma.AtributosCertificado;
+import mx.com.quadrum.service.util.firma.CadenaOriginal;
 import mx.com.quadrum.service.util.firma.Firma;
+import mx.com.quadrum.service.util.firma.Sello;
 import mx.com.quadrum.service.util.firma.jasper.RepresentacionImpresa;
 import org.apache.commons.io.IOUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -72,7 +79,7 @@ public class ContratoServiceImpl implements ContratoService, BusquedasContratos 
         contrato.setTieneArchivos(Boolean.FALSE);
         contrato.setEditable(Boolean.TRUE);
         contratoRepository.agregar(contrato);
-        
+
         RepresentacionImpresa ri = new RepresentacionImpresa(firma, usuario.getMail());
         ri.ejecutaJasper();
         return ADD_CORRECT + CONTRATO;
@@ -110,6 +117,7 @@ public class ContratoServiceImpl implements ContratoService, BusquedasContratos 
 
     @Override
     public Boolean firmar(Firma f) {
+        Contrato contrato = f.getContrato();
         if (f.validaCampos()) {
             try {
                 ByteArrayOutputStream byteArrayOutputStreamCer = new ByteArrayOutputStream();
@@ -117,12 +125,26 @@ public class ContratoServiceImpl implements ContratoService, BusquedasContratos 
 
                 IOUtils.copy(f.getCer().getInputStream(), byteArrayOutputStreamCer);
                 IOUtils.copy(f.getKey().getInputStream(), byteArrayOutputStreamKey);
-//                if (!f.esValidoCerKeyAndPassword()) {
-//                    return false;
-//                }
+                if (!f.esValidoCerKeyAndPassword()) {
+                    return false;
+                }
                 if (f.firmar()) {
-                    if (f.guardarArchivos()){
+                    if (f.guardarArchivos()) {
+                        AtributosCertificado cer = new AtributosCertificado(new ByteArrayInputStream(byteArrayOutputStreamCer.toByteArray()));
+                        InputStream leyenda = IOUtils.toInputStream("ESTO ES UNA CADENA FICTISIA");
+                        CadenaOriginal objetoCadenaOriginal = new CadenaOriginal();
+
+                        byte[] cadenaOriginal = objetoCadenaOriginal.generaCadenaDos(leyenda, CADENA_ORIGINAL);
+
+                        Sello miSello = new Sello(f.getPassword(), f.getKey().getBytes(), cadenaOriginal);
+                        cer.obtenDatosCertificado();
                         
+                        contrato.setSello(miSello.GeneraSelloDigital());
+                        contrato.setEstatus(new Estatus(45));
+                        contrato.setTieneArchivos(Boolean.TRUE);
+                        
+                        
+                        contratoRepository.editar(contrato);
                     }
                 }
             } catch (IOException ex) {
@@ -165,7 +187,7 @@ public class ContratoServiceImpl implements ContratoService, BusquedasContratos 
 
     @Override
     public List<Contrato> buscarPorEmpleado(Integer idEmpleado) {
-        return  contratoRepository.buscarPorEmpleado(idEmpleado);
+        return contratoRepository.buscarPorEmpleado(idEmpleado);
     }
 
     @Override
@@ -212,7 +234,5 @@ public class ContratoServiceImpl implements ContratoService, BusquedasContratos 
     public List<Contrato> buscarPorEstadoCliente(Integer idEstado, Integer idCliente) {
         return contratoRepository.buscarPorEstadoCliente(idEstado, idCliente);
     }
-
-    
 
 }

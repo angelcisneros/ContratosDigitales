@@ -53,6 +53,7 @@ public class ClientesController {
         if (contactoService.estaRegistrado(rfc, password)) {
             Contacto contacto = contactoService.buscarPorCorreo(rfc);
             List<Contrato> contratos = contratoService.buscarPorContacto(contacto.getId());
+            
             session.setAttribute(PERMISOS, new ArrayList<Permiso>());
             session.setAttribute(CLIENTE, contacto);
             session.setAttribute(USUARIO, null);

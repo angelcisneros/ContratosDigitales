@@ -125,5 +125,8 @@
 
 <%@ include file="/WEB-INF/pages/templates/popUpPDF.jsp"%>
 <%@ include file="/WEB-INF/pages/busquedas/contratosAdmin.jsp"%>
-<script src="js/busquedas/contratoAdmin.js" charset="UTF-8"></script>
 <%@ include file="/WEB-INF/pages/templates/footer.jsp"%>
+<%@ include file="/WEB-INF/pages/usuario/popUpConfirmacion.jsp"%>
+<script src="js/busquedas/contratoAdmin.js" charset="UTF-8"></script>
+<script src="js/usuario/misContratos.js" charset="UTF-8"></script>
+<%@ include file="/WEB-INF/pages/templates/popUpRespuesta.jsp"%>

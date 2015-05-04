@@ -28,28 +28,29 @@ import net.sf.jasperreports.engine.util.JRLoader;
  * @author vcisneros
  */
 public class RepresentacionImpresa {
-   
-    private String jasper;
-    private String path;
+
+    String jasper;
+    String path;
+    
     private boolean creado;
     List<ContratoDatos> ds;
-    
+
     public RepresentacionImpresa(Firma firma, String mail) {
 //        jasper = Rutas.FORMATOS + firma.getContrato().getTipoContrato().getId() + "/main.jasper";
-                jasper = Rutas.FORMATOS +  "1/main.jasper";
+        jasper = Rutas.FORMATOS + "1/main.jasper";
         path = Rutas.USUARIOS + mail + "/" + firma.getContrato().getId();
-        if(new File(path).mkdir()){
+        if (new File(path).mkdir()) {
             creado = true;
             path += "/" + firma.getContrato().getId();
             ds = new ArrayList<>();
             ds.add(new ContratoDatos(firma));
-        }else{
+        } else {
             creado = false;
         }
     }
 
     public String ejecutaJasper() {
-        
+
         ejecutaJasperOculto();
         return "";
     }
@@ -61,7 +62,7 @@ public class RepresentacionImpresa {
             File file = new File(jasper);
             JasperReport reporte = (JasperReport) JRLoader.loadObject(file);
             JasperPrint jasperPrint = JasperFillManager.fillReport(reporte, null, new JRBeanCollectionDataSource(dataSource));
-            
+            System.out.println("JASPER*************** " + ds.get(0).getMonto());
             JRPdfExporter exporter = new JRPdfExporter();
             exporter.setParameter(JRExporterParameter.JASPER_PRINT, jasperPrint);
             exporter.setParameter(JRExporterParameter.OUTPUT_FILE, new File(path + ".pdf"));
@@ -76,15 +77,19 @@ public class RepresentacionImpresa {
     public JRDataSource getUno() {
         return new JRBeanCollectionDataSource(ds);
     }
+
     public JRDataSource getDos() {
         return new JRBeanCollectionDataSource(ds);
     }
+
     public JRDataSource getTres() {
         return new JRBeanCollectionDataSource(ds);
     }
+
     public JRDataSource getCuatro() {
         return new JRBeanCollectionDataSource(ds);
     }
+
     public JRDataSource getCinco() {
         return new JRBeanCollectionDataSource(ds);
     }

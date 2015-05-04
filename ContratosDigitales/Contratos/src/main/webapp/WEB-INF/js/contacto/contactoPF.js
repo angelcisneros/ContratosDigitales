@@ -23,6 +23,7 @@ $(document).on('ready', function() {
         var nombre = $('#nombrePFAdd').val();
         var paterno = $('#paternoPFAdd').val();
         var materno = $('#maternoPFAdd').val();
+        var rfc = $('#').val();
         var mail = $('#correoPFAdd').val();
         var grado = $('#gradoPFAdd').val();
         var telefono1 = $('#telefono1PFAdd').val();
@@ -59,6 +60,13 @@ $(document).on('ready', function() {
             grado = $('#gradoPFAdd option:selected').text();
             requisitos++;
         }
+        if (rfc === '') {
+            muestraPopUpCampoNoVacio($('#rfcPFAdd'));
+            $('#rfcPFAdd').css("border", "1px solid red");
+        } else {
+            $('#rfcPFAdd').removeAttr('style');
+            requisitos++;
+        }
         if (telefono1 === '') {
             muestraPopUpCampoNoVacio($('#telefono1PFAdd'));
             $('#telefono1PFAdd').css("border", "1px solid red");
@@ -87,7 +95,7 @@ $(document).on('ready', function() {
 //            $('#direccionPFAdd').removeAttr('style');
 //            requisitos++;
 //        }
-        if (requisitos >= 5) {
+        if (requisitos >= 6) {
 
             $.ajax({
                 type: 'POST',
@@ -114,9 +122,13 @@ $(document).on('ready', function() {
                                 '<td>' +
                                     '<label>N/A</label>' +
                                 '</td>' +
+                                '<td>'+
+                                    '<label>' + rfc + '</label>'+
+                                '</td>'+
                                 '<td>' +
                                     '<label>'+ mail +'</label>' +
                                 '</td>' +
+                                 
                                 '<td>' +
                                 '<label class="telefono1">' + telefono1 + '</label> y ' +
                                 '<label class="telefono2">' + telefono2 + '</label>' +
@@ -124,10 +136,12 @@ $(document).on('ready', function() {
                                 '<td>' +
                                 '<label>' + direccion + '</label>' +
                                 '</td>' +
+                                '<td class="desactivada">${c.activo}</td>'+
                                 '<td>' +
                                 '<button class="btn btn-primary contactoUpdateButton">Editar</button>' +
                                 '<button class="btn btn-danger contactoDeleteButton">Eliminar</button>' +
-                                ' </td>' +
+                                '<button class="btn btn-success activarDesactivarButton">Activar/Desactivar Cuenta</button>' +
+                                '</td>' +
                                 '</tr>'
 
 

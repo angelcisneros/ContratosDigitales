@@ -13,8 +13,8 @@
         <div class="col-lg-1"></div>
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-10 form-inline">
             <div class="btn-group" role="group" aria-label="">
-            <a id="addContactoButton" class="btn btn-primary btn-lg" role="button">Agregar Nuevo Cliente (PM)</a>
-            <a id="addContactoPFButton" class="btn btn-primary btn-lg" role="button">Agregar Nuevo Cliente (PF)</a>
+                <a id="addContactoButton" class="btn btn-primary btn-lg" role="button">Agregar Nuevo Cliente (PM)</a>
+                <a id="addContactoPFButton" class="btn btn-primary btn-lg" role="button">Agregar Nuevo Cliente (PF)</a>
             </div>
             <a id="verEmpresasButton" class="btn btn-primary btn-lg pull-right" role="button">Ver Empresas</a>
         </div>
@@ -29,6 +29,7 @@
                         <tr>
                             <th>Cliente</th>
                             <th>Apoderado</th>
+                            <th>RFC</th>
                             <th>Correo</th>
                             <th>Télefono</th>
                             <th>Dirección</th>
@@ -67,6 +68,9 @@
                                         </td>
                                     </c:otherwise>
                                 </c:choose>
+                                <td>
+                                    <label>${c.rfc}</label>
+                                </td>
                                 <td>
                                     <label>${c.mail}</label>
                                 </td>

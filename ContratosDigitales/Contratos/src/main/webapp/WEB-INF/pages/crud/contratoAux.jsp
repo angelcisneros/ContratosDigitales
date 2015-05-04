@@ -37,7 +37,13 @@
             <label>${c.monto}</label>
         </td>
         <td>
-            <button class="btn btn-primary verButton">Ver</button>
+           <div class="btn-group" role="group" aria-label="">
+                <button class="btn btn-primary contratoUpdateButton">Editar</button>
+                <button class="btn btn-danger contratoDeleteButton">Eliminar</button>
+                <button class="btn btn-warning mostrarAlClienteButton">Mostrar/Ocultar</button>
+                <button class="btn btn-info verButton">Leer</button>
+                <button class="btn btn-success tieneArchivos${c.tieneArchivos}">Descargar</button>
+            </div>
         </td>
     </tr>
 </c:forEach>

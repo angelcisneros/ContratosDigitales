@@ -16,12 +16,16 @@
             <form role="form" method="post" id="contratoAddForm">
                 <div class="row">
                     <div class="form-group col-xs-12 col-sm-12 col-md-6 col-lg-6 ">
-                        <label>Nombre del Contrato</label>
+                        <label>Clave del Contrato:</label>
                         <input id="nombre" name="nombre" class="form-control" type="text" placeholder="Ingrese el Nombre del Contrato" />
                     </div>
-                    <div class="form-group col-xs-12 col-sm-12 col-md-6 col-lg-6 ">
-                        <label>Nombre del Contrato</label>
+                    <div class="form-group col-xs-12 col-sm-12 col-md-3 col-lg-3 ">
+                        <label>Monto:</label>
                         <input id="monto" path="monto" name="monto" class="form-control" type="number" placeholder="Ingrese Monto" />
+                    </div>
+                    <div class="form-group col-xs-12 col-sm-12 col-md-3 col-lg-3 ">
+                        <label>Folios:</label>
+                        <input id="folios" path="folios" name="folios" class="form-control" type="number" placeholder="Ingrese Monto" />
                     </div>
                 </div>
                 <div class="row">

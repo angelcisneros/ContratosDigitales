@@ -19,6 +19,9 @@
                     <label>Apellido Materno:</label>
                     <input id="maternoPFAdd" name="materno" class="form-control" type="text" placeholder="Ingrese el Apellino Materno del ContactoPF">
                     <br>
+                    <label>RFC:</label>
+                    <input id="rfcPFAdd" name="rfc" class="form-control" type="text" placeholder="Ingrese el RFC">
+                    <br>
                     <label>Correo:</label>
                     <input id="correoPFAdd" name="mail" class="form-control" type="email" placeholder="Ingrese el Correo">
                     <br>

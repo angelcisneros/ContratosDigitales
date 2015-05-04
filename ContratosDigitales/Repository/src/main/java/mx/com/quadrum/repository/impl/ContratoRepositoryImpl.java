@@ -72,7 +72,7 @@ public class ContratoRepositoryImpl implements ContratoRepository{
                 .createAlias("estatus", "e", JoinType.INNER_JOIN)
                 .createAlias("tipoContrato", "t", JoinType.INNER_JOIN)
                 .createAlias("usuario", "u", JoinType.INNER_JOIN)
-                .createAlias("c.empresa", "ce", JoinType.INNER_JOIN)
+                .createAlias("c.empresa", "ce", JoinType.LEFT_OUTER_JOIN)
                 .list();
     }
 
@@ -91,7 +91,7 @@ public class ContratoRepositoryImpl implements ContratoRepository{
                 .createAlias("estatus", "e", JoinType.INNER_JOIN)
                 .createAlias("tipoContrato", "t", JoinType.INNER_JOIN)
                 .createAlias("usuario", "u", JoinType.INNER_JOIN)
-                .createAlias("c.empresa", "ce", JoinType.INNER_JOIN)
+                .createAlias("c.empresa", "ce", JoinType.LEFT_OUTER_JOIN)
                 .add(Restrictions.eq("u.mail", mail))
                 .list();
     }
@@ -103,7 +103,7 @@ public class ContratoRepositoryImpl implements ContratoRepository{
                 .createAlias("estatus", "e", JoinType.INNER_JOIN)
                 .createAlias("tipoContrato", "t", JoinType.INNER_JOIN)
                 .createAlias("usuario", "u", JoinType.INNER_JOIN)
-                .createAlias("c.empresa", "ce", JoinType.INNER_JOIN)
+                .createAlias("c.empresa", "ce", JoinType.LEFT_OUTER_JOIN)
                 .add(Restrictions.eq("visibleCliente", Boolean.TRUE))
                 .add(Restrictions.eq("c.id", id))
                 .list();
@@ -116,7 +116,7 @@ public class ContratoRepositoryImpl implements ContratoRepository{
                 .createAlias("estatus", "e", JoinType.INNER_JOIN)
                 .createAlias("tipoContrato", "t", JoinType.INNER_JOIN)
                 .createAlias("usuario", "u", JoinType.INNER_JOIN)
-                .createAlias("c.empresa", "ce", JoinType.INNER_JOIN)
+                .createAlias("c.empresa", "ce", JoinType.LEFT_OUTER_JOIN)
                 .add(Restrictions.eq("t.id", idTipoContrato))
                 .list();
     }
@@ -128,7 +128,7 @@ public class ContratoRepositoryImpl implements ContratoRepository{
                 .createAlias("estatus", "e", JoinType.INNER_JOIN)
                 .createAlias("tipoContrato", "t", JoinType.INNER_JOIN)
                 .createAlias("usuario", "u", JoinType.INNER_JOIN)
-                .createAlias("c.empresa", "ce", JoinType.INNER_JOIN)
+                .createAlias("c.empresa", "ce", JoinType.LEFT_OUTER_JOIN)
                 .add(Restrictions.eq("e.id", idEstado))
                 .list();
     }
@@ -140,7 +140,7 @@ public class ContratoRepositoryImpl implements ContratoRepository{
                 .createAlias("estatus", "e", JoinType.INNER_JOIN)
                 .createAlias("tipoContrato", "t", JoinType.INNER_JOIN)
                 .createAlias("usuario", "u", JoinType.INNER_JOIN)
-                .createAlias("c.empresa", "ce", JoinType.INNER_JOIN)
+                .createAlias("c.empresa", "ce", JoinType.LEFT_OUTER_JOIN)
                 .add(Restrictions.like("ce.razonSocial", nombre, MatchMode.ANYWHERE))
                 .list();
     }
@@ -152,7 +152,7 @@ public class ContratoRepositoryImpl implements ContratoRepository{
                 .createAlias("estatus", "e", JoinType.INNER_JOIN)
                 .createAlias("tipoContrato", "t", JoinType.INNER_JOIN)
                 .createAlias("usuario", "u", JoinType.INNER_JOIN)
-                .createAlias("c.empresa", "ce", JoinType.INNER_JOIN)
+                .createAlias("c.empresa", "ce", JoinType.LEFT_OUTER_JOIN)
                 .add(Restrictions.like("c.nombre", nombre, MatchMode.ANYWHERE))
                 .list();
     }
@@ -164,7 +164,7 @@ public class ContratoRepositoryImpl implements ContratoRepository{
                 .createAlias("estatus", "e", JoinType.INNER_JOIN)
                 .createAlias("tipoContrato", "t", JoinType.INNER_JOIN)
                 .createAlias("usuario", "u", JoinType.INNER_JOIN)
-                .createAlias("c.empresa", "ce", JoinType.INNER_JOIN)
+                .createAlias("c.empresa", "ce", JoinType.LEFT_OUTER_JOIN)
                 .add(Restrictions.like("c.nombre", nombre, MatchMode.ANYWHERE))
                 .add(Restrictions.like("c.paterno", paterno, MatchMode.ANYWHERE))
                 .list();
@@ -177,7 +177,7 @@ public class ContratoRepositoryImpl implements ContratoRepository{
                 .createAlias("estatus", "e", JoinType.INNER_JOIN)
                 .createAlias("tipoContrato", "t", JoinType.INNER_JOIN)
                 .createAlias("usuario", "u", JoinType.INNER_JOIN)
-                .createAlias("c.empresa", "ce", JoinType.INNER_JOIN)
+                .createAlias("c.empresa", "ce", JoinType.LEFT_OUTER_JOIN)
                 .add(Restrictions.like("c.nombre", nombre, MatchMode.ANYWHERE))
                 .add(Restrictions.like("c.paterno", paterno, MatchMode.ANYWHERE))
                 .add(Restrictions.like("c.materno", materno, MatchMode.ANYWHERE))
@@ -191,7 +191,7 @@ public class ContratoRepositoryImpl implements ContratoRepository{
                 .createAlias("estatus", "e", JoinType.INNER_JOIN)
                 .createAlias("tipoContrato", "t", JoinType.INNER_JOIN)
                 .createAlias("usuario", "u", JoinType.INNER_JOIN)
-                .createAlias("c.empresa", "ce", JoinType.INNER_JOIN)
+                .createAlias("c.empresa", "ce", JoinType.LEFT_OUTER_JOIN)
                 .add(Restrictions.like("u.id", idEmpleado))
                 .list();
     }
@@ -203,7 +203,7 @@ public class ContratoRepositoryImpl implements ContratoRepository{
                 .createAlias("estatus", "e", JoinType.INNER_JOIN)
                 .createAlias("tipoContrato", "t", JoinType.INNER_JOIN)
                 .createAlias("usuario", "u", JoinType.INNER_JOIN)
-                .createAlias("c.empresa", "ce", JoinType.INNER_JOIN)
+                .createAlias("c.empresa", "ce", JoinType.LEFT_OUTER_JOIN)
                 .add(Restrictions.eq("t.id", idTipoContrato))
                 .add(Restrictions.eq("u.id", idEmpleado))
                 .list();
@@ -216,7 +216,7 @@ public class ContratoRepositoryImpl implements ContratoRepository{
                 .createAlias("estatus", "e", JoinType.INNER_JOIN)
                 .createAlias("tipoContrato", "t", JoinType.INNER_JOIN)
                 .createAlias("usuario", "u", JoinType.INNER_JOIN)
-                .createAlias("c.empresa", "ce", JoinType.INNER_JOIN)
+                .createAlias("c.empresa", "ce", JoinType.LEFT_OUTER_JOIN)
                 .add(Restrictions.eq("visibleCliente", Boolean.TRUE))
                 .add(Restrictions.eq("u.id", idEmpleado))
                 .add(Restrictions.eq("c.id", id))
@@ -230,7 +230,7 @@ public class ContratoRepositoryImpl implements ContratoRepository{
                 .createAlias("estatus", "e", JoinType.INNER_JOIN)
                 .createAlias("tipoContrato", "t", JoinType.INNER_JOIN)
                 .createAlias("usuario", "u", JoinType.INNER_JOIN)
-                .createAlias("c.empresa", "ce", JoinType.INNER_JOIN)
+                .createAlias("c.empresa", "ce", JoinType.LEFT_OUTER_JOIN)
                 .add(Restrictions.eq("u.id", idEmpleado))
                 .add(Restrictions.eq("e.id", idEstado))
                 .list();
@@ -243,7 +243,7 @@ public class ContratoRepositoryImpl implements ContratoRepository{
                 .createAlias("estatus", "e", JoinType.INNER_JOIN)
                 .createAlias("tipoContrato", "t", JoinType.INNER_JOIN)
                 .createAlias("usuario", "u", JoinType.INNER_JOIN)
-                .createAlias("c.empresa", "ce", JoinType.INNER_JOIN)
+                .createAlias("c.empresa", "ce", JoinType.LEFT_OUTER_JOIN)
                 .add(Restrictions.like("ce.razonSocial", nombre, MatchMode.ANYWHERE))
                 .add(Restrictions.eq("u.id", idEmpleado))
                 .list();
@@ -256,7 +256,7 @@ public class ContratoRepositoryImpl implements ContratoRepository{
                 .createAlias("estatus", "e", JoinType.INNER_JOIN)
                 .createAlias("tipoContrato", "t", JoinType.INNER_JOIN)
                 .createAlias("usuario", "u", JoinType.INNER_JOIN)
-                .createAlias("c.empresa", "ce", JoinType.INNER_JOIN)
+                .createAlias("c.empresa", "ce", JoinType.LEFT_OUTER_JOIN)
                 .add(Restrictions.like("c.nombre", nombre, MatchMode.ANYWHERE))
                 .add(Restrictions.eq("u.id", idEmpleado))
                 .list();
@@ -269,7 +269,7 @@ public class ContratoRepositoryImpl implements ContratoRepository{
                 .createAlias("estatus", "e", JoinType.INNER_JOIN)
                 .createAlias("tipoContrato", "t", JoinType.INNER_JOIN)
                 .createAlias("usuario", "u", JoinType.INNER_JOIN)
-                .createAlias("c.empresa", "ce", JoinType.INNER_JOIN)
+                .createAlias("c.empresa", "ce", JoinType.LEFT_OUTER_JOIN)
                 .add(Restrictions.like("c.nombre", nombre, MatchMode.ANYWHERE))
                 .add(Restrictions.like("c.paterno", paterno, MatchMode.ANYWHERE))
                 .add(Restrictions.eq("u.id", idEmpleado))
@@ -283,7 +283,7 @@ public class ContratoRepositoryImpl implements ContratoRepository{
                 .createAlias("estatus", "e", JoinType.INNER_JOIN)
                 .createAlias("tipoContrato", "t", JoinType.INNER_JOIN)
                 .createAlias("usuario", "u", JoinType.INNER_JOIN)
-                .createAlias("c.empresa", "ce", JoinType.INNER_JOIN)
+                .createAlias("c.empresa", "ce", JoinType.LEFT_OUTER_JOIN)
                 .add(Restrictions.like("c.nombre", nombre, MatchMode.ANYWHERE))
                 .add(Restrictions.like("c.paterno", paterno, MatchMode.ANYWHERE))
                 .add(Restrictions.like("c.materno", materno, MatchMode.ANYWHERE))
@@ -298,7 +298,7 @@ public class ContratoRepositoryImpl implements ContratoRepository{
                 .createAlias("estatus", "e", JoinType.INNER_JOIN)
                 .createAlias("tipoContrato", "t", JoinType.INNER_JOIN)
                 .createAlias("usuario", "u", JoinType.INNER_JOIN)
-                .createAlias("c.empresa", "ce", JoinType.INNER_JOIN)
+                .createAlias("c.empresa", "ce", JoinType.LEFT_OUTER_JOIN)
                 .add(Restrictions.eq("t.id", idTipoContrato))
                 .add(Restrictions.eq("visibleCliente", Boolean.TRUE))
                 .add(Restrictions.eq("c.id", idCliente))
@@ -312,7 +312,7 @@ public class ContratoRepositoryImpl implements ContratoRepository{
                 .createAlias("estatus", "e", JoinType.INNER_JOIN)
                 .createAlias("tipoContrato", "t", JoinType.INNER_JOIN)
                 .createAlias("usuario", "u", JoinType.INNER_JOIN)
-                .createAlias("c.empresa", "ce", JoinType.INNER_JOIN)
+                .createAlias("c.empresa", "ce", JoinType.LEFT_OUTER_JOIN)
                 .add(Restrictions.eq("c.id", idCliente))
                 .add(Restrictions.eq("e.id", idEstado))
                 .add(Restrictions.eq("visibleCliente", Boolean.TRUE))

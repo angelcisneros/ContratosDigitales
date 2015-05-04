@@ -156,12 +156,12 @@ $(document).on('ready', function() {
 
 
 $('.verButton').on('click', function() {
-    var contrato = $($($($(this).parent()).siblings('td.id')).children('label.ocultar')).text();
-    var empleado = $($($($(this).parent()).siblings('td.idUsuario')).children('label.ocultar')).text();
+    var contrato = $($($($($(this).parent())).parent().siblings('td.id')).children('label.ocultar')).text();
+    var empleado = $($($($($(this).parent().parent())).siblings('td.idUsuario')).children('label.ocultar')).text();
     console.log(contrato + '   ' + empleado);
     $('#contratoPdf').remove();
     $('#contenidoPopUpPdf').append(
-            '<object id="contratoPdf" style="zoom: 0.60" width="50%" height="98%" type="application/pdf" data="muestraPdf/' + contrato + '/' + empleado + '">' +
+            '<object id="contratoPdf" width="70%" height="600px" type="application/pdf" data="muestraPdf/' + contrato + '/' + empleado + '">' +
 //                    '<param name="idContrato" value="34">'+
             '</object>'
             );

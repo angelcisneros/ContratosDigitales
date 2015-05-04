@@ -7,6 +7,7 @@
     <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/contradosdigitales</property>
     <property name="hibernate.connection.username">root</property>
     <property name="hibernate.connection.password">admin</property>
+    <property name="hibernate.show_sql">true</property>
     <mapping class="mx.com.quadrum.entity.Estatus"/>
     <mapping class="mx.com.quadrum.entity.Contrato"/>
     <mapping class="mx.com.quadrum.entity.Grado"/>

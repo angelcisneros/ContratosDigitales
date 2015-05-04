@@ -41,7 +41,7 @@ $('#confirmar').on('click', function() {
             $('#popUpConfirmacion').modal('hide');
             $('#popUpRespuesta').modal('show');
             var tds = $($(selector).parent()).siblings('td');
-            var td = tds[5];
+            var td = tds[6];
             var tr = $($(selector).parent()).parent();
             $('.success').removeClass();
             $(tr).addClass('success');

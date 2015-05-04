@@ -34,6 +34,9 @@ public class Estatus implements java.io.Serializable {
 
     public Estatus() {
     }
+    public Estatus(Integer id) {
+        this.id = id;
+    }
 
     public Estatus(String nombre) {
         this.nombre = nombre;

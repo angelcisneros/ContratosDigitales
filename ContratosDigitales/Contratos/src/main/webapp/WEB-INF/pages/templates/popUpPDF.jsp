@@ -1,6 +1,6 @@
 <!-- POPUP RESPUESTA CRUD -->
 <div class="modal fade bs-example-modal-lg" id="popUpPDF" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
+    
         <div class="modal-content">
             <div class="modal-header amarillo">
                 <button type="button" class="close" data-dismiss="modal">
@@ -18,6 +18,6 @@
             </div>
         </div>
         <!-- /.modal-content -->
-    </div>
+    
     <!-- /.modal-dialog -->
 </div>

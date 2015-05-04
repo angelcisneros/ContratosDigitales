@@ -26,6 +26,7 @@ public final class ContratoDatos {
     @Getter @Setter private String fechaInicio;
     @Getter @Setter private String fechaFin;
     @Getter @Setter private String sello;
+    @Getter @Setter private String correo;
     @Getter @Setter private boolean fisica;
     
 
@@ -42,6 +43,7 @@ public final class ContratoDatos {
             fisica = true;
         }
         folios = firma.getContrato().getFolios().toString();
+        correo = firma.getContacto().getMail();
         monto = firma.getContrato().getMonto().toString();
         montoLetra = convertNumberToLetterMethod(monto,"MX");
         fechaInicio = firma.getContrato().getFechaCreacion().toString();

@@ -16,7 +16,7 @@ $('.mostrarAlClienteButton').on('click', function() {
 });
 
 $('#confirmar').on('click', function() {
-    var id = $($($($(selector).parent()).siblings('td.id')).children('label.ocultar')).text();
+    var id = $($($($($(selector).parent())).parent().siblings('td.id')).children('label.ocultar')).text();
     console.log(id);
     $.ajax({
         type: 'POST',
@@ -31,7 +31,7 @@ $('#confirmar').on('click', function() {
             $('#popUpRespuesta').modal('show');
             var tds = $($(selector).parent()).siblings('td');
             var td = tds[8];
-            var tr = $($(selector).parent()).parent();
+            var tr = $($($(selector).parent()).parent()).parent();
             $('.success').removeClass();
             $(tr).addClass('success');
             if ($(td).hasClass('visible')) {
@@ -237,7 +237,7 @@ $('.verButton').on('click', function() {
     var contrato = $($($($($(this).parent()).parent()).siblings('td.id')).children('label.ocultar')).text();
     $('#contratoPdf').remove();
     $('#contenidoPopUpPdf').append(
-            '<object id="contratoPdf" style="zoom: 0.60" width="50%" height="98%" type="application/pdf" data="muestraPdf/' + contrato + '">' +
+            '<object id="contratoPdf" width="70%" height="600px" type="application/pdf" data="muestraPdf/' + contrato + '">' +
 //                    '<param name="idContrato" value="34">'+
             '</object>'
             );
