@@ -63,7 +63,7 @@ public class HomeController {
         if (usuarioService.estaRegistrado(rfc, password)) {
             Usuario usuario = usuarioService.buscarPorCorreo(rfc);
             List<Permiso> permisos = permisoService.buscarPorUsuario(usuario.getId());
-            System.out.println("permisos: " + permisos.size());
+            
             session.setAttribute(USUARIO, usuario);
             session.setAttribute(PERMISOS, permisos);
             session.setAttribute(CLIENTE, null);
@@ -91,5 +91,9 @@ public class HomeController {
         session.invalidate();
         return "templates/index";
     }
-
+ @RequestMapping(value = "cerrarSesionCliente")
+    public String cerrarSessionCliente(HttpSession session) {
+        session.invalidate();
+        return "cliente/index";
+    }
 }

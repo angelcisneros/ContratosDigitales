@@ -21,14 +21,17 @@ $(document).on('ready', function() {
 });
 
 $('.activarDesactivarButton').on('click', function() {
-    console.log('que rollo');
+    selector = this;
+    $('#popUpConfirmacion').modal('show');
+});
+
+$('#contactoTbody').on('click', '.activarDesactivarButton', function() {
     selector = this;
     $('#popUpConfirmacion').modal('show');
 });
 
 $('#confirmar').on('click', function() {
     var id = $($($($(selector).parent()).siblings('td.id')).children('label.ocultar')).text();
-    console.log(id);
     $.ajax({
         type: 'POST',
         url: "cuentasCliente",

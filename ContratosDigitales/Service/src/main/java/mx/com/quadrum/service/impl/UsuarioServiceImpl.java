@@ -37,9 +37,8 @@ public class UsuarioServiceImpl implements UsuarioService {
 
     @Autowired
     PermisoUsuarioService permisoUsuarioService;
-    
+
     private static final String USUARIO = "una usuario.#";
-    
 
     @Override
     public String agregar(Usuario usuario) {
@@ -49,7 +48,7 @@ public class UsuarioServiceImpl implements UsuarioService {
         if (usuarioRepository.agregar(usuario)) {
             try {
                 EnviarCorreo enviarCorreo = new EnviarCorreo();
-                enviarCorreo.enviaCredenciales(usuario.getMail(), ACCESO_SISTEMA, MENSAJE + "\n\t\tUsuario:" + usuario.getMail() + "\n\t\tPassword:" + usuario.getPassword());
+                enviarCorreo.enviaCredenciales(usuario.getMail(), ACCESO_SISTEMA, MENSAJE + "\n\t\tUsuario:\t" + usuario.getMail() + "\n\t\tPassword:\t" + usuario.getPassword());
                 crearCarpetaArchivosUsuarios(usuario.getMail());
                 return ADD_CORRECT + USUARIO + usuario.getId();
             } catch (MessagingException ex) {
@@ -66,12 +65,16 @@ public class UsuarioServiceImpl implements UsuarioService {
         antiguo.setNombres(usuario.getNombres());
         antiguo.setPaterno(usuario.getPaterno());
         antiguo.setMaterno(usuario.getMaterno());
-        if(!mail.equalsIgnoreCase(usuario.getMail())){
+        antiguo.setEstado(usuario.getEstado());
+        if (usuario.getEsAdmin() != null) {
+            if (!(antiguo.getEsAdmin() && usuario.getEsAdmin())) {
+                antiguo.setEsAdmin(usuario.getEsAdmin());
+            }
+        }
+        if (!mail.equalsIgnoreCase(usuario.getMail())) {
             antiguo.setMail(usuario.getMail());
             aditarCarpetaArchivosUsuarios(mail, usuario.getMail());
         }
-        
-        antiguo.setEstado(usuario.getEstado());
         if (usuarioRepository.editar(antiguo)) {
             return UPDATE_CORRECT + USUARIO;
         }

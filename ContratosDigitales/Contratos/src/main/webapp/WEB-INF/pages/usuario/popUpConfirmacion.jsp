@@ -5,7 +5,7 @@
                 <button type="button" class="close" data-dismiss="modal">
                     <span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
                 </button>
-                <h2 class="modal-title"><strong>Firmar...</strong></h2>
+                <h2 class="modal-title"><strong>Confirmar...</strong></h2>
             </div>
             <div class="modal-body">
                 <h3>Confirmar el cambio de estado de la cuenta</h3>

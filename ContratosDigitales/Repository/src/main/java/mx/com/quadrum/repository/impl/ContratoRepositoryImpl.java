@@ -81,6 +81,10 @@ public class ContratoRepositoryImpl implements ContratoRepository{
         return (Contrato) sessionFactory.getCurrentSession().createCriteria(Contrato.class)
                 .add(Restrictions.eq("id", id))
                 .createAlias("usuario", "u", JoinType.INNER_JOIN)
+                .createAlias("contacto", "c", JoinType.INNER_JOIN)
+                .createAlias("estatus", "e", JoinType.INNER_JOIN)
+                .createAlias("tipoContrato", "t", JoinType.INNER_JOIN)
+                .createAlias("c.empresa", "ce", JoinType.LEFT_OUTER_JOIN)
                 .uniqueResult();
     }
 

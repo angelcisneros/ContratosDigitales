@@ -92,7 +92,6 @@ public class PermisoUsuarioServiceImpl implements PermisoUsuarioService {
             permisoUsuarioRepository.agregar(new PermisoUsuario(new PermisoUsuarioId(idPermiso, usuario.getId()), permiso, usuario));
         }
         if (permisoService.obtenNumeroDePermisos() == nuevosPermisos.length - 1) {
-            System.out.println("Sere admin");
             usuario.setEsAdmin(Boolean.TRUE);
         }
         return usuarioService.editar(usuario);

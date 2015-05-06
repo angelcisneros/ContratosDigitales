@@ -9,19 +9,27 @@ import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.Calendar;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.mail.MessagingException;
 import mx.com.quadrum.entity.Contrato;
 import mx.com.quadrum.entity.Estatus;
 import mx.com.quadrum.entity.Usuario;
 import mx.com.quadrum.repository.ContratoRepository;
 import mx.com.quadrum.service.*;
+import mx.com.quadrum.service.util.EnviarCorreo;
 import static mx.com.quadrum.service.util.MensajesCrud.ADD_CORRECT;
 import static mx.com.quadrum.service.util.MensajesCrud.DELETE_CORRECT;
 import static mx.com.quadrum.service.util.MensajesCrud.ERROR_HIBERNATE;
 import static mx.com.quadrum.service.util.MensajesCrud.UPDATE_CORRECT;
+import static mx.com.quadrum.service.util.Rutas.ASUNTO_DISPONIBLE_FIRMAR;
 import static mx.com.quadrum.service.util.Rutas.CADENA_ORIGINAL;
+import static mx.com.quadrum.service.util.Rutas.acomodaTexto;
+import static mx.com.quadrum.service.util.Rutas.clienteFirmo;
+import static mx.com.quadrum.service.util.Rutas.regresarLeyenda;
+import static mx.com.quadrum.service.util.Validaciones.convierteStringToFecha;
 import mx.com.quadrum.service.util.firma.AtributosCertificado;
 import mx.com.quadrum.service.util.firma.CadenaOriginal;
 import mx.com.quadrum.service.util.firma.Firma;
@@ -41,10 +49,12 @@ public class ContratoServiceImpl implements ContratoService, BusquedasContratos 
     @Autowired
     ContratoRepository contratoRepository;
     private static final String CONTRATO = "una contrato.";
+    private String ASUNTO_FIRMADO;
 
     @Override
     public String agregar(Contrato contrato) {
         if (contratoRepository.agregar(contrato)) {
+
             return ADD_CORRECT + CONTRATO;
         }
         return ERROR_HIBERNATE;
@@ -78,8 +88,17 @@ public class ContratoServiceImpl implements ContratoService, BusquedasContratos 
         contrato.setVisibleCliente(Boolean.FALSE);
         contrato.setTieneArchivos(Boolean.FALSE);
         contrato.setEditable(Boolean.TRUE);
+        contrato.setEstatus(new Estatus(45));
         contratoRepository.agregar(contrato);
-
+        contrato = contratoRepository.buscarPorId(contrato.getId());
+        String clave = contrato.getTipoContrato().getNombre().substring(0, 2).toUpperCase();
+        if (contrato.getContacto().getEmpresa() == null) {
+            clave += "-0F-";
+        } else {
+            clave += "-0M-";
+        }
+        contrato.setNombre(clave += "7" + contrato.getId());
+        contratoRepository.editar(contrato);
         RepresentacionImpresa ri = new RepresentacionImpresa(firma, usuario.getMail());
         ri.ejecutaJasper();
         return ADD_CORRECT + CONTRATO;
@@ -110,7 +129,18 @@ public class ContratoServiceImpl implements ContratoService, BusquedasContratos 
         Contrato contrato = contratoRepository.buscarPorId(id);
         contrato.setVisibleCliente(!contrato.getVisibleCliente());
         if (contratoRepository.editar(contrato)) {
-            return "Correcto...#Ahora el cliente a recibido una notificación de que puede ver el contrato";
+            if (contrato.getVisibleCliente()) {
+                EnviarCorreo enviar = new EnviarCorreo();
+                try {
+                    enviar.enviaCredenciales(contrato.getContacto().getMail(), ASUNTO_DISPONIBLE_FIRMAR, acomodaTexto(contrato));
+                    return "Correcto...#Ahora el cliente a recibido una notificación de que puede ver el contrato";
+                } catch (MessagingException ex) {
+                    Logger.getLogger(ContratoServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            } else {
+                return "Correcto...#Se ha ocultado el contrato al cliente.";
+            }
+
         }
         return "Error...#Se produjo un error al querer mostrar el contrato al cliente. Intente más tarde";
     }
@@ -131,20 +161,28 @@ public class ContratoServiceImpl implements ContratoService, BusquedasContratos 
                 if (f.firmar()) {
                     if (f.guardarArchivos()) {
                         AtributosCertificado cer = new AtributosCertificado(new ByteArrayInputStream(byteArrayOutputStreamCer.toByteArray()));
-                        InputStream leyenda = IOUtils.toInputStream("ESTO ES UNA CADENA FICTISIA");
+                        InputStream leyenda = IOUtils.toInputStream(regresarLeyenda(contrato.getNombre()));
                         CadenaOriginal objetoCadenaOriginal = new CadenaOriginal();
 
                         byte[] cadenaOriginal = objetoCadenaOriginal.generaCadenaDos(leyenda, CADENA_ORIGINAL);
 
                         Sello miSello = new Sello(f.getPassword(), f.getKey().getBytes(), cadenaOriginal);
                         cer.obtenDatosCertificado();
-                        
+
+                        Calendar c = Calendar.getInstance();
                         contrato.setSello(miSello.GeneraSelloDigital());
-                        contrato.setEstatus(new Estatus(45));
+                        contrato.setEstatus(new Estatus(48));
                         contrato.setTieneArchivos(Boolean.TRUE);
-                        
-                        
+                        contrato.setFechaFirma(convierteStringToFecha(c.get(Calendar.DATE) + "/" + (c.get(Calendar.MONTH) + 1) + "/" + c.get(Calendar.YEAR)));
+
                         contratoRepository.editar(contrato);
+                        EnviarCorreo enviar = new EnviarCorreo();
+                        try {
+                            enviar.enviaCredenciales(contrato.getUsuario().getMail(), clienteFirmo(contrato), ASUNTO_FIRMADO);
+                        } catch (MessagingException ex) {
+                            Logger.getLogger(ContratoServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+                        }
+                        return true;
                     }
                 }
             } catch (IOException ex) {

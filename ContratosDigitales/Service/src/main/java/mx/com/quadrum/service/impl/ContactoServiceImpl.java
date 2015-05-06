@@ -97,8 +97,7 @@ public class ContactoServiceImpl implements ContactoService {
                 
                 EnviarCorreo enviarCorreo = new EnviarCorreo();
                 try {
-                    enviarCorreo.enviaCredenciales(contacto.getMail(), ACCESO_SISTEMA, MENSAJE + "\n\t\tUsuario:" + contacto.getMail() + "\n\t\tPassword:" + contacto.getPassword());
-                    contacto.setPrimeraSesion(Boolean.FALSE);
+                    enviarCorreo.enviaCredenciales(contacto.getMail(), ACCESO_SISTEMA, MENSAJE + "\n\t\tUsuario:\t" + contacto.getMail() + "\n\t\tPassword:\t" + contacto.getPassword());
                 } catch (MessagingException ex) {
                     Logger.getLogger(ContactoServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
                 }

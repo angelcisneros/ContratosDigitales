@@ -16,25 +16,11 @@
             <form role="form" method="post" id="contratoAddForm">
                 <div class="row">
                     <div class="form-group col-xs-12 col-sm-12 col-md-6 col-lg-6 ">
-                        <label>Clave del Contrato:</label>
-                        <input id="nombre" name="nombre" class="form-control" type="text" placeholder="Ingrese el Nombre del Contrato" />
-                    </div>
-                    <div class="form-group col-xs-12 col-sm-12 col-md-3 col-lg-3 ">
-                        <label>Monto:</label>
-                        <input id="monto" path="monto" name="monto" class="form-control" type="number" placeholder="Ingrese Monto" />
-                    </div>
-                    <div class="form-group col-xs-12 col-sm-12 col-md-3 col-lg-3 ">
-                        <label>Folios:</label>
-                        <input id="folios" path="folios" name="folios" class="form-control" type="number" placeholder="Ingrese Monto" />
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="form-group col-xs-12 col-sm-12 col-md-6 col-lg-6 ">
                         <label>Contacto:</label>
                         <select id="contactoAdd" name="contacto.id" class="form-control">
                             <option value="0" label="Seleccione...">Seleccione...</option>
                             <c:forEach items="${contactos}" var="c" varStatus="status">
-                                <option value="${c.id}" label="${c.nombre} ${c.paterno} ${c.materno}">${c.nombre} ${c.paterno} ${c.materno}</option>
+                                <option value="${c.id}" label="${c.nombre} ${c.paterno} ${c.materno}"></option>
                             </c:forEach>
                         </select>
                     </div>
@@ -49,6 +35,33 @@
                     </div>
                 </div>
                 <div class="row">
+                    <%-- /////////////TAMPOCO
+                <div class="form-group col-xs-12 col-sm-12 col-md-6 col-lg-6 ">
+                        <label>Clave del Contrato:</label>
+                        <input id="nombre" name="nombre" class="form-control" type="text" placeholder="Ingrese el Nombre del Contrato" />
+                    </div>
+/--%>
+                    <div class="form-group col-xs-12 col-sm-12 col-md-3 col-lg-3 ">
+                        <label>Fecha de Inicio:</label>
+                        <input id="fechaCreacion" name="fechaCreacion" class="form-control" type="date" placeholder="Ingrese la Fecha de Creación"/>
+                    </div>
+                    <div class="form-group col-xs-12 col-sm-12 col-md-3 col-lg-3 ">
+                        <label>Fecha de Vencimiento:</label>
+                        <input id="fechaVencimiento" name="fechaVencimiento" class="form-control" type="date" placeholder="Ingrese la Fecha de Vencimiento"/>
+                    </div>
+
+                    <div class="form-group col-xs-12 col-sm-12 col-md-3 col-lg-3 ">
+                        <label>Monto:</label>
+                        <input id="monto" path="monto" name="monto" class="form-control" type="number" placeholder="Ingrese Monto" />
+                    </div>
+                    <div class="form-group col-xs-12 col-sm-12 col-md-3 col-lg-3 ">
+                        <label>Folios:</label>
+                        <input id="folios" path="folios" name="folios" class="form-control" type="number" placeholder="Ingrese Monto" />
+                    </div>
+                </div>
+
+                <%-- //////////////////////////////////////////////NO ES NECESARIO
+     <div class="row">
                     <div class="form-group col-xs-12 col-sm-12 col-md-6 col-lg-6 ">
                         <label>Estado de Contrato:</label>
                         <select id="estadoAdd" name="estatus.id" class="form-control">
@@ -63,16 +76,7 @@
                         <input id="fechaFirma" name="fechaFirma" class="form-control" type="date" placeholder="Ingrese la Fecha de Firma"/>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="form-group col-xs-12 col-sm-12 col-md-6 col-lg-6 ">
-                        <label>Fecha de Inicio:</label>
-                        <input id="fechaCreacion" name="fechaCreacion" class="form-control" type="date" placeholder="Ingrese la Fecha de Creación"/>
-                    </div>
-                    <div class="form-group col-xs-12 col-sm-12 col-md-6 col-lg-6 ">
-                        <label>Fecha de Vencimiento:</label>
-                        <input id="fechaVencimiento" name="fechaVencimiento" class="form-control" type="date" placeholder="Ingrese la Fecha de Vencimiento"/>
-                    </div>
-                </div>
+/--%>
                 <hr>
                 <div class="row">
                     <div class="form-group pull-right">
@@ -88,12 +92,12 @@
 
 <%@ include file="/WEB-INF/pages/templates/popUpRespuesta.jsp"%>
 <script src="js/usuario/nuevoContrato.js" charset="UTF-8">
-<script src="http://cdn.jsdelivr.net/webshim/1.12.4/extras/modernizr-custom.js"></script>
+    < script src = "http://cdn.jsdelivr.net/webshim/1.12.4/extras/modernizr-custom.js" ></script>
 <script src="http://cdn.jsdelivr.net/webshim/1.12.4/polyfiller.js"></script>
 <script>
-  webshims.setOptions('waitReady', false);
-  webshims.setOptions('forms-ext', {types: 'date'});
-  webshims.polyfill('forms forms-ext');
-  webshims.cfg.no$Switch = 'true';
+    webshims.setOptions('waitReady', false);
+    webshims.setOptions('forms-ext', {types: 'date'});
+    webshims.polyfill('forms forms-ext');
+    webshims.cfg.no$Switch = 'true';
 </script>
 <%@ include file="/WEB-INF/pages/templates/footer.jsp"%>

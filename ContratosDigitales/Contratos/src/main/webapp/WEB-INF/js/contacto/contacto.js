@@ -36,5 +36,30 @@ $('.contactoDeleteButton').on('click', function() {
 
 $('#verEmpresasButton').on('click', function() {
     $('#popUpEmpresas').modal('show');
-    
+
+});
+
+$('#contactoTbody').on('click', '.contactoUpdateButton', function() {
+    var tds = $($(this).parent()).siblings('td');
+    var apoderado = $($(tds[1]).children('label')).text();
+    if (apoderado === 'N/A') {
+        rellenaPopUpUpdatePF(this);
+//        $('#popUpContactoPFUpdate').modal('show');
+    } else {
+        rellenaPopUpUpdate(this);
+//        $('#popUpContactoUpdate').modal('show');
+    }
+
+});
+
+$('#contactoTbody').on('click', '.contactoDeleteButton', function() {
+    var tds = $($(this).parent()).siblings('td');
+    var apoderado = $($(tds[1]).children('label')).text();
+    if (apoderado === 'N/A') {
+        rellenaPopUpDeletePF(this);
+//        $('#popUpContactoPFDelete').modal('show');
+    } else {
+        rellenaPopUpDelete(this);
+//        $('#popUpContactoDelete').modal('show');
+    }
 });

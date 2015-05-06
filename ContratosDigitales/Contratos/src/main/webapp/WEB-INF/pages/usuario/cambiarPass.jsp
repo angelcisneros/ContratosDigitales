@@ -8,7 +8,7 @@
             <div class="page-header">
                 <h2>Cambio de Contraseña <small> Antes de comenzar debes cambiar tu contraseña</small></h2>
             </div>
-            <p>La contraseña debe...</p>
+            <p>La contraseña debe tener al menos 6 caracteres...</p>
         </div>
     </div>
 </div>
@@ -16,22 +16,30 @@
 
     <div id="formPass" class="animated bounceInLeft retraso-2 center-block">
         <img class="center-block" src="images/logo.jpg">
-        <div id="divPassword1" class="form-group has-feedback">
-            <input id="password1" type="password" class="form-control" placeholder="Nueva Contraseña" required />
-        </div>
-        <form class="form-signin" role="form" action="inicioCambioPassword" method="post">
-            <div id="divPassword2" class="form-group has-feedback">
-                <input id="password2" name="password" type="password" class="form-control" placeholder="Repita Contraseña" required /> 
+
+        <form id="cambiarPass" action="inicioCambioPassword" method="post">
+            <div id="divPassword1" class="form-group has-feedback">
+                <input id="password1" type="password" class="form-control" placeholder="Nueva Contraseña"/>
             </div>
-            <button id="cambioPass" class="btn btn-lg btn-block rojo-quadrum" type="submit">Cambiar Contraseña</button>
+            <div id="divPassword2" class="form-group has-feedback">
+                <input id="password2" name="password" type="password" class="form-control" placeholder="Repita Contraseña"/> 
+            </div>
+            <button class="btn btn-lg btn-block rojo-quadrum" type="submit">Cambiar Contraseña</button>
         </form>
-        
+
 
     </div>
 
 </div>
 
 
-
-<script src="js/primeraSesion.js" charset="UTF-8"></script>
 <%@ include file="/WEB-INF/pages/templates/popUpRespuesta.jsp"%>
+<script src="js/usuario/cambioPass.js" charset="UTF-8"></script>
+
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="js/jquery-1.11.1.min.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="js/main.js" charset="UTF-8"></script>
+<script src="js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -153,7 +153,7 @@ $(document).on('ready', function() {
             $('#maternoAdd').removeAttr('style');
             requisitos++;
         }
-        if (mail === '') {
+        if (!validarEmail(mail)) {
             muestraPopUpCampoNoVacio($('#mailAdd'));
             $('#mailAdd').css("border", "1px solid red");
         } else {
@@ -260,7 +260,7 @@ $(document).on('ready', function() {
             $('#maternoUpdate').removeAttr('style');
             requisitos++;
         }
-        if (mail === '') {
+        if (!validarEmail(mail)) {
             muestraPopUpCampoNoVacio($('#mailUpdate'));
             $('#mailUpdate').css("border", "1px solid red");
         } else {

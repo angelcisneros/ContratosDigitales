@@ -6,7 +6,7 @@
                     <button type="button" class="close" data-dismiss="modal">
                         <span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
                     </button>
-                    <h2 class="modal-title"><strong>Confirmar...</strong></h2>
+                    <h2 class="modal-title"><strong>Firmar...</strong></h2>
                 </div>
                 <div class="modal-body">
                     <div class="row">
@@ -21,6 +21,7 @@
                             </label>
                         </div>
                     </div>
+                    <hr>
                     <div class="row">
                         <div class="col-xs-12 col-md-12">
                             <label>Subir Poder Notarial:</label>
@@ -56,6 +57,14 @@
                         <div class="col-xs-12 col-md-12">
                             <label>Password:</label>
                             <input id="password" type="password" name="password" class="form-control" />
+                        </div>
+                    </div>
+                    <hr><br>
+                    <div class="row">
+                        <div class="col-xs-12 col-md-12">
+                             <label class="checkbox" >
+                                    <input id="acepto" type="checkbox" class="nuevosPermisos">
+                                    HE LEDO, Y ACEPTO LAS CONDICIONES DESCRITAS EN EL CONTRATO CON CLAVE <span id="clave"></span> DE CENTRO DE VALIDACIÓN DIGITAL CVDSA S.A DE C.V.</label>
                         </div>
                     </div>
                 </div>

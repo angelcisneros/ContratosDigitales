@@ -55,7 +55,6 @@
                                         </td>
                                     </c:when>
                                     <c:otherwise>
-                                    <tr valign="top">
                                         <td class="id">
                                             <label class="empresa">${c.empresa.razonSocial}</label>
                                             <label id="${c.id}" class="ocultar">${c.id}</label>

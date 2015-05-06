@@ -21,6 +21,7 @@ import static mx.com.quadrum.service.util.Llave.USUARIO;
 import mx.com.quadrum.service.util.firma.Firma;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -49,35 +50,37 @@ public class ClientesController {
     
 
     @RequestMapping(value = "inicioCliente")
-    public ModelAndView inicioCliente(String rfc, String password, ModelMap model, HttpSession session) {
+    public String inicioCliente(String rfc, String password, Model model, HttpSession session) {
         if (contactoService.estaRegistrado(rfc, password)) {
             Contacto contacto = contactoService.buscarPorCorreo(rfc);
             List<Contrato> contratos = contratoService.buscarPorContacto(contacto.getId());
-            
             session.setAttribute(PERMISOS, new ArrayList<Permiso>());
-            session.setAttribute(CLIENTE, contacto);
             session.setAttribute(USUARIO, null);
+            session.setAttribute(CLIENTE, contacto);
+            
             if (contacto.getPrimeraSesion()) {
-                return new ModelAndView("cliente/cambiarPass");
+                return "cliente/cambiarPass";
             }
-            model.put("contratos", contratos);
-            model.put("tipoContrato", tipoContratoService.buscarTodos());
-            model.put("estado", estatusService.buscarTodos());
-            return new ModelAndView("cliente/contratos", model);
+            model.addAttribute("contratos", contratos);
+            model.addAttribute("tipoContrato", tipoContratoService.buscarTodos());
+            model.addAttribute("estado", estatusService.buscarTodos());
+            return "cliente/contratos";
         }
-        return new ModelAndView("templates/index", "estaRegistrado", false);
+        return "cliente/index";
     }
 
     @RequestMapping(value = "inicioCambioPasswordCliente", method = RequestMethod.POST)
     public ModelAndView cambiarPassword(String password, HttpSession session) {
         Contacto contacto = (Contacto) session.getAttribute(CLIENTE);
         if (contacto == null) {
+            session.invalidate();
             return new ModelAndView("templates/error", "error", "No se pudo cambiar el password");
         }
         List<Contrato> contratos = contratoService.buscarPorContacto(contacto.getId());
         if (contactoService.cambiarPassword(contacto, password)) {
             return new ModelAndView("cliente/contratos", "contratos", contratos);
         }
+        session.invalidate();
         return new ModelAndView("templates/error", "error", "No se pudo cambiar el password");
     }
 

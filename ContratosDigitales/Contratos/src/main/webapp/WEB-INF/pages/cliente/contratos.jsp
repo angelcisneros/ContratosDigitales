@@ -1,7 +1,27 @@
 <%@ include file="/WEB-INF/pages/templates/head.jsp"%>
-<%@ include file="/WEB-INF/pages/templates/navbar.jsp"%>
-
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<nav id="font-nav" class="navbar navbar-default font-navbar navbar-fixed-top" role="navigation">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header" id="brand">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+        <a class="navbar-brand logo-nav" href="/Contratos/cliente"> 
+            <img class="imgtop" alt="" src="images/logoweb.png" />
+        </a>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="cerrarSesionCliente">Cerrar Sesión</a></li>
+            </ul>
+        </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+</nav>
 
 <div id="contenido" class="container-fluid">
     <div class="row">
@@ -59,5 +79,5 @@
 <%@ include file="/WEB-INF/pages/templates/popUpPDF.jsp"%>
 <%@ include file="/WEB-INF/pages/templates/popUpRespuesta.jsp"%>
 <script src="js/inputFile.js"></script>
-<script src="js/contacto/firmar.js"></script>
+<script src="js/contacto/firmar.js" charset="UTF-8"></script>
 <%@ include file="/WEB-INF/pages/templates/footer.jsp"%>

@@ -23,7 +23,7 @@ $(document).on('ready', function() {
         var nombre = $('#nombrePFAdd').val();
         var paterno = $('#paternoPFAdd').val();
         var materno = $('#maternoPFAdd').val();
-        var rfc = $('#').val();
+        var rfc = $('#rfcPFAdd').val();
         var mail = $('#correoPFAdd').val();
         var grado = $('#gradoPFAdd').val();
         var telefono1 = $('#telefono1PFAdd').val();
@@ -60,7 +60,7 @@ $(document).on('ready', function() {
             grado = $('#gradoPFAdd option:selected').text();
             requisitos++;
         }
-        if (rfc === '') {
+        if (!validaRFC(rfc)) {
             muestraPopUpCampoNoVacio($('#rfcPFAdd'));
             $('#rfcPFAdd').css("border", "1px solid red");
         } else {
@@ -74,7 +74,7 @@ $(document).on('ready', function() {
             $('#telefono1PFAdd').removeAttr('style');
             requisitos++;
         }
-        if (mail === '') {
+        if (!validarEmail(mail)) {
             muestraPopUpCampoNoVacio($('#correoPFAdd'));
             $('#correoPFAdd').css("border", "1px solid red");
         } else {
@@ -136,7 +136,7 @@ $(document).on('ready', function() {
                                 '<td>' +
                                 '<label>' + direccion + '</label>' +
                                 '</td>' +
-                                '<td class="desactivada">${c.activo}</td>'+
+                                '<td class="desactivada"><img src="images/tachesito.png"></td>'+
                                 '<td>' +
                                 '<button class="btn btn-primary contactoUpdateButton">Editar</button>' +
                                 '<button class="btn btn-danger contactoDeleteButton">Eliminar</button>' +
@@ -195,7 +195,7 @@ $(document).on('ready', function() {
             $('#maternoPFUpdate').removeAttr('style');
             requisitos++;
         }
-        if (mail === '') {
+        if (!validarEmail(mail)) {
             muestraPopUpCampoNoVacio($('#correoPFUpdate'));
             $('#correoPFUpdate').css("border", "1px solid red");
         } else {

@@ -76,7 +76,6 @@ public class ContactoController {
         if (bindingResult.hasErrors()) {
             return ERROR_DATOS;
         }
-        System.out.println(contacto.getMail());
         return contactoService.agregar(contacto);
     }
 

@@ -62,7 +62,6 @@ public class RepresentacionImpresa {
             File file = new File(jasper);
             JasperReport reporte = (JasperReport) JRLoader.loadObject(file);
             JasperPrint jasperPrint = JasperFillManager.fillReport(reporte, null, new JRBeanCollectionDataSource(dataSource));
-            System.out.println("JASPER*************** " + ds.get(0).getMonto());
             JRPdfExporter exporter = new JRPdfExporter();
             exporter.setParameter(JRExporterParameter.JASPER_PRINT, jasperPrint);
             exporter.setParameter(JRExporterParameter.OUTPUT_FILE, new File(path + ".pdf"));

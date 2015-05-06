@@ -61,7 +61,7 @@ public class Contrato implements java.io.Serializable {
     @Column(name = "fecha_firma", nullable = true, length = 10)
     @Getter @Setter private Date fechaFirma;
     
-    @Column(name = "nombre", nullable = false, length = 145)
+    @Column(name = "nombre", nullable = true, length = 145)
     @Getter @Setter private String nombre;
     
     @Column(name = "visibleCliente", nullable = false)

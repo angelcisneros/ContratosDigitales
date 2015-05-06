@@ -9,6 +9,7 @@ $(document).on('ready', function() {
         var id = $($($($(this).parent()).siblings('td.id')).children('label.ocultar')).text();
         $($('#monto').siblings('strong')).text('$ ' + $('#labelMonto').text());
         $('#idContrato').val(id);
+        $('#clave').text($($($($(this).parent()).siblings('td.id')).children('label.nombre')).text());
         $('#popUpFirmar').modal('show');
     });
 
@@ -22,12 +23,13 @@ $(document).on('ready', function() {
         var cer = $('#cer').val();
         var key = $('#key').val();
         var password = $('#password').val();
+        var acepto = $('#acepto').prop("checked");
 
         if(validaRFC(rfc)){
             cierraPopUpChiquito($('#rfc'));
             requisitos++;
         }else{
-            muestraPopUpTituloAndMensaje('RFC invaálido', 'Ingrese un RFC válido');
+            muestraPopUpTituloAndMensaje($('#rfc'), 'RFC invaálido', 'Ingrese un RFC válido');
         }
         if (esValidExtencion(poderNotarial, '.jpg', '.pdf')) {
             cierraPopUpChiquito($('#poderNotarial'));
@@ -74,8 +76,14 @@ $(document).on('ready', function() {
             cierraPopUpChiquito($('#monto'));
             requisitos++;
         }
+        if(acepto){
+            requisitos++;
+            cierraPopUpChiquito($('#acepto'));
+        }else{
+            muestraPopUpTituloAndMensaje($('#acepto'), 'Debe aceptar los terminos', 'Acepte');
+        }
 
-        if (requisitos < 7) {
+        if (requisitos < 8) {
             evt.preventDefault();
         }
     });

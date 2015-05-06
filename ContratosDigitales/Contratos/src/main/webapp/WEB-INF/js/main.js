@@ -53,27 +53,22 @@ function muestraPopUpTituloAndMensaje(selector, mensaje, titulo) {
 
 function validaRFC(rfcStr) {
     var strCorrecta;
-    if (rfcStr.length === 12)
-    {
-        strCorrecta = ' ' + rfcStr;
+    strCorrecta = rfcStr;
+    var valid = '';
+    if (rfcStr.length === 12) {
+        valid = '^(([A-Z]|[a-z]){3})([0-9]{6})((([A-Z]|[a-z]|[0-9]){3}))';
+    } else {
+        valid = '^(([A-Z]|[a-z]|\s){1})(([A-Z]|[a-z]){3})([0-9]{6})((([A-Z]|[a-z]|[0-9]){3}))';
     }
-    else
-    {
-        strCorrecta = rfcStr;
-    }
-    var valid = '^(([A-Z]|[a-z]|\s){1})(([A-Z]|[a-z]){3})([0-9]{6})((([A-Z]|[a-z]|[0-9]){3}))';
     var validRfc = new RegExp(valid);
     var matchArray = strCorrecta.match(validRfc);
     if (matchArray === null) {
-        //alert('Cadena:' + strCorrecta);
-        return;
         return false;
     }
-    else
-    {
-        //alert('Cadena:' + strCorrecta);
+    else{
         return true;
     }
+
 }
 
 function setOption(options, texto){
@@ -118,3 +113,10 @@ $(document).on('ready', function (){
         });
     }
 });
+
+function validarEmail( email ) {
+    if ( /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/.test(email) )
+        return true;
+    else
+        return false;
+}
