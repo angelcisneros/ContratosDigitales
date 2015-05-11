@@ -41,17 +41,13 @@
                     </table>
                 </div>
             </div>
-
-
+            <div class="modal-footer amarillo">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+            </div>
         </div>
-        <div class="modal-footer amarillo">
-            <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
-            <button id="addEmpresa" type="button" class="btn btn-primary">Agregar</button>
-        </div>
+        <!-- /.modal-content -->
     </div>
-    <!-- /.modal-content -->
-</div>
-<!-- /.modal-dialog -->
+    <!-- /.modal-dialog -->
 </div>
 
 <!-- POPUP AGREGAR EMPRESA -->

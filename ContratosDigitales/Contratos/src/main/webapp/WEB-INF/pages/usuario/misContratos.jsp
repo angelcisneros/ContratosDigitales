@@ -35,17 +35,15 @@
                             <th>Nombre</th>
                             <th>Contacto</th>
                             <th>Empresa</th>
-                            <th>Formato</th>
-                            <th>Estado</th>
+                            <th>Tipo de Contrato</th>
                             <th>Vigencia</th>
-                            <th>Firmado</th>
-                            <th>Visible al cliente</th>
+                            <th>Fecha de Firma</th>
                             <th>Monto</th>
                             <th>Opciones</th>
                         </tr>
                     </thead>
                     <tbody id="contratoTbody">
-                       <%@ include file="/WEB-INF/pages/usuario/contratoAux.jsp"%>
+                        <%@ include file="/WEB-INF/pages/usuario/contratoAux.jsp"%>
                     </tbody>
                 </table>
             </div>
@@ -54,10 +52,12 @@
     </div>
 </div>
 
+
+<%@ include file="/WEB-INF/pages/templates/popUpPDF.jsp"%>
 <%@ include file="/WEB-INF/pages/busquedas/contratoEmpleado.jsp"%>
-<script src="js/busquedas/contratoEmpleado.js" charset="UTF-8"></script>
+<%@ include file="/WEB-INF/pages/usuario/popUpAprobar.jsp"%>
 <%@ include file="/WEB-INF/pages/usuario/popUpConfirmacion.jsp"%>
 <%@ include file="/WEB-INF/pages/templates/popUpRespuesta.jsp"%>
-<%@ include file="/WEB-INF/pages/templates/popUpPDF.jsp"%>
 <script src="js/usuario/misContratos.js" charset="UTF-8"></script>
+<script src="js/usuario/aprobar.js" charset="UTF-8"></script>
 <%@ include file="/WEB-INF/pages/templates/footer.jsp"%>

@@ -9,7 +9,6 @@ $(document).on('ready', function() {
 
     //POPUP AGREGAR
     $('#addEmpresaButton').on('click', function() {
-        cierraPopUpChiquito($('#nombreEmpresaUpdate'));
         $('#popUpEmpresaAdd').modal('show');
     });
 
@@ -29,6 +28,7 @@ $(document).on('ready', function() {
 
     //AGREGAR EN BASE
     $('#addEmpresa').on('click', function() {
+        console.log('hola hola');
         var requisitos = 0;
         var nombre = $('#nombreAddEmpresa').val();
         var direccion = $('#direccionAddEmpresa').val();

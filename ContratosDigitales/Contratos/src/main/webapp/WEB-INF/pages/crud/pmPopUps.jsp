@@ -6,10 +6,11 @@
                 <button type="button" class="close" data-dismiss="modal">
                     <span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
                 </button>
-                <h4 class="modal-title"><strong>Agregar Nuevo Contacto</strong></h4>
+                <h4 class="modal-title"><strong>Nuevo Cliente (PM)</strong></h4>
             </div>
             <div class="modal-body">
                 <form id="contactoAddForm">
+                    <h3>Datos del Apoderado</h3>
                     <label>Nombre(s):</label>
                     <input id="nombreAdd" name="nombre" class="form-control" type="text" placeholder="Ingrese el nombre del Contacto">
                     <br>
@@ -38,8 +39,10 @@
                     <br>
                     <label>Dirección</label>
                     <textarea id="direccionAdd" name="direccion" class="form-control"></textarea>
+                    <br>
                     <hr>
-                     <label>Cliente (razón social):</label>
+                    <h3>Datos de Empresa</h3>
+                    <label>Cliente (razón social):</label>
                     <select id="empresaAdd" name="empresa.id" class="form-control">
                         <option value="0" label="Seleccione...">Seleccione...</option>
                         <c:forEach items="${empresa}" var="e" varStatus="status">
@@ -47,6 +50,8 @@
                         </c:forEach>
                     </select>
                     <br>
+                    <label>RFC con la que firmará:</label>
+                    <input id="rfcAdd" name="rfc" class="form-control" type="text" placeholder="Ingrese el RFC">
                 </form>
             </div>
             <div class="modal-footer amarillo">
@@ -72,6 +77,7 @@
             </div>
             <div class="modal-body">
                 <form id="contactoUpdateForm">
+                    <h3>Datos del Apoderado</h3>
                     <label>Nombre(s):</label>
                     <input id="nombreUpdate" name="nombre" class="form-control" type="text" placeholder="Ingrese el nombre del Contacto">
                     <br>
@@ -92,7 +98,7 @@
                         </c:forEach>
                     </select>
                     <br>
-                    
+
                     <label>Teléfono 1:</label>
                     <input id="telefono1Update" name="telefono1" class="form-control" type="text" placeholder="Ingrese el Teléfono del Contacto">
                     <br>
@@ -103,6 +109,7 @@
                     <textarea id="direccionUpdate" name="direccion" class="form-control"></textarea>
                     <br>
                     <hr>
+                    <h3>Datos de Empresa</h3>
                     <label>Empresa</label>
                     <select id="empresaUpdate" name="empresa.id" class="form-control">
                         <option value="0" label="Seleccione...">Seleccione...</option>
@@ -111,7 +118,8 @@
                         </c:forEach>
                     </select>
                     <br>
-
+                    <label>RFC con la que firmará:</label>
+                    <input id="rfcUpdate" name="rfc" class="form-control" type="text" placeholder="Ingrese el RFC">
                     <input id="idUpdate" name="id" class="form-control ocultar" type="text" placeholder="Ingrese el nombre del Grado">
                 </form>
             </div>

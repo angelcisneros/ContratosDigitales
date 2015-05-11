@@ -25,6 +25,7 @@ $(document).on('ready', function() {
         var paterno = $('#paternoAdd').val();
         var materno = $('#maternoAdd').val();
         var empresa = $('#empresaAdd').val();
+        var rfc = $('#rfcAdd').val();
         var mail = $('#correoAdd').val();
         var grado = $('#gradoAdd').val();
         var telefono1 = $('#telefono1Add').val();
@@ -53,7 +54,13 @@ $(document).on('ready', function() {
             $('#maternoAdd').removeAttr('style');
             requisitos++;
         }
-
+        if (!validaRFC(rfc)) {
+            muestraPopUpTituloAndMensaje($('#rfcAdd'), 'El RFC no es válido', 'Error...');
+            $('#rfcAdd').css("border", "1px solid red");
+        } else {
+            $('#rfcAdd').removeAttr('style');
+            requisitos++;
+        }
         if (empresa === '0' || empresa === 0) {
             muestraPopUpCampoNoVacio($('#empresaAdd'));
             $('#empresaAdd').css("border", "1px solid red");
@@ -67,7 +74,6 @@ $(document).on('ready', function() {
         } else {
             $('#gradoAdd').removeAttr('style');
             grado = $('#gradoAdd option:selected').text();
-            requisitos++;
         }
         if (telefono1 === '') {
             muestraPopUpCampoNoVacio($('#telefono1Add'));
@@ -76,8 +82,8 @@ $(document).on('ready', function() {
             $('#telefono1Add').removeAttr('style');
             requisitos++;
         }
-        if (mail === '') {
-            muestraPopUpCampoNoVacio($('#correoAdd'));
+        if (!validarEmail(mail)) {
+            muestraPopUpTituloAndMensaje($('#correoAdd'), 'Correo no válido', 'Error...');
             $('#correoAdd').css("border", "1px solid red");
         } else {
             $('#correoAdd').removeAttr('style');
@@ -97,7 +103,7 @@ $(document).on('ready', function() {
 //            $('#direccionAdd').removeAttr('style');
 //            requisitos++;
 //        }
-        if (requisitos >= 6) {
+        if (requisitos >= 7) {
 
             $.ajax({
                 type: 'POST',
@@ -125,7 +131,10 @@ $(document).on('ready', function() {
                                 '<label class="materno">' + materno + '</label>' +
                                 '</td>' +
                                 '<td>' +
-                                '<label>' + mail + '</label>' +
+                                '<label class="rfc">' + rfc + '</label>' +
+                                '</td>' +
+                                '<td>' +
+                                '<label class="mail">' + mail + '</label>' +
                                 '</td>' +
                                 '<td>' +
                                 '<label class="telefono1">' + telefono1 + '</label> y ' +
@@ -134,15 +143,13 @@ $(document).on('ready', function() {
                                 '<td>' +
                                 '<label>' + direccion + '</label>' +
                                 '</td>' +
+                                '<td class="desactivada"><img src="images/tachesito.png"></td>' +
                                 '<td>' +
                                 '<button class="btn btn-primary contactoUpdateButton">Editar</button>' +
                                 '<button class="btn btn-danger contactoDeleteButton">Eliminar</button>' +
+                                '<button class="btn btn-success activarDesactivarButton">Activar/Desactivar Cuenta</button>' +
                                 ' </td>' +
                                 '</tr>'
-
-
-
-
                                 );
 
                         limpiarInputs();
@@ -164,6 +171,7 @@ $(document).on('ready', function() {
         var paterno = $('#paternoUpdate').val();
         var materno = $('#maternoUpdate').val();
         var empresa = $('#empresaUpdate').val();
+        var rfc = $('#rfcUpdate').val();
         var grado = $('#gradoUpdate').val();
         var mail = $('#correoUpdate').val();
         var telefono1 = $('#telefono1Update').val();
@@ -185,6 +193,7 @@ $(document).on('ready', function() {
             $('#paternoUpdate').removeAttr('style');
             requisitos++;
         }
+        
         if (materno === '') {
             muestraPopUpCampoNoVacio($('#maternoUpdate'));
             $('#maternoUpdate').css("border", "1px solid red");
@@ -192,7 +201,14 @@ $(document).on('ready', function() {
             $('#maternoUpdate').removeAttr('style');
             requisitos++;
         }
-        if (mail === '') {
+        if (!validaRFC(rfc)) {
+            muestraPopUpTituloAndMensaje($('#rfcAdd'), 'El RFC no es válido', 'Error...');
+            $('#rfcAdd').css("border", "1px solid red");
+        } else {
+            $('#rfcAdd').removeAttr('style');
+            requisitos++;
+        }
+        if (!validarEmail(mail)) {
             muestraPopUpCampoNoVacio($('#correoUpdate'));
             $('#correoUpdate').css("border", "1px solid red");
         } else {
@@ -210,9 +226,8 @@ $(document).on('ready', function() {
         if (grado === '0' || grado === 0) {
             grado = '';
         } else {
-            $('#gradoAdd').removeAttr('style');
-            grado = $('#gradoAdd option:selected').text();
-            requisitos++;
+            $('#gradoUpdate').removeAttr('style');
+            grado = $('#gradoUpdate option:selected').text();
         }
         if (telefono1 === '') {
             muestraPopUpCampoNoVacio($('#telefono1Update'));
@@ -222,7 +237,7 @@ $(document).on('ready', function() {
             requisitos++;
         }
 
-        if (requisitos >= 6) {
+        if (requisitos >= 7) {
             $.ajax({
                 type: 'POST',
                 url: "editarContacto/",
@@ -239,7 +254,7 @@ $(document).on('ready', function() {
                         $(trClick).attr('class', 'success nuevoContacto');
                         $(trClick).html(
                                 '<td class="id">' +
-                                '<label class="empresa">' + $('#empresaAdd option:selected').text() + '</label>' +
+                                '<label class="empresa">' + $('#empresaUpdate option:selected').text() + '</label>' +
                                 '<label id="' + $('#idUpdate') + '" class="ocultar">' + $('#idUpdate') + '</label>' +
                                 '</td>' +
                                 ' <td>' +
@@ -249,7 +264,10 @@ $(document).on('ready', function() {
                                 '<label class="materno">' + materno + '</label>' +
                                 '</td>' +
                                 '<td>' +
-                                '<label>' + mail + '</label>' +
+                                '<label class="rfc">' + rfc + '</label>' +
+                                '</td>' +
+                                '<td>' +
+                                '<label class="mail">' + mail + '</label>' +
                                 '</td>' +
                                 '<td>' +
                                 '<label class="telefono1">' + telefono1 + '</label> y ' +
@@ -258,9 +276,11 @@ $(document).on('ready', function() {
                                 '<td>' +
                                 '<label>' + direccion + '</label>' +
                                 '</td>' +
+                                '<td class="desactivada"><img src="images/' + activo +'.png"></td>' +
                                 '<td>' +
                                 '<button class="btn btn-primary contactoUpdateButton">Editar</button>' +
                                 '<button class="btn btn-danger contactoDeleteButton">Eliminar</button>' +
+                                '<button class="btn btn-success activarDesactivarButton">Activar/Desactivar Cuenta</button>' +
                                 ' </td>'
                                 );
                     }
@@ -327,11 +347,17 @@ function rellenaPopUpDelete(selector) {
     var paterno = $($(tds[1]).children('label.paterno')).text();
     var materno = $($(tds[1]).children('label.materno')).text();
     var grado = $($(tds[1]).children('label.grado')).text();
-    var mail = $($(tds[2]).children('label')).text();
+    var mail = $($(tds[3]).children('label.mail')).text();
+    var rfc = $($(tds[2]).children('label.rfc')).text();
     var empresa = $($(tds[0]).children('label.empresa')).text();
-    var telefono1 = $($(tds[3]).children('label.telefono1')).text();
-    var telefono2 = $($(tds[3]).children('label.telefono2')).text();
-    var direccion = $(tds[4]).children('label.telefono2').text();
+    var telefono1 = $($(tds[4]).children('label.telefono1')).text();
+    var telefono2 = $($(tds[4]).children('label.telefono2')).text();
+    var direccion = $(tds[5]).children('label.telefono2').text();
+    if($(tds[6]).hasClass('activada')){
+        activo = 'palomita';
+    }else{
+        activo = 'tachesito';
+    }
     trClick = $($(selector).parent()).parent();
 
     $('#idDelete').val(id);
@@ -340,7 +366,6 @@ function rellenaPopUpDelete(selector) {
     $('#telefonoDelete').text(telefono1 + ' y ' + telefono2);
     $('#direccionDelete').text(direccion);
     $('#correoDelete').text(mail);
-
     $('#popUpContactoDelete').modal('show');
 }
 function rellenaPopUpUpdate(selector) {
@@ -350,11 +375,17 @@ function rellenaPopUpUpdate(selector) {
     var paterno = $($(tds[1]).children('label.paterno')).text();
     var materno = $($(tds[1]).children('label.materno')).text();
     var grado = $($(tds[1]).children('label.grado')).text();
-    var mail = $($(tds[2]).children('label')).text();
+    var mail = $($(tds[3]).children('label.mail')).text();
+    var rfc = $($(tds[2]).children('label.rfc')).text();
     var empresa = $($(tds[0]).children('label.empresa')).text();
-    var telefono1 = $($(tds[3]).children('label.telefono1')).text();
-    var telefono2 = $($(tds[3]).children('label.telefono2')).text();
-    var direccion = $(tds[4]).children('label.telefono2').text();
+    var telefono1 = $($(tds[4]).children('label.telefono1')).text();
+    var telefono2 = $($(tds[4]).children('label.telefono2')).text();
+    var direccion = $(tds[5]).children('label.telefono2').text();
+    if($(tds[6]).hasClass('activada')){
+        activo = 'palomita';
+    }else{
+        activo = 'tachesito';
+    }
     trClick = $($(selector).parent()).parent();
 
     $('#idUpdate').val(id);
@@ -367,6 +398,6 @@ function rellenaPopUpUpdate(selector) {
     $('#telefono2Update').val(telefono2);
     $('#direccionUpdate').val(direccion);
     $('#correoUpdate').val(mail);
-
+    $('#rfcUpdate').val(rfc);
     $('#popUpContactoUpdate').modal('show');
 }

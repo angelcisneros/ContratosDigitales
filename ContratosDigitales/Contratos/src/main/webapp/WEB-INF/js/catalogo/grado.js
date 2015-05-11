@@ -147,11 +147,11 @@ $(document).on('ready', function() {
 
 
 $('#gradoTbody').on('click', '.gradoUpdateButton', function() {
-    rellenaPopUpUpdate(this);
+    rellenaPopUpGradoUpdate(this);
 });
 
 $('#gradoTbody').on('click', '.gradoDeleteButton', function() {
-    rellenaPopUpsDelete(this);
+    rellenaPopUpsGradoDelete(this);
 });
 
 function rellenaPopUpsGradoDelete(selector) {

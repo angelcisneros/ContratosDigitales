@@ -1,4 +1,4 @@
-<!-- POPUP AGREGAR EMPRESA -->
+<!-- POPUP AGREGAR PERSONA FISICA -->
 <div class="modal fade" id="popUpContactoPFAdd" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -6,7 +6,7 @@
                 <button type="button" class="close" data-dismiss="modal">
                     <span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
                 </button>
-                <h4 class="modal-title"><strong>Agregar Nueva ContactoPF</strong></h4>
+                <h4 class="modal-title"><strong>Nuevo Cliente (PF)</strong></h4>
             </div>
             <div class="modal-body">
                 <form id="contactoPFAddForm">
@@ -63,7 +63,7 @@
                 <button type="button" class="close" data-dismiss="modal">
                     <span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
                 </button>
-                <h4 class="modal-title"><strong>Actualizar ContactoPF</strong></h4>
+                <h4 class="modal-title"><strong>Actualizar Cliente (PF)</strong></h4>
             </div>
             <div class="modal-body">
                 <form id="contactoPFUpdateForm">
@@ -75,6 +75,9 @@
                     <br>
                     <label>Apellido Materno:</label>
                     <input id="maternoPFUpdate" name="materno" class="form-control" type="text" placeholder="Ingrese el Apellino Materno del ContactoPF">
+                    <br>
+                    <label>RFC:</label>
+                    <input id="rfcPFUpdate" name="rfc" class="form-control" type="text" placeholder="Ingrese el RFC">
                     <br>
                     <label>Correo:</label>
                     <input id="correoPFUpdate" name="mail" class="form-control" type="email" placeholder="Ingrese el Correo">
@@ -95,9 +98,9 @@
                     <br>
                     <label>Dirección</label>
                     <textarea id="direccionPFUpdate" name="direccion" class="form-control"></textarea>
-
                     <input id="idPFUpdate" name="id" class="form-control ocultar" type="text" placeholder="Ingrese el nombre del Grado">
                 </form>
+
             </div>
             <div class="modal-footer amarillo">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
@@ -117,7 +120,7 @@
                 <button type="button" class="close" data-dismiss="modal">
                     <span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
                 </button>
-                <h4 class="modal-title"><strong>Eliminar ContactoPF</strong></h4>
+                <h4 class="modal-title"><strong>Eliminar Cliente (PF)</strong></h4>
             </div>
             <div class="modal-body">
                 <form id="contactoPFDeleteForm">

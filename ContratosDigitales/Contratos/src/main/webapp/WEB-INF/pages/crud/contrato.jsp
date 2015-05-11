@@ -11,7 +11,7 @@
     <hr />
     <div class="row" id="seccionBusquedas">
         <div class="col-lg-1"></div>
-        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-10 form-inline ">
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-5 form-inline ">
             <h3>Busquedas</h3>
             <select id="busquedas" class="form-control">
                 <option label="--TODOS--" value="0">--TODOS--</option>
@@ -21,7 +21,14 @@
                 <option label="Por Tipo Contrato" value="4" ></option>
                 <option label="Por Estado" value="5" ></option>
             </select>
-            <a id="addContratoButton" class="btn btn-primary btn-lg pull-right" role="button">Agregar Nuevo Contrato +</a>
+            
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-5 form-inline ">
+            <span class="label label-warning">Pendiente</span>
+            <span class="label label-danger">Por Aprobar</span>
+            <span class="label label-success">Activo</span>
+            <span class="label label-default">Vencido</span>            
+            <a id="respaldoButton" class="btn btn-primary btn-lg pull-right" role="button">Hacer Respaldo</a>
         </div>
     </div>
     <hr />
@@ -37,7 +44,6 @@
                             <th>Contacto</th>
                             <th>Empresa</th>
                             <th>Tipo de Contrato</th>
-                            <th>Estado</th>
                             <th>Vigencia</th>
                             <th>Fecha de Firma</th>
                             <th>Monto</th>
@@ -45,7 +51,7 @@
                         </tr>
                     </thead>
                     <tbody id="contratoTbody">
-                       <%@ include file="/WEB-INF/pages/crud/contratoAux.jsp"%>
+                        <%@ include file="/WEB-INF/pages/crud/contratoAux.jsp"%>
                     </tbody>
                 </table>
             </div>
@@ -53,7 +59,6 @@
         <div class="col-md-1 col-lg-1"></div>
     </div>
 </div>
-
 
 <!-- POPUP AGREGAR CONTRATO -->
 <div class="modal fade" id="popUpContratoAdd" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -125,8 +130,10 @@
 
 <%@ include file="/WEB-INF/pages/templates/popUpPDF.jsp"%>
 <%@ include file="/WEB-INF/pages/busquedas/contratosAdmin.jsp"%>
-<%@ include file="/WEB-INF/pages/templates/footer.jsp"%>
+<%@ include file="/WEB-INF/pages/usuario/popUpAprobar.jsp"%>
 <%@ include file="/WEB-INF/pages/usuario/popUpConfirmacion.jsp"%>
+<%@ include file="/WEB-INF/pages/templates/popUpRespuesta.jsp"%>
 <script src="js/busquedas/contratoAdmin.js" charset="UTF-8"></script>
 <script src="js/usuario/misContratos.js" charset="UTF-8"></script>
-<%@ include file="/WEB-INF/pages/templates/popUpRespuesta.jsp"%>
+<script src="js/usuario/aprobar.js" charset="UTF-8"></script>
+<%@ include file="/WEB-INF/pages/templates/footer.jsp"%>

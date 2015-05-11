@@ -108,7 +108,7 @@ public class ClientesController {
         for (String e : f.getErrores()) {
             System.out.println(e);
         }
-        return new ModelAndView("templates/error", "error", "No se pudo cambiar el password");
+        return new ModelAndView("cliente/contratos", "error", "No se pudo cambiar el password");
 
     }
 }

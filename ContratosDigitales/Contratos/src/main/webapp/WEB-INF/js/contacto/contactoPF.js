@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 var trClickPF;
+var activo;
 //MUESTRA LOS POPUPS CON SUS VALORES
 $(document).on('ready', function() {
 
@@ -58,10 +59,9 @@ $(document).on('ready', function() {
         } else {
             $('#gradoPFAdd').removeAttr('style');
             grado = $('#gradoPFAdd option:selected').text();
-            requisitos++;
         }
         if (!validaRFC(rfc)) {
-            muestraPopUpCampoNoVacio($('#rfcPFAdd'));
+            muestraPopUpTituloAndMensaje($('#rfcPFAdd'), 'El RFC no es válido', 'Error...');
             $('#rfcPFAdd').css("border", "1px solid red");
         } else {
             $('#rfcPFAdd').removeAttr('style');
@@ -75,7 +75,7 @@ $(document).on('ready', function() {
             requisitos++;
         }
         if (!validarEmail(mail)) {
-            muestraPopUpCampoNoVacio($('#correoPFAdd'));
+            muestraPopUpTituloAndMensaje($('#correoPFAdd'), 'Correo no válido', 'Error...');
             $('#correoPFAdd').css("border", "1px solid red");
         } else {
             $('#correoPFAdd').removeAttr('style');
@@ -120,15 +120,14 @@ $(document).on('ready', function() {
                                 '<label id="' + respuesta[2] + '" class="ocultar">' + respuesta[2] + '</label>' +
                                 '</td>' +
                                 '<td>' +
-                                    '<label>N/A</label>' +
+                                '<label>N/A</label>' +
                                 '</td>' +
-                                '<td>'+
-                                    '<label>' + rfc + '</label>'+
-                                '</td>'+
                                 '<td>' +
-                                    '<label>'+ mail +'</label>' +
+                                '<label class="rfc">' + rfc + '</label>' +
                                 '</td>' +
-                                 
+                                '<td>' +
+                                '<label class="mail">' + mail + '</label>' +
+                                '</td>' +
                                 '<td>' +
                                 '<label class="telefono1">' + telefono1 + '</label> y ' +
                                 '<label class="telefono2">' + telefono2 + '</label>' +
@@ -136,7 +135,7 @@ $(document).on('ready', function() {
                                 '<td>' +
                                 '<label>' + direccion + '</label>' +
                                 '</td>' +
-                                '<td class="desactivada"><img src="images/tachesito.png"></td>'+
+                                '<td class="desactivada"><img src="images/tachesito.png"></td>' +
                                 '<td>' +
                                 '<button class="btn btn-primary contactoUpdateButton">Editar</button>' +
                                 '<button class="btn btn-danger contactoDeleteButton">Eliminar</button>' +
@@ -148,8 +147,8 @@ $(document).on('ready', function() {
 
 
                                 );
-                        
-                    limpiarInputs();
+
+                        limpiarInputs();
 
                     }
                 },
@@ -168,6 +167,7 @@ $(document).on('ready', function() {
         var paterno = $('#paternoPFUpdate').val();
         var materno = $('#maternoPFUpdate').val();
         var grado = $('#gradoPFUpdate').val();
+        var rfc = $('#rfcPFUpdate').val();
         var mail = $('#correoPFUpdate').val();
         var telefono1 = $('#telefono1PFUpdate').val();
         var telefono2 = $('#telefono2PFUpdate').val();
@@ -196,19 +196,24 @@ $(document).on('ready', function() {
             requisitos++;
         }
         if (!validarEmail(mail)) {
-            muestraPopUpCampoNoVacio($('#correoPFUpdate'));
+            muestraPopUpTituloAndMensaje($('#correoPFUpdate'), 'Correo no válido', 'Error...');
             $('#correoPFUpdate').css("border", "1px solid red");
         } else {
             $('#correoPFUpdate').removeAttr('style');
             requisitos++;
         }
-
+        if (!validaRFC(rfc)) {
+            muestraPopUpTituloAndMensaje($('#rfcPFUpdate'), 'El RFC no es válido', 'Error...');
+            $('#rfcPFUpdate').css("border", "1px solid red");
+        } else {
+            $('#rfcPFUpdate').removeAttr('style');
+            requisitos++;
+        }
         if (grado === '0' || grado === 0) {
             grado = '';
         } else {
             $('#gradoPFUpdate').removeAttr('style');
-            grado = $('#gradoPFAdd option:selected').text();
-            requisitos++;
+            grado = $('#gradoPFUpdate option:selected').text();
         }
         if (telefono1 === '') {
             muestraPopUpCampoNoVacio($('#telefono1PFUpdate'));
@@ -218,7 +223,7 @@ $(document).on('ready', function() {
             requisitos++;
         }
 
-        if (requisitos === 5) {
+        if (requisitos >= 6) {
             $.ajax({
                 type: 'POST',
                 url: "editarContacto/",
@@ -245,7 +250,10 @@ $(document).on('ready', function() {
                                 '<label>N/A</label>' +
                                 '</td>' +
                                 '<td>' +
-                                '<label>' + mail +'</label>' +
+                                '<label class="rfc">' + rfc + '</label>' +
+                                '</td>' +
+                                '<td>' +
+                                '<label class="mail">' + mail + '</label>' +
                                 '</td>' +
                                 '<td>' +
                                 '<label class="telefono1">' + telefono1 + '</label> y ' +
@@ -254,12 +262,15 @@ $(document).on('ready', function() {
                                 '<td>' +
                                 '<label>' + direccion + '</label>' +
                                 '</td>' +
+                                '<td class="desactivada"><img src="images/' + activo + '.png"></td>' +
                                 '<td>' +
                                 '<button class="btn btn-primary contactoUpdateButton">Editar</button>' +
                                 '<button class="btn btn-danger contactoDeleteButton">Eliminar</button>' +
+                                '<button class="btn btn-success activarDesactivarButton">Activar/Desactivar Cuenta</button>' +
                                 ' </td>'
                                 );
                     }
+                    limpiarInputs();
                 },
                 error: function(jqXHR, textStatus, errorThrown) {
                     alert('error');
@@ -321,10 +332,16 @@ function rellenaPopUpUpdatePF(selector) {
     var paterno = $($(tds[0]).children('label.paterno')).text();
     var materno = $($(tds[0]).children('label.materno')).text();
     var grado = $($(tds[0]).children('label.grado')).text();
-    var mail = $($(tds[2]).children('label')).text();
-    var telefono1 = $($(tds[3]).children('label.telefono1')).text();
-    var telefono2 = $($(tds[3]).children('label.telefono2')).text();
-    var direccion = $(tds[4]).children('label.telefono2').text();
+    var rfc = $($(tds[2]).children('label.rfc')).text();
+    var mail = $($(tds[3]).children('label.mail')).text();
+    var telefono1 = $($(tds[4]).children('label.telefono1')).text();
+    var telefono2 = $($(tds[4]).children('label.telefono2')).text();
+    var direccion = $(tds[5]).children('label.telefono2').text();
+    if($(tds[6]).hasClass('activada')){
+        activo = 'palomita';
+    }else{
+        activo = 'tachesito';
+    }
     trClickPF = $($(selector).parent()).parent();
 
     $('#idPFUpdate').val(id);
@@ -336,6 +353,6 @@ function rellenaPopUpUpdatePF(selector) {
     $('#telefono2PFUpdate').val(telefono2);
     $('#direccionPFUpdate').val(direccion);
     $('#correoPFUpdate').val(mail);
-
+    $('#rfcPFUpdate').val(rfc);
     $('#popUpContactoPFUpdate').modal('show');
 }

@@ -30,7 +30,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-
 /**
  *
  * @author vcisneros
@@ -40,7 +39,7 @@ public class EmpleadoQuadrumController {
 
     @Autowired
     ContactoService contactoService;
-    
+
     @Autowired
     ContratoService contratoService;
 
@@ -58,7 +57,7 @@ public class EmpleadoQuadrumController {
         if (usuario == null && permisos == null) {
             return "templates/index";
         }
-        if(usuario.getEsAdmin()){
+        if (usuario.getEsAdmin()) {
             model.addAttribute("esAdmin", "esAdmin");
         }
         model.addAttribute("permisos", permisos);
@@ -83,19 +82,19 @@ public class EmpleadoQuadrumController {
         model.addAttribute("contratos", contratoService.buscarPorUsuario(usuario.getMail()));
         model.addAttribute("tipoContratos", tipoContratoService.buscarTodos());
         model.addAttribute("estado", estatusService.buscarTodos());
-        
+
         return "usuario/misContratos";
     }
 
     @ResponseBody
     @RequestMapping(value = "addContrato", method = RequestMethod.POST)
-    public String addContrato(@Valid @ModelAttribute("contrato") Contrato contrato, BindingResult result,HttpSession session) {
+    public String addContrato(@Valid @ModelAttribute("contrato") Contrato contrato, BindingResult result, HttpSession session) {
         Usuario usuario = (Usuario) session.getAttribute("usuario");
-        if(usuario == null){
-             return SESION_CADUCA;
+        if (usuario == null) {
+            return SESION_CADUCA;
         }
         if (result.hasErrors()) {
-            for(ObjectError e: result.getAllErrors()){
+            for (ObjectError e : result.getAllErrors()) {
                 System.out.println(e);
             }
             return ERROR_DATOS;
@@ -106,7 +105,6 @@ public class EmpleadoQuadrumController {
         return contratoService.agregar(contrato, usuario, firma);
     }
 
-    
     @RequestMapping(value = "cuentasCliente", method = RequestMethod.GET)
     public String activarCuentaUsuario(HttpSession session, Model model) {
         Usuario usuario = (Usuario) session.getAttribute("usuario");
@@ -121,10 +119,28 @@ public class EmpleadoQuadrumController {
     public String activarCuentaUsuarioPost(@RequestBody String id, HttpSession session, Model model) {
         return contactoService.cambiarEstadoCuenta(Integer.parseInt(id.replace("=", "")));
     }
-    
+
     @ResponseBody
     @RequestMapping(value = "visibleCliente", method = RequestMethod.POST)
     public String visibleCliente(@RequestBody String id, HttpSession session, Model model) {
         return contratoService.mostrarOcultarCliente(Integer.parseInt(id.replace("=", "")));
+    }
+
+    @ResponseBody
+    @RequestMapping(value = "aprobarContrato", method = RequestMethod.POST)
+    public String aprobarContrato(@RequestBody String id, HttpSession session) {
+        if (session.getAttribute("usuario") == null) {
+            return SESION_CADUCA;
+        }
+        return contratoService.aprobarContrato(Integer.parseInt(id.replace("=", "")));
+    }
+
+    @ResponseBody
+    @RequestMapping(value = "rechazarContrato", method = RequestMethod.POST)
+    public String rechazarContrato(@RequestBody String id, HttpSession session) {
+        if (session.getAttribute("usuario") == null) {
+            return SESION_CADUCA;
+        }
+        return contratoService.rechazarContrato(Integer.parseInt(id.replace("=", "")));
     }
 }

@@ -5,7 +5,7 @@
     <div class="row">
         <div class="col-lg-1"></div>
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-10 ">
-            <h2><strong>Contactos</strong></h2>
+            <h2><strong>Clientes</strong></h2>
         </div>
     </div>
     <hr />
@@ -13,8 +13,8 @@
         <div class="col-lg-1"></div>
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-10 form-inline">
             <div class="btn-group" role="group" aria-label="">
-                <a id="addContactoButton" class="btn btn-primary btn-lg" role="button">Agregar Nuevo Cliente (PM)</a>
-                <a id="addContactoPFButton" class="btn btn-primary btn-lg" role="button">Agregar Nuevo Cliente (PF)</a>
+                <a id="addContactoButton" class="btn btn-primary btn-lg" role="button">Nuevo Cliente (PM)</a>
+                <a id="addContactoPFButton" class="btn btn-primary btn-lg" role="button">Nuevo Cliente (PF)</a>
             </div>
             <a id="verEmpresasButton" class="btn btn-primary btn-lg pull-right" role="button">Ver Empresas</a>
         </div>
@@ -68,10 +68,10 @@
                                     </c:otherwise>
                                 </c:choose>
                                 <td>
-                                    <label>${c.rfc}</label>
+                                    <label class="rfc">${c.rfc}</label>
                                 </td>
                                 <td>
-                                    <label>${c.mail}</label>
+                                    <label class="mail">${c.mail}</label>
                                 </td>
                                 <td>
                                     <label class="telefono1">${c.telefono1}</label> y

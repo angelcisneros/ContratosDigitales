@@ -175,7 +175,6 @@ $(document).on('ready', function() {
             requisitos++;
         }
         if (requisitos === 5) {
-
             $.ajax({
                 type: 'POST',
                 url: "agregarUsuario/",

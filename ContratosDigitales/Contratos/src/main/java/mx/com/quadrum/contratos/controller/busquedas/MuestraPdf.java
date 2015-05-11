@@ -14,8 +14,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import mx.com.quadrum.entity.Contrato;
 import mx.com.quadrum.entity.Usuario;
+import mx.com.quadrum.service.ContratoService;
 import mx.com.quadrum.service.UsuarioService;
+import static mx.com.quadrum.service.util.Llave.CLIENTE;
 import static mx.com.quadrum.service.util.Llave.USUARIO;
 import static mx.com.quadrum.service.util.Rutas.USUARIOS;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,18 +37,24 @@ public class MuestraPdf  extends HttpServlet {
     @Autowired
     UsuarioService usuarioService;
     
+    @Autowired
+    ContratoService contratoService;
+    
     @RequestMapping(value = "muestraPdf/{idContrato}/{idEmpleado}", method = RequestMethod.GET)
-    public void muestraPdf(@PathVariable("idContrato") String idContrato, @PathVariable("idEmpleado") Integer idEmpleado,
+    public void muestraPdf(@PathVariable("idContrato") Integer idContrato, @PathVariable("idEmpleado") Integer idEmpleado,
             HttpSession session, HttpServletRequest request, HttpServletResponse response){
         
+        if(session.getAttribute(USUARIO) == null && session.getAttribute(CLIENTE) == null){
+            return;
+        }
+        Contrato contrato = contratoService.buscarPorId(idContrato);
         response.setContentType("application/pdf");
         
         response.setHeader("Cache-Control", "no-cache");
         response.setHeader("Pragma", "no-cache");
         response.setDateHeader("Expires", 0);
-        System.out.println(idContrato + "  " + idEmpleado);
         Usuario usuario = usuarioService.buscarPorId(idEmpleado);
-        File pdf = new File(USUARIOS + usuario.getMail() + "\\" + idContrato + "\\"+ idContrato + ".pdf");
+        File pdf = new File(USUARIOS + usuario.getMail() + "\\" + contrato.getNombre() + "\\"+ contrato.getNombre() + ".pdf");
         try {
             InputStream in = new FileInputStream(pdf);
             byte[] data = new byte[in.available()];
@@ -61,7 +70,11 @@ public class MuestraPdf  extends HttpServlet {
         
     }
     @RequestMapping(value = "muestraPdf/{idContrato}", method = RequestMethod.GET)
-    public void muestraPdf(@PathVariable("idContrato") String idContrato, HttpSession session, HttpServletRequest request, HttpServletResponse response){
+    public void muestraPdf(@PathVariable("idContrato") Integer idContrato, HttpSession session, HttpServletRequest request, HttpServletResponse response){
+        if(session.getAttribute(USUARIO) == null && session.getAttribute(CLIENTE) == null){
+            return;
+        }
+        Contrato contrato = contratoService.buscarPorId(idContrato);
         
         Usuario usuario = (Usuario) session.getAttribute(USUARIO);
         response.setContentType("application/pdf");
@@ -69,7 +82,7 @@ public class MuestraPdf  extends HttpServlet {
         response.setHeader("Cache-Control", "no-cache");
         response.setHeader("Pragma", "no-cache");
         response.setDateHeader("Expires", 0);
-        File pdf = new File(USUARIOS + usuario.getMail() + "\\" + idContrato + "\\"+ idContrato + ".pdf");
+        File pdf = new File(USUARIOS + usuario.getMail() + "\\" + contrato.getNombre() + "\\"+ contrato.getNombre() + ".pdf");
         try {
             InputStream in = new FileInputStream(pdf);
             byte[] data = new byte[in.available()];
