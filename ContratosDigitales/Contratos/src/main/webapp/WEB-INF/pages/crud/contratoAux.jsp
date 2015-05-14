@@ -24,15 +24,23 @@
             <label>${c.usuario.materno}</label>
             <label class="ocultar">${c.usuario.id}</label>
         </td>
-        <td>
-            <label>${c.contacto.nombre}</label>&#32;
-            <label>${c.contacto.paterno}</label>&#32;
-            <label>${c.contacto.materno}</label>
-            <label class="ocultar">${c.id}</label>
-        </td>
-        <td>
-            <label>${c.contacto.empresa.razonSocial}</label>
-        </td>
+        <c:choose>
+            <c:when test="${empty c.contacto.empresa}">
+                <td>
+                    <label class="grado">${c.contacto.grado.nombre}</label>&#32;
+                    <label class="nombre">${c.contacto.nombre}</label>&#32;
+                    <label class="paterno">${c.contacto.paterno}</label>&#32;
+                    <label class="materno">${c.contacto.materno}</label>
+                    <label id="${c.contacto.id}" class="ocultar">${c.contacto.id}</label>
+                </td>
+            </c:when>
+            <c:otherwise>
+                <td>
+                    <label class="empresa">${c.contacto.empresa.razonSocial}</label>
+                    <label id="${c.contacto.id}" class="ocultar">${c.contacto.id}</label>
+                </td>
+            </c:otherwise>
+        </c:choose>
         <td>
             <label>${c.tipoContrato.nombre}</label>
         </td>
@@ -46,6 +54,7 @@
         <td>
             <label>${c.monto}</label>
         </td>
+        <td class="unvisible este">${c.visibleCliente}</td>
         <td class="opciones">
             <div class="btn-group" role="group" aria-label="">
                 <c:if test = "${c.estatus.nombre ne 'Activo'}">      

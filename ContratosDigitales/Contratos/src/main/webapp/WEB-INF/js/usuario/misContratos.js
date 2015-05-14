@@ -18,6 +18,7 @@ $('.mostrarAlClienteButton').on('click', function() {
 $('#confirmar').on('click', function() {
     var id = $($($($($(selector).parent())).parent().siblings('td.id')).children('label.ocultar')).text();
     console.log(id);
+    var tr = $($($(selector).parent()).parent()).parent();
     $.ajax({
         type: 'POST',
         url: "visibleCliente",
@@ -29,9 +30,7 @@ $('#confirmar').on('click', function() {
             $('#contenidoPopUp').text(respuesta[1]);
             $('#popUpConfirmacion').modal('hide');
             $('#popUpRespuesta').modal('show');
-            var tds = $($(selector).parent()).siblings('td');
-            var td = tds[8];
-            var tr = $($($(selector).parent()).parent()).parent();
+            var td = $(tr).children('td.este');
             $('.success').removeClass();
             $(tr).addClass('success');
             if ($(td).hasClass('visible')) {

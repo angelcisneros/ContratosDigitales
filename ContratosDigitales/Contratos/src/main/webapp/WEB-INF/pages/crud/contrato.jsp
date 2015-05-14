@@ -12,7 +12,7 @@
     <div class="row" id="seccionBusquedas">
         <div class="col-lg-1"></div>
         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-5 form-inline ">
-            <h3>Busquedas</h3>
+            <h3>Búsquedas</h3>
             <select id="busquedas" class="form-control">
                 <option label="--TODOS--" value="0">--TODOS--</option>
                 <option label="Por Nombre de Empleado" value="1" ></option>
@@ -41,12 +41,12 @@
                         <tr>
                             <th>Nombre</th>
                             <th>Empleado</th>
-                            <th>Contacto</th>
-                            <th>Empresa</th>
+                            <th>Cliente</th>
                             <th>Tipo de Contrato</th>
                             <th>Vigencia</th>
                             <th>Fecha de Firma</th>
                             <th>Monto</th>
+                            <th>Visible</th>
                             <th>Opciones</th>
                         </tr>
                     </thead>

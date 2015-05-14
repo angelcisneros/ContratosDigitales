@@ -35,7 +35,9 @@
             </a>
         </td>
         <td>
-            <button class="btn btn-primary firmarButton">Firmar</button>
+            <c:if test = "${c.estatus.nombre ne 'Activo'}">      
+                <button class="btn btn-primary firmarButton">Firmar</button>
+            </c:if> 
         </td>
     </tr>
 </c:forEach>

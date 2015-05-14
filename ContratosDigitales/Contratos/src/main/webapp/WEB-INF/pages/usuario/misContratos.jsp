@@ -12,8 +12,8 @@
     <hr>
     <div class="row" id="seccionBusquedas">
         <div class="col-lg-1"></div>
-        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-10 form-inline ">
-            <h3>Busquedas</h3>
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-5 form-inline ">
+            <h3>Búsquedas</h3>
             <select id="busquedas" class="form-control">
                 <option label="--TODOS--" value="0">--TODOS--</option>
                 <option label="Por Contacto" value="2" ></option>
@@ -21,7 +21,13 @@
                 <option label="Por Tipo Contrato" value="4" ></option>
                 <option label="Por Estado" value="5" ></option>
             </select>
-            <a id="addContratoButton" class="btn btn-primary btn-lg pull-right" role="button">Agregar Nuevo Contrato +</a>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-5 form-inline ">
+            <span class="label label-warning">Pendiente</span>
+            <span class="label label-danger">Por Aprobar</span>
+            <span class="label label-success">Activo</span>
+            <span class="label label-default">Vencido</span>            
+            <a id="respaldoButton" class="btn btn-primary btn-lg pull-right" role="button">Hacer Respaldo</a>
         </div>
     </div>
     <hr>
@@ -33,12 +39,12 @@
                     <thead id="contratoThead" class="text-center">
                         <tr>
                             <th>Nombre</th>
-                            <th>Contacto</th>
-                            <th>Empresa</th>
+                            <th>Cliente</th>
                             <th>Tipo de Contrato</th>
                             <th>Vigencia</th>
                             <th>Fecha de Firma</th>
                             <th>Monto</th>
+                            <th>Visible</th>
                             <th>Opciones</th>
                         </tr>
                     </thead>
