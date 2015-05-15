@@ -1,6 +1,6 @@
 <div class="modal fade" id="popUpFirmar" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="static">
     <div class="modal-dialog">
-        <form id="firmar" role="form" method="post" action="firmar" enctype="multipart/form-data">
+        <form id="firmar" role="form" method="post" action="firmarPF" enctype="multipart/form-data">
             <div class="modal-content">
                 <div class="modal-header amarillo">
                     <button type="button" class="close" data-dismiss="modal">
@@ -11,8 +11,7 @@
                 <div class="modal-body">
                     <div class="row">
                         <div class="col-xs-12 col-md-6">
-                            <label>RFC:</label>
-                            <input id="rfc" name="rfc" type="text" placeholder="RFC"/>
+                            <label id="rfc">RFC: </label>
                         </div>
                         <div class="col-xs-12 col-md-6">
                             <label>Confirmar Monto:</label>
@@ -23,10 +22,6 @@
                     </div>
                     <hr>
                     <div class="row">
-                        <div class="col-xs-12 col-md-12">
-                            <label>Subir Poder Notarial:</label>
-                            <input id="poderNotarial" type="file" name="poderNotarial" class="filestyle form-control" data-buttonText=" Seleccione" data-buttonName="btn-primary" data-iconName="glyphicon-folder-open" />
-                        </div>
                         <div class="col-xs-12 col-md-12">
                             <label>Subir IFE:</label>
                             <input id="ife" type="file" name="ife" class="filestyle form-control" data-buttonText=" Seleccione" data-buttonName="btn-primary" data-iconName="glyphicon-folder-open" />

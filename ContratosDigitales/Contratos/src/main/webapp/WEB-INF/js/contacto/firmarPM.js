@@ -10,12 +10,22 @@ $(document).on('ready', function() {
         $($('#monto').siblings('strong')).text('$ ' + $('#labelMonto').text());
         $('#idContrato').val(id);
         $('#clave').text($($($($(this).parent()).siblings('td.id')).children('label.nombre')).text());
-        $('#popUpFirmar').modal('show');
+         $.ajax({
+            type: 'POST',
+            url: "dameRfc",
+            dataType: 'text',
+            success: function(respuesta) {
+                $('#rfc').text('RFC: ' + respuesta);
+                $('#popUpFirmar').modal('show');
+            },
+            error: function() {
+
+            }
+        });
     });
 
     $('#firmar').submit(function(evt) {
         var requisitos = 0;
-        var rfc = $('#rfc').val();
         var poderNotarial = $('#poderNotarial').val();
         var ife = $('#ife').val();
         var firma = $('#firma').val();
@@ -25,12 +35,6 @@ $(document).on('ready', function() {
         var password = $('#password').val();
         var acepto = $('#acepto').prop("checked");
 
-        if(validaRFC(rfc)){
-            cierraPopUpChiquito($('#rfc'));
-            requisitos++;
-        }else{
-            muestraPopUpTituloAndMensaje($('#rfc'), 'RFC invaálido', 'Ingrese un RFC válido');
-        }
         if (esValidExtencion(poderNotarial, '.jpg', '.pdf')) {
             cierraPopUpChiquito($('#poderNotarial'));
             requisitos++;
@@ -46,7 +50,6 @@ $(document).on('ready', function() {
         if (firma !== '') {
             if (esValidExtencion(firma, '.jpg', '.jpg')) {
                 cierraPopUpChiquito($('#firma'));
-                requisitos++;
             } else {
                 muestraPopUpExtencionNoValida($('#firma'), 'La extención debe ser .jpg');
             }
@@ -83,7 +86,7 @@ $(document).on('ready', function() {
             muestraPopUpTituloAndMensaje($('#acepto'), 'Debe aceptar los terminos', 'Acepte');
         }
 
-        if (requisitos < 8) {
+        if (requisitos < 7) {
             evt.preventDefault();
         }
     });

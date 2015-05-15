@@ -32,7 +32,6 @@ $(document).on('ready', function() {
             dataType: 'text',
             data: id,
             success: function(respuesta) {
-                alert(respuesta);
                 respuesta = respuesta.split('#');
                 $('#tituloPopUp').text(respuesta[0]);
                 $('#contenidoPopUp').text(respuesta[1]);
@@ -43,6 +42,7 @@ $(document).on('ready', function() {
                 var opciones = $($(tr).find('td.opciones div'));
                 $($(opciones).find('button.contratoUpdateButton')).remove();
                 $($(opciones).find('button.contratoDeleteButton')).remove();
+                $($(opciones).find('button.mostrarAlClienteButton')).remove();
                 $($(opciones).find('button.aprobarButton')).remove();
 
             },
@@ -59,7 +59,6 @@ $(document).on('ready', function() {
             dataType: 'text',
             data: id,
             success: function(respuesta) {
-                alert(respuesta);
                 respuesta = respuesta.split('#');
                 $('#tituloPopUp').text(respuesta[0]);
                 $('#contenidoPopUp').text(respuesta[1]);

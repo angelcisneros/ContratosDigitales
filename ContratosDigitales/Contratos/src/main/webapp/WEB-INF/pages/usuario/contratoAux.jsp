@@ -51,7 +51,7 @@
         <td class="unvisible este">${c.visibleCliente}</td>
         <td class="opciones">
             <div class="btn-group" role="group" aria-label="">
-                <c:if test = "${c.estatus.nombre ne 'Activo'}">      
+                <c:if test = "${c.estatus.nombre ne 'Activo' and c.estatus.nombre ne 'Vencido'}">  
                     <button class="btn btn-primary contratoUpdateButton">Editar</button>
                     <button class="btn btn-danger contratoDeleteButton">Eliminar</button>
                     <button class="btn btn-warning mostrarAlClienteButton">Mostrar/Ocultar</button>

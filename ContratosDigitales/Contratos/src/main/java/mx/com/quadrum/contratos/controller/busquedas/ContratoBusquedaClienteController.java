@@ -12,6 +12,7 @@ import mx.com.quadrum.entity.Contacto;
 import mx.com.quadrum.entity.Contrato;
 import mx.com.quadrum.service.BusquedasContratos;
 import static mx.com.quadrum.service.util.Llave.CLIENTE;
+import static mx.com.quadrum.service.util.Llave.USUARIO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -32,6 +33,9 @@ public class ContratoBusquedaClienteController {
     
     @RequestMapping(value = "buscarTodosContratosCliente", method = RequestMethod.GET)
     public ModelAndView buscarTodosContratosCliente(ModelMap model, HttpSession session){
+        if(session.getAttribute(USUARIO) == null && session.getAttribute(CLIENTE) == null){
+            return new ModelAndView("templates/index");
+        }
         
         Contacto contacto = (Contacto) session.getAttribute(CLIENTE);
         
@@ -42,6 +46,9 @@ public class ContratoBusquedaClienteController {
     
     @RequestMapping(value = "buscarPorTipoDeContratoCliente/{idTipoContrato}", method = RequestMethod.GET)
     public ModelAndView buscarPorTipoDeContratoCliente(@PathVariable("idTipoContrato")Integer idTipoContrato, ModelMap model, HttpSession session){
+        if(session.getAttribute(USUARIO) == null && session.getAttribute(CLIENTE) == null){
+            return new ModelAndView("templates/index");
+        }
         
         Contacto contacto = (Contacto) session.getAttribute(CLIENTE);
         
@@ -52,6 +59,9 @@ public class ContratoBusquedaClienteController {
     
     @RequestMapping(value = "buscarPorEstadoCliente/{idEstado}", method = RequestMethod.GET)
     public ModelAndView buscarPorEstadoCliente(@PathVariable("idEstado")Integer idEstado, ModelMap model, HttpSession session){
+        if(session.getAttribute(USUARIO) == null && session.getAttribute(CLIENTE) == null){
+            return new ModelAndView("templates/index");
+        }
         
         Contacto contacto = (Contacto) session.getAttribute(CLIENTE);
         

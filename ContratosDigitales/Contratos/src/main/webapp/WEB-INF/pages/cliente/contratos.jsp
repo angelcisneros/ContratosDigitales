@@ -41,7 +41,7 @@
                 <option label="Por Estado" value="5" ></option>
             </select>
         </div>
-        
+
     </div>
     <hr>
     <div class="row">
@@ -76,9 +76,18 @@
 
 <%@ include file="/WEB-INF/pages/busquedas/contratoCliente.jsp"%>
 <script src="js/busquedas/contratoCliente.js" charset="UTF-8"></script>
-<%@ include file="/WEB-INF/pages/cliente/popUpFirmar.jsp"%>
+
+<c:choose>
+    <c:when test="${empty contacto.empresa}">
+        <%@ include file="/WEB-INF/pages/cliente/popUpFirmarPF.jsp"%>
+        <script src="js/contacto/firmarPF.js" charset="UTF-8"></script>
+    </c:when>
+    <c:otherwise>
+        <%@ include file="/WEB-INF/pages/cliente/popUpFirmarPM.jsp"%>
+        <script src="js/contacto/firmarPM.js" charset="UTF-8"></script>
+    </c:otherwise>
+</c:choose>
 <%@ include file="/WEB-INF/pages/templates/popUpPDF.jsp"%>
 <%@ include file="/WEB-INF/pages/templates/popUpRespuesta.jsp"%>
 <script src="js/inputFile.js"></script>
-<script src="js/contacto/firmar.js" charset="UTF-8"></script>
 <%@ include file="/WEB-INF/pages/templates/footer.jsp"%>

@@ -10,6 +10,8 @@ import java.util.List;
 import javax.servlet.http.HttpSession;
 import mx.com.quadrum.entity.Contrato;
 import mx.com.quadrum.service.BusquedasContratos;
+import static mx.com.quadrum.service.util.Llave.CLIENTE;
+import static mx.com.quadrum.service.util.Llave.USUARIO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -30,6 +32,9 @@ public class ContratoBusquedaAdminController {
     
     @RequestMapping(value = "buscarTodosContratosAdmin", method = RequestMethod.GET)
     public ModelAndView buscarTodosContratosAdmin(ModelMap model, HttpSession session){
+        if(session.getAttribute(USUARIO) == null && session.getAttribute(CLIENTE) == null){
+            return new ModelAndView("templates/index");
+        }
         List<Contrato> contratos = busquedasContratos.buscarTodos();
         model.put("contratos", contratos);
         return new ModelAndView("crud/contratoAux", model);
@@ -37,6 +42,9 @@ public class ContratoBusquedaAdminController {
     
     @RequestMapping(value = "buscarPorTipoDeContratoAdmin/{idTipoContrato}", method = RequestMethod.GET)
     public ModelAndView buscarPorTipoDeContratoAdmin(@PathVariable("idTipoContrato")Integer idTipoContrato, ModelMap model, HttpSession session){
+        if(session.getAttribute(USUARIO) == null && session.getAttribute(CLIENTE) == null){
+            return new ModelAndView("templates/index");
+        }
         List<Contrato> contratos = busquedasContratos.buscarPorTipoDeContrato((idTipoContrato));
         model.put("contratos", contratos);
         return new ModelAndView("crud/contratoAux", model);
@@ -44,13 +52,18 @@ public class ContratoBusquedaAdminController {
     
     @RequestMapping(value = "buscarPorEstadoAdmin/{idEstado}", method = RequestMethod.GET)
     public ModelAndView buscarPorEstadoAdmin(@PathVariable("idEstado")Integer idEstado, ModelMap model, HttpSession session){
-        List<Contrato> contratos = busquedasContratos.buscarPorEstado((idEstado));
-        model.put("contratos", contratos);
+        if(session.getAttribute(USUARIO) == null && session.getAttribute(CLIENTE) == null){
+            return new ModelAndView("templates/index");
+        }
+        model.put("contratos", busquedasContratos.buscarPorEstado((idEstado)));
         return new ModelAndView("crud/contratoAux", model);
     }
     
     @RequestMapping(value = "buscarPorContactoAdmin/{nombre}/{paterno}/{materno}", method = RequestMethod.GET)
     public ModelAndView buscarPorContactoAdmin(@PathVariable("nombre")String nombre,@PathVariable("paterno")String paterno,@PathVariable("materno")String materno, ModelMap model, HttpSession session){
+        if(session.getAttribute(USUARIO) == null && session.getAttribute(CLIENTE) == null){
+            return new ModelAndView("templates/index");
+        }
         List<Contrato> contratos = busquedasContratos.buscarPorContaco(nombre, paterno, materno);
         model.put("contratos", contratos);
         return new ModelAndView("crud/contratoAux", model);
@@ -58,6 +71,9 @@ public class ContratoBusquedaAdminController {
     
     @RequestMapping(value = "buscarPorContactoAdmin/{nombre}/{paterno}", method = RequestMethod.GET)
     public ModelAndView buscarPorContactoAdmin(@PathVariable("nombre")String nombre,@PathVariable("paterno")String paterno, ModelMap model, HttpSession session){
+        if(session.getAttribute(USUARIO) == null && session.getAttribute(CLIENTE) == null){
+            return new ModelAndView("templates/index");
+        }
         List<Contrato> contratos = busquedasContratos.buscarPorContacto(nombre, paterno);
         model.put("contratos", contratos);
         return new ModelAndView("crud/contratoAux", model);
@@ -65,6 +81,9 @@ public class ContratoBusquedaAdminController {
     
     @RequestMapping(value = "buscarPorContactoAdmin/{nombre}", method = RequestMethod.GET)
     public ModelAndView buscarPorContactoAdmin(@PathVariable("nombre")String nombre, ModelMap model, HttpSession session){
+        if(session.getAttribute(USUARIO) == null && session.getAttribute(CLIENTE) == null){
+            return new ModelAndView("templates/index");
+        }
         List<Contrato> contratos = busquedasContratos.buscarPorContacto(nombre);
         model.put("contratos", contratos);
         return new ModelAndView("crud/contratoAux", model);
@@ -72,6 +91,9 @@ public class ContratoBusquedaAdminController {
     
     @RequestMapping(value = "buscarPorEmpleadoAdmin/{idEmpleado}", method = RequestMethod.GET)
     public ModelAndView buscarPorEmpleadoAdmin(@PathVariable("idEmpleado")Integer idEmpleado, ModelMap model, HttpSession session){
+        if(session.getAttribute(USUARIO) == null && session.getAttribute(CLIENTE) == null){
+            return new ModelAndView("templates/index");
+        }
         List<Contrato> contratos = busquedasContratos.buscarPorEmpleado(idEmpleado);
         model.put("contratos", contratos);
         return new ModelAndView("crud/contratoAux", model);
@@ -79,6 +101,9 @@ public class ContratoBusquedaAdminController {
     
      @RequestMapping(value = "buscarPorEmpresaAdmin/{nombre}", method = RequestMethod.GET)
     public ModelAndView buscarPorEmpresaAdmin(@PathVariable("nombre")String nombre, ModelMap model, HttpSession session){
+        if(session.getAttribute(USUARIO) == null && session.getAttribute(CLIENTE) == null){
+            return new ModelAndView("templates/index");
+        }
         List<Contrato> contratos = busquedasContratos.buscarPorEmpresa(nombre);
         model.put("contratos", contratos);
         return new ModelAndView("crud/contratoAux", model);

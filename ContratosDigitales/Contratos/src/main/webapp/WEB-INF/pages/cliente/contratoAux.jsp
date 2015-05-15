@@ -35,7 +35,7 @@
             </a>
         </td>
         <td>
-            <c:if test = "${c.estatus.nombre ne 'Activo'}">      
+            <c:if test = "${c.estatus.nombre ne 'Activo' and c.estatus.nombre ne 'Aprobacion' and c.estatus.nombre ne 'Vencido'}">      
                 <button class="btn btn-primary firmarButton">Firmar</button>
             </c:if> 
         </td>

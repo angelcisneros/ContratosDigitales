@@ -62,6 +62,48 @@ function ponTachepaloma() {
     });
 }
 
+$('#contratoTbody').on('click', '.mostrarAlClienteButton', function() {
+
+    selector = this;
+    $('#popUpConfirmacion').modal('show');
+});
+
+
+$('#contratoTbody').on('click', '.verButton', function() {
+    verButton(this);
+});
+
+$('#contratoTbody').on('click', '.tieneArchivosfalse', function() {
+    noTieneArchivos(this);
+});
+
+$('#contratoTbody').on('click', '.tieneArchivostrue', function() {
+    descargarArchivos(this);
+});
+function descargarArchivos(selector) {
+    var contrato = $($($($($(selector).parent()).parent()).siblings('td.id')).children('label.ocultar')).text();
+
+    window.location.href = "descargarArchivos/" + contrato;
+}
+function noTieneArchivos(selector) {
+    $('#tituloPopUp').text('Opción no válida');
+    $('#contenidoPopUp').text('Este contrato no tiene Archivos relacionados con la firma');
+    $('#popUpRespuesta').modal('show');
+}
+function verButton(selector){
+    var contrato = $($($($($(selector).parent())).parent().siblings('td.id')).children('label.ocultar')).text();
+    var empleado = $($($($($(selector).parent().parent())).siblings('td.idUsuario')).children('label.ocultar')).text();
+    $('#contratoPdf').remove();
+    $('#contenidoPopUpPdf').append(
+            '<object id="contratoPdf" width="70%" height="600px" type="application/pdf" data="muestraPdf/' + contrato + '/' + empleado + '">' +
+//                    '<param name="idContrato" value="34">'+
+            '</object>'
+            );
+    $('#popUpPDF').modal('show');
+}
+
+
+
 $(document).on('ready', function() {
     $('#busquedas').change(function(e) {
         var str = $("#busquedas option:selected").attr('value');
@@ -77,7 +119,7 @@ $(document).on('ready', function() {
                         var msg = "Sorry but there was an error: ";
                         $("#info").html(msg + xhr.status + " " + xhr.statusText);
                     }
-
+                    ponTachepaloma();
                 });
                 break;
             case 1:
@@ -118,7 +160,6 @@ $(document).on('ready', function() {
         }
     });
 });
-
 $(document).on('ready', function() {
     $('#porTipoContrato').on('click', function(e) {
         var id = $('#porTipoContratoId option:selected').attr('value');
@@ -223,44 +264,3 @@ $(document).on('ready', function() {
     });
 
 });
-
-
-$('#contratoTbody').on('click', '.mostrarAlClienteButton', function() {
-
-    selector = this;
-    $('#popUpConfirmacion').modal('show');
-});
-
-
-$('#contratoTbody').on('click', '.verButton', function() {
-    verButton(this);
-});
-
-$('#contratoTbody').on('click', '.tieneArchivosfalse', function() {
-    noTieneArchivos(this);
-});
-
-$('#contratoTbody').on('click', '.tieneArchivostrue', function() {
-    descargarArchivos(this);
-});
-function descargarArchivos(selector) {
-    var contrato = $($($($($(selector).parent()).parent()).siblings('td.id')).children('label.ocultar')).text();
-
-    window.location.href = "descargarArchivos/" + contrato;
-}
-function noTieneArchivos(selector) {
-    $('#tituloPopUp').text('Opción no válida');
-    $('#contenidoPopUp').text('Este contrato no tiene Archivos relacionados con la firma');
-    $('#popUpRespuesta').modal('show');
-}
-function verButton(selector){
-    var contrato = $($($($($(selector).parent())).parent().siblings('td.id')).children('label.ocultar')).text();
-    var empleado = $($($($($(selector).parent().parent())).siblings('td.idUsuario')).children('label.ocultar')).text();
-    $('#contratoPdf').remove();
-    $('#contenidoPopUpPdf').append(
-            '<object id="contratoPdf" width="70%" height="600px" type="application/pdf" data="muestraPdf/' + contrato + '/' + empleado + '">' +
-//                    '<param name="idContrato" value="34">'+
-            '</object>'
-            );
-    $('#popUpPDF').modal('show');
-}

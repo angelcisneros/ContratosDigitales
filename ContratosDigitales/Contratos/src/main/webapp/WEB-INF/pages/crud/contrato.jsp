@@ -16,8 +16,8 @@
             <select id="busquedas" class="form-control">
                 <option label="--TODOS--" value="0">--TODOS--</option>
                 <option label="Por Nombre de Empleado" value="1" ></option>
-                <option label="Por Contacto" value="2" ></option>
-                <option label="Por Empresa" value="3" ></option>
+                <option label="Por Persona Fisica" value="2" ></option>
+                <option label="Por Persona Moral" value="3" ></option>
                 <option label="Por Tipo Contrato" value="4" ></option>
                 <option label="Por Estado" value="5" ></option>
             </select>
@@ -134,6 +134,5 @@
 <%@ include file="/WEB-INF/pages/usuario/popUpConfirmacion.jsp"%>
 <%@ include file="/WEB-INF/pages/templates/popUpRespuesta.jsp"%>
 <script src="js/busquedas/contratoAdmin.js" charset="UTF-8"></script>
-<script src="js/usuario/misContratos.js" charset="UTF-8"></script>
 <script src="js/usuario/aprobar.js" charset="UTF-8"></script>
 <%@ include file="/WEB-INF/pages/templates/footer.jsp"%>

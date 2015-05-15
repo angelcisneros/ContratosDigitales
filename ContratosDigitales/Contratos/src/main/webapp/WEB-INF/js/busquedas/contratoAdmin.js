@@ -4,6 +4,108 @@
  * and open the template in the editor.
  */
 
+var selector;
+$(document).on('ready', function() {
+    ponTachepaloma();
+    
+});
+
+
+$('.mostrarAlClienteButton').on('click', function() {
+    selector = this;
+    $('#popUpConfirmacion').modal('show');
+});
+
+$('#confirmar').on('click', function() {
+    var id = $($($($($(selector).parent())).parent().siblings('td.id')).children('label.ocultar')).text();
+    console.log(id);
+    var tr = $($($(selector).parent()).parent()).parent();
+    $.ajax({
+        type: 'POST',
+        url: "visibleCliente",
+        dataType: 'text',
+        data: id,
+        success: function(respuesta) {
+            respuesta = respuesta.split('#');
+            $('#tituloPopUp').text(respuesta[0]);
+            $('#contenidoPopUp').text(respuesta[1]);
+            $('#popUpConfirmacion').modal('hide');
+            $('#popUpRespuesta').modal('show');
+            var td = $(tr).children('td.este');
+            $('.success').removeClass();
+            $(tr).addClass('success');
+            if ($(td).hasClass('visible')) {
+                $(td).removeClass('visible');
+                $(td).addClass('unvisible');
+                $(td).html('<img src="images/tachesito.png">');
+            } else {
+                $(td).removeClass('unvisible');
+                $(td).addClass('visible');
+                $(td).html('<img src="images/palomita.png">');
+            }
+        },
+        error: function() {
+
+        }
+    });
+});
+
+function ponTachepaloma() {
+    var activos = $('.unvisible');
+    $.each(activos, function(indice, valor) {
+        var img = 'tachesito.png';
+        if ($(valor).text() === 'true' || $(valor).text() === true) {
+            img = 'palomita.png';
+            $(valor).addClass('visible');
+            $(valor).removeClass('unvisible');
+        }
+        $(valor).html('<img src="images/' + img + '">');
+    });
+}
+
+$('#contratoTbody').on('click', '.mostrarAlClienteButton', function() {
+
+    selector = this;
+    $('#popUpConfirmacion').modal('show');
+});
+
+
+$('#contratoTbody').on('click', '.verButton', function() {
+    verButton(this);
+});
+
+$('#contratoTbody').on('click', '.tieneArchivosfalse', function() {
+    noTieneArchivos(this);
+});
+
+$('#contratoTbody').on('click', '.tieneArchivostrue', function() {
+    descargarArchivos(this);
+});
+function descargarArchivos(selector) {
+    var contrato = $($($($($(selector).parent()).parent()).siblings('td.id')).children('label.ocultar')).text();
+
+    window.location.href = "descargarArchivos/" + contrato;
+}
+function noTieneArchivos(selector) {
+    $('#tituloPopUp').text('Opción no válida');
+    $('#contenidoPopUp').text('Este contrato no tiene Archivos relacionados con la firma');
+    $('#popUpRespuesta').modal('show');
+}
+function verButton(selector){
+    var contrato = $($($($($(selector).parent())).parent().siblings('td.id')).children('label.ocultar')).text();
+    var empleado = $($($($($(selector).parent().parent())).siblings('td.idUsuario')).children('label.ocultar')).text();
+    $('#contratoPdf').remove();
+    $('#contenidoPopUpPdf').append(
+            '<object id="contratoPdf" width="70%" height="600px" type="application/pdf" data="muestraPdf/' + contrato + '/' + empleado + '">' +
+//                    '<param name="idContrato" value="34">'+
+            '</object>'
+            );
+    $('#popUpPDF').modal('show');
+}
+
+
+
+
 $(document).on('ready', function() {
     $('#busquedas').change(function(e) {
         var str = $("#busquedas option:selected").attr('value');
@@ -69,6 +171,7 @@ $(document).on('ready', function() {
                     var msg = "Sorry but there was an error: ";
                     $("#info").html(msg + xhr.status + " " + xhr.statusText);
                 }
+                ponTachepaloma();
             });
         } else {
 
@@ -83,6 +186,7 @@ $(document).on('ready', function() {
                     var msg = "Sorry but there was an error: ";
                     $("#info").html(msg + xhr.status + " " + xhr.statusText);
                 }
+                ponTachepaloma();
             });
         } else {
 
@@ -97,6 +201,7 @@ $(document).on('ready', function() {
                     var msg = "Sorry but there was an error: ";
                     $("#info").html(msg + xhr.status + " " + xhr.statusText);
                 }
+                ponTachepaloma();
             });
         } else {
 
@@ -111,6 +216,7 @@ $(document).on('ready', function() {
                     var msg = "Sorry but there was an error: ";
                     $("#info").html(msg + xhr.status + " " + xhr.statusText);
                 }
+                ponTachepaloma();
             });
         } else {
 
@@ -128,6 +234,7 @@ $(document).on('ready', function() {
                         var msg = "Sorry but there was an error: ";
                         $("#info").html(msg + xhr.status + " " + xhr.statusText);
                     }
+                    ponTachepaloma();
                 });
             }
             if (nombre !== '' && paterno !== '' && materno === '') {
@@ -136,6 +243,7 @@ $(document).on('ready', function() {
                         var msg = "Sorry but there was an error: ";
                         $("#info").html(msg + xhr.status + " " + xhr.statusText);
                     }
+                    ponTachepaloma();
                 });
             }
             if (nombre !== '' && paterno !== '' && materno !== '') {
@@ -144,6 +252,7 @@ $(document).on('ready', function() {
                         var msg = "Sorry but there was an error: ";
                         $("#info").html(msg + xhr.status + " " + xhr.statusText);
                     }
+                    ponTachepaloma();
                 });
             }
 
@@ -153,37 +262,3 @@ $(document).on('ready', function() {
 
     });
 });
-
-
-$('#contratoTbody').on('click', '.verButton', function() {
-    verButton(this);
-});
-
-$('#contratoTbody').on('click', '.tieneArchivosfalse', function() {
-    noTieneArchivos(this);
-});
-
-$('#contratoTbody').on('click', '.tieneArchivostrue', function() {
-    descargarArchivos(this);
-});
-function descargarArchivos(selector) {
-    var contrato = $($($($($(selector).parent()).parent()).siblings('td.id')).children('label.ocultar')).text();
-
-    window.location.href = "descargarArchivos/" + contrato;
-}
-function noTieneArchivos(selector) {
-    $('#tituloPopUp').text('Opción no válida');
-    $('#contenidoPopUp').text('Este contrato no tiene Archivos relacionados con la firma');
-    $('#popUpRespuesta').modal('show');
-}
-function verButton(selector){
-    var contrato = $($($($($(selector).parent())).parent().siblings('td.id')).children('label.ocultar')).text();
-    var empleado = $($($($($(selector).parent().parent())).siblings('td.idUsuario')).children('label.ocultar')).text();
-    $('#contratoPdf').remove();
-    $('#contenidoPopUpPdf').append(
-            '<object id="contratoPdf" width="70%" height="600px" type="application/pdf" data="muestraPdf/' + contrato + '/' + empleado + '">' +
-//                    '<param name="idContrato" value="34">'+
-            '</object>'
-            );
-    $('#popUpPDF').modal('show');
-}
