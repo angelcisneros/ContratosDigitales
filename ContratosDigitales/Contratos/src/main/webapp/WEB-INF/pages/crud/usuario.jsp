@@ -7,14 +7,14 @@
         <div class="row">
             <div class="col-lg-1"></div>
             <div class="col-xs-12 col-sm-12 col-md-10 col-lg-10 ">
-                <h2><strong>Usuarios</strong></h2>
+                <h2><strong>Empleados</strong></h2>
             </div>
         </div>
         <hr />
         <div class="row">
             <div class="col-lg-1"></div>
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-10 form-inline">
-                <a id="addUsuarioButton" class="btn btn-primary btn-lg" role="button">Agregar Nuevo Usuario +</a>
+                <a id="addUsuarioButton" class="btn btn-primary btn-lg" role="button">Agregar Nuevo Empleado +</a>
             </div>
         </div>
         <hr />
@@ -51,7 +51,7 @@
                                         <button class="btn btn-primary usuarioUpdateButton">Editar</button>
                                         <button class="btn btn-danger usuarioDeleteButton">Eliminar</button>
                                         <button class="btn btn-warning usuarioPermisoButton">Permisos</button>
-                                        <button class="btn btn-info usuarioHistorialButton">Ver Historial</button>
+                                        <%-- <button class="btn btn-info usuarioHistorialButton">Ver Historial</button> --%>
                                     </div>
                                 </td>
                             </tr>
@@ -72,7 +72,7 @@
                 <button type="button" class="close" data-dismiss="modal">
                     <span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
                 </button>
-                <h4 class="modal-title"><strong>Agregar Nueva Usuario</strong></h4>
+                <h4 class="modal-title"><strong>Agregar Nueva Empleado</strong></h4>
             </div>
             <div class="modal-body">
 
@@ -81,16 +81,16 @@
                         <strong><h3>Datos Generales</h3></strong>
                         <form id="usuarioAddForm">
                             <label>Nombre(s):</label>
-                            <input id="nombreAdd" name="nombres" class="form-control" type="text" placeholder="Ingrese el nombre del Usuario">
+                            <input id="nombreAdd" name="nombres" class="form-control" type="text" placeholder="Ingrese el nombre del Empleado">
                             <br>
                             <label>Apellido Paterno:</label>
-                            <input id="paternoAdd" name="paterno" class="form-control" type="text" placeholder="Ingrese el Apellido Paterno del Usuario">
+                            <input id="paternoAdd" name="paterno" class="form-control" type="text" placeholder="Ingrese el Apellido Paterno del Empleado">
                             <br>
                             <label>Apellido Materno:</label>
-                            <input id="maternoAdd" name="materno" class="form-control" type="text" placeholder="Ingrese el Apellino Materno del Usuario">
+                            <input id="maternoAdd" name="materno" class="form-control" type="text" placeholder="Ingrese el Apellino Materno del Empleado">
                             <br>
                             <label>Correo:</label>
-                            <input id="mailAdd" name="mail" class="form-control" type="text" placeholder="Ingrese el Apellino Materno del Usuario">
+                            <input id="mailAdd" name="mail" class="form-control" type="text" placeholder="Ingrese el Apellino Materno del Empleado">
                             <br>
                             <label>Cuenta:</label>
                             <br>
@@ -102,7 +102,7 @@
                     </div>
                     <div id="agregarPermisos" class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
                         <div id="permisosCheck">
-                            <strong><h3>Permisos de Usuario</h3></strong>
+                            <strong><h3>Permisos de Empleado</h3></strong>
                             <label class="checkbox" >
                                 <input id="esAdministrador" type="checkbox"><strong>Administrador</strong>
                             </label>
@@ -134,21 +134,21 @@
                 <button type="button" class="close" data-dismiss="modal">
                     <span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
                 </button>
-                <h4 class="modal-title"><strong>Actualizar Usuario</strong></h4>
+                <h4 class="modal-title"><strong>Actualizar Empleado</strong></h4>
             </div>
             <div class="modal-body">
                 <form id="usuarioUpdateForm">
                     <label>Nombre(s):</label>
-                    <input id="nombreUpdate" name="nombres" class="form-control" type="text" placeholder="Ingrese el nombre del Usuario">
+                    <input id="nombreUpdate" name="nombres" class="form-control" type="text" placeholder="Ingrese el nombre del Empleado">
                     <br>
                     <label>Apellido Paterno:</label>
-                    <input id="paternoUpdate" name="paterno" class="form-control" type="text" placeholder="Ingrese el Apellido Paterno del Usuario">
+                    <input id="paternoUpdate" name="paterno" class="form-control" type="text" placeholder="Ingrese el Apellido Paterno del Empleado">
                     <br>
                     <label>Apellido Materno:</label>
-                    <input id="maternoUpdate" name="materno" class="form-control" type="text" placeholder="Ingrese el Apellino Materno del Usuario">
+                    <input id="maternoUpdate" name="materno" class="form-control" type="text" placeholder="Ingrese el Apellino Materno del Empleado">
                     <br>
                     <label>Correo:</label>
-                    <input id="mailUpdate" name="mail" class="form-control" type="text" placeholder="Ingrese el Apellino Materno del Usuario">
+                    <input id="mailUpdate" name="mail" class="form-control" type="text" placeholder="Ingrese el Apellino Materno del Empleado">
                     <br>
                     <label>Cuenta:</label>
                     <br>
@@ -177,7 +177,7 @@
                 <button type="button" class="close" data-dismiss="modal">
                     <span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
                 </button>
-                <h4 class="modal-title"><strong>Eliminar Usuario</strong></h4>
+                <h4 class="modal-title"><strong>Eliminar Empleado</strong></h4>
             </div>
             <div class="modal-body">
                 <form id="usuarioDeleteForm">

@@ -151,6 +151,11 @@ $(document).on('ready', function() {
                         limpiarInputs();
 
                     }
+                    if (respuesta[0] === 'Error...'){
+                        $('#tituloPopUp').text(respuesta[0]);
+                        $('#contenidoPopUp').text(respuesta[1]);
+                        $('#popUpRespuesta').modal('show');
+                    }
                 },
                 error: function(jqXHR, textStatus, errorThrown) {
                     alert('error');
@@ -269,8 +274,14 @@ $(document).on('ready', function() {
                                 '<button class="btn btn-success activarDesactivarButton">Activar/Desactivar Cuenta</button>' +
                                 ' </td>'
                                 );
-                    }
+                        
                     limpiarInputs();
+                    }
+                    if (respuesta[0] === 'Error...'){
+                        $('#tituloPopUp').text(respuesta[0]);
+                        $('#contenidoPopUp').text(respuesta[1]);
+                        $('#popUpRespuesta').modal('show');
+                    }
                 },
                 error: function(jqXHR, textStatus, errorThrown) {
                     alert('error');

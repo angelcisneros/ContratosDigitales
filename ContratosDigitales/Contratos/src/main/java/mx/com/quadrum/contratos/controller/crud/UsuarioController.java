@@ -10,6 +10,7 @@ import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 import mx.com.quadrum.entity.Permiso;
 import mx.com.quadrum.entity.Usuario;
+import mx.com.quadrum.service.ContactoService;
 import mx.com.quadrum.service.PermisoService;
 import mx.com.quadrum.service.UsuarioService;
 import static mx.com.quadrum.service.util.Llave.PERMISOS;
@@ -39,7 +40,7 @@ public class UsuarioController {
     PermisoService permisoService;
 
     @RequestMapping(value = "usuario", method = RequestMethod.GET)
-    public String usuario(Model model, HttpSession session) {
+    public String usuarios(Model model, HttpSession session) {
         Usuario usuario = (Usuario) session.getAttribute("usuario");
         List<Permiso> permisos = (List<Permiso>) session.getAttribute(PERMISOS);
 
@@ -67,6 +68,9 @@ public class UsuarioController {
         if (bindingResult.hasErrors()) {
             return ERROR_DATOS;
         }
+        if (usuarioService.existeCorreo(usuario.getMail())) {
+            return "Error...#Ya existe un usuario con el correo que quiere ingresar.";
+        }
         return usuarioService.agregar(usuario);
     }
 
@@ -78,6 +82,12 @@ public class UsuarioController {
         }
         if (bindingResult.hasErrors()) {
             return ERROR_DATOS;
+        }
+        if (usuarioService.existeCorreo(usuario.getMail())) {
+            Usuario u = usuarioService.buscarPorCorreo(usuario.getMail());
+            if (u.getId() != usuario.getId()) {
+                return "Error...#El correo pertencece a otra persona.";
+            }
         }
         return usuarioService.editar(usuario);
     }

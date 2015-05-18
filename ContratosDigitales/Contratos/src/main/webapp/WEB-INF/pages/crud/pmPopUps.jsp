@@ -18,7 +18,7 @@
                     <input id="paternoAdd" name="paterno" class="form-control" type="text" placeholder="Ingrese el Apellido Paterno del Contacto">
                     <br>
                     <label>Apellido Materno:</label>
-                    <input id="maternoAdd" name="materno" class="form-control" type="text" placeholder="Ingrese el Apellino Materno del Contacto">
+                    <input id="maternoAdd" name="materno" class="form-control" type="text" placeholder="Ingrese el Apellido Materno del Contacto">
                     <br>
                     <label>Correo:</label>
                     <input id="correoAdd" name="mail" class="form-control" type="email" placeholder="Ingrese el Correo">

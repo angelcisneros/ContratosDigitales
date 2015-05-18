@@ -155,6 +155,11 @@ $(document).on('ready', function() {
                         limpiarInputs();
 
                     }
+                    if (respuesta[0] === 'Error...') {
+                        $('#tituloPopUp').text(respuesta[0]);
+                        $('#contenidoPopUp').text(respuesta[1]);
+                        $('#popUpRespuesta').modal('show');
+                    }
                 },
                 error: function(jqXHR, textStatus, errorThrown) {
                     alert('error');
@@ -193,7 +198,7 @@ $(document).on('ready', function() {
             $('#paternoUpdate').removeAttr('style');
             requisitos++;
         }
-        
+
         if (materno === '') {
             muestraPopUpCampoNoVacio($('#maternoUpdate'));
             $('#maternoUpdate').css("border", "1px solid red");
@@ -276,13 +281,18 @@ $(document).on('ready', function() {
                                 '<td>' +
                                 '<label>' + direccion + '</label>' +
                                 '</td>' +
-                                '<td class="desactivada"><img src="images/' + activo +'.png"></td>' +
+                                '<td class="desactivada"><img src="images/' + activo + '.png"></td>' +
                                 '<td>' +
                                 '<button class="btn btn-primary contactoUpdateButton">Editar</button>' +
                                 '<button class="btn btn-danger contactoDeleteButton">Eliminar</button>' +
                                 '<button class="btn btn-success activarDesactivarButton">Activar/Desactivar Cuenta</button>' +
                                 ' </td>'
                                 );
+                    }
+                    if (respuesta[0] === 'Error...') {
+                        $('#tituloPopUp').text(respuesta[0]);
+                        $('#contenidoPopUp').text(respuesta[1]);
+                        $('#popUpRespuesta').modal('show');
                     }
                 },
                 error: function(jqXHR, textStatus, errorThrown) {
@@ -353,9 +363,9 @@ function rellenaPopUpDelete(selector) {
     var telefono1 = $($(tds[4]).children('label.telefono1')).text();
     var telefono2 = $($(tds[4]).children('label.telefono2')).text();
     var direccion = $(tds[5]).children('label.telefono2').text();
-    if($(tds[6]).hasClass('activada')){
+    if ($(tds[6]).hasClass('activada')) {
         activo = 'palomita';
-    }else{
+    } else {
         activo = 'tachesito';
     }
     trClick = $($(selector).parent()).parent();
@@ -381,9 +391,9 @@ function rellenaPopUpUpdate(selector) {
     var telefono1 = $($(tds[4]).children('label.telefono1')).text();
     var telefono2 = $($(tds[4]).children('label.telefono2')).text();
     var direccion = $(tds[5]).children('label.telefono2').text();
-    if($(tds[6]).hasClass('activada')){
+    if ($(tds[6]).hasClass('activada')) {
         activo = 'palomita';
-    }else{
+    } else {
         activo = 'tachesito';
     }
     trClick = $($(selector).parent()).parent();

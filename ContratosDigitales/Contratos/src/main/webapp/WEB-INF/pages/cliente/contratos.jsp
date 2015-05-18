@@ -37,8 +37,8 @@
             <h3>Búsquedas</h3>
             <select id="busquedas" class="form-control">
                 <option label="--TODOS--" value="0">--TODOS--</option>
-                <option label="Por Tipo Contrato" value="4" ></option>
-                <option label="Por Estado" value="5" ></option>
+                <option label="Por Tipo Contrato" value="4" >Por Tipo Contrato</option>
+                <option label="Por Estado" value="5" >Por Estado</option>
             </select>
         </div>
 

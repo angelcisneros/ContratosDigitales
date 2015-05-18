@@ -20,7 +20,7 @@
                         <select id="contactoAdd" name="contacto.id" class="form-control">
                             <option value="0" label="Seleccione...">Seleccione...</option>
                             <c:forEach items="${contactos}" var="c" varStatus="status">
-                                <option value="${c.id}" label="${c.nombre} ${c.paterno} ${c.materno}"></option>
+                                <option value="${c.id}" label="${c.nombre} ${c.paterno} ${c.materno}">${c.nombre} ${c.paterno} ${c.materno}</option>
                             </c:forEach>
                         </select>
                     </div>
@@ -46,17 +46,19 @@
                         <input id="fechaCreacion" name="fechaCreacion" class="form-control" type="date" placeholder="Ingrese la Fecha de Creación"/>
                     </div>
                     <div class="form-group col-xs-12 col-sm-12 col-md-2 col-lg-2 ">
-                        <label>Fecha de Vencimiento:</label>
+                        <label>Fecha de Ven:</label>
                         <input id="fechaVencimiento" name="fechaVencimiento" class="form-control" type="date" placeholder="Ingrese la Fecha de Vencimiento"/>
                     </div>
                     <div class="form-group col-xs-12 col-sm-12 col-md-2 col-lg-2 ">
                         <label>Fecha de Pago:</label>
                         <input id="fechaPago" name="fechaPago" class="form-control" type="date" placeholder="Ingrese la Fecha de Pago"/>
                     </div>
-                    <div class="form-group col-xs-12 col-sm-12 col-md-3 col-lg-3 input-group">
+                    <div class="form-group col-xs-12 col-sm-12 col-md-3 col-lg-3">
                         <label>Monto:</label>
-                        <span class="input-group-addon">$</span>
-                        <input id="monto" path="monto" name="monto" class="form-control" type="number" placeholder="Ingrese Monto"/>
+                        <div class="input-group">
+                            <span class="input-group-addon" id="basic-addon1">$</span>
+                            <input id="monto" path="monto" name="monto" class="form-control" type="number" placeholder="Ingrese Monto" aria-describedby="basic-addon1"/>
+                        </div>
                     </div>
                     <div class="form-group col-xs-12 col-sm-12 col-md-3 col-lg-3 ">
                         <label>Folios:</label>

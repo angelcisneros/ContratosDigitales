@@ -18,7 +18,7 @@
         <title>JSP Page</title>
         <!-- Bootstrap core CSS -->
         <link rel="stylesheet" href="css/bootstrap.min.css">
-<link href='http://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
         <!-- Custom styles for this template -->
         <link rel="stylesheet" href="css/main.css">
         <link rel="stylesheet" href="css/signin.css">
@@ -26,8 +26,8 @@
         <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
         <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
         <script src="js/ie-emulation-modes-warning.js"></script>
-<link rel="stylesheet" type="text/css" href="css/animate.css">
-        
+        <link rel="stylesheet" type="text/css" href="css/animate.css">
+
         <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!--[if lt IE 9]>
                           <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
@@ -50,11 +50,10 @@
                     </div>
                     <font color="red" size="5"> ${mensaje}</font>
                     <form class="form-signin" role="form" action="inicio" method="post">
-                        <input name="rfc" class="form-control" placeholder="RfC usuario"
-                               required autofocus /> <input name="password" type="password"
-                               class="form-control" placeholder="Password" required /> <label
-                               class="checkbox text-center letra-negra"> <input
-                                type="checkbox" value="remember-me" class="letra-negra">
+                        <input name="rfc" class="form-control" placeholder="Correo Empleado" required autofocus /> 
+                        <input name="password" type="password" class="form-control" placeholder="Password" required /> 
+                        <label class="checkbox text-center letra-negra"> 
+                            <input type="checkbox" value="remember-me" class="letra-negra">
                             Recordar Contraseña
                         </label>
                         <button class="btn btn-lg btn-block rojo-quadrum" type="submit">Iniciar Sesión</button>
@@ -76,7 +75,7 @@
                     .write('<script src="js/jquery-1.11.1.min.js"><\/script>')
         </script>
         <script src="js/bootstrap.min.js"></script>
-        
+
         <script src="js/plugins.js"></script>
         <script charset="UTF-8" src="js/main.js"></script>
     </body>

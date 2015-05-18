@@ -40,6 +40,7 @@ public class HomeController {
             if (u.getEsAdmin()) {
                 model.addAttribute("esAdmin", "esAdmin");
             }
+            model.addAttribute("nombre", u.getNombres() + " " + u.getPaterno() + " " + u.getMaterno());
             return "templates/inicio";
         }
         return "templates/index";
@@ -75,6 +76,7 @@ public class HomeController {
             if (usuario.getEsAdmin()) {
                 model.addAttribute("esAdmin", "esAdmin");
             }
+            model.addAttribute("nombre", usuario.getNombres() + " " + usuario.getPaterno() + " " + usuario.getMaterno());
             return ("templates/inicio");
         }
         model.addAttribute("estaRegistrado", false);

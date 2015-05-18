@@ -74,7 +74,7 @@
                                     <label class="mail">${c.mail}</label>
                                 </td>
                                 <td>
-                                    <label class="telefono1">${c.telefono1}</label> y
+                                    <label class="telefono1">${c.telefono1}</label> ,
                                     <label class="telefono2">${c.telefono2}</label>
                                 </td>
                                 <td>

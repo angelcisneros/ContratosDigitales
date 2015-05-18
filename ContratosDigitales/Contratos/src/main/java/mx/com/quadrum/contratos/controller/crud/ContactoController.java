@@ -76,6 +76,9 @@ public class ContactoController {
         if (bindingResult.hasErrors()) {
             return ERROR_DATOS;
         }
+        if (contactoService.existeCorreo(contacto.getMail())) {
+            return "Error...#Ya existe un usuario con el correo que quiere ingresar.";
+        }
         return contactoService.agregar(contacto);
     }
 
@@ -88,7 +91,12 @@ public class ContactoController {
         if (bindingResult.hasErrors()) {
             return ERROR_DATOS;
         }
-
+        if (contactoService.existeCorreo(contacto.getMail())) {
+            Contacto c = contactoService.buscarPorCorreo(contacto.getMail());
+            if (c.getId() != contacto.getId()) {
+                return "Error...#El correo pertencece a otra persona.";
+            }
+        }
         return contactoService.editar(contacto);
     }
 

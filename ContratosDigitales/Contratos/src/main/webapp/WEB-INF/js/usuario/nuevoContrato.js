@@ -8,81 +8,84 @@
 $('#addContrato').on('click', function(eveent) {
 
     var requisitos = 0;
-    var nombre = $('#nombre').val();
     var monto = $('#monto').val();
     var contacto = $('#contactoAdd').val();
     var tipoContrato = $('#tipoContratoAdd').val();
-    var estado = $('#estadoAdd').val();
     var fechaPago = $('#fechaPago').val();
     var fechaCreacion = $('#fechaCreacion').val();
     var fin = $('#fechaVencimiento').val();
+    var folios = $('#folios').val();
 
-    if (nombre === '') {
-        muestraPopUpCampoNoVacio($('#nombre'));
-        $('#nombreEstatusUpdate').css("border", "1px solid red");
-    } else {
-        requisitos++;
-        cierraPopUpChiquito($('#nombre'));
-        $('#nombreEstatusUpdate').removeAttr('style');
-    }
+    
     if ($.isNumeric(monto)) {
-        requisitos++;
-        cierraPopUpChiquito($('#monto'));
-        $('#nombreEstatusUpdate').removeAttr('style');
+        if (parseInt(monto >= 1)) {
+            requisitos++;
+            cierraPopUpChiquito($('#monto'));
+            $('#monto').removeAttr('style');
+        } else {
+            muestraPopUpTituloAndMensaje($('#monto'), 'El monto debe ser positivo', 'Error...');
+            $('#monto').css("border", "1px solid red");
+        }
     } else {
         muestraPopUpCampoNumerico($('#monto'));
-        $('#nombreEstatusUpdate').removeAttr('style');
+        $('#monto').css("border", "1px solid red");
     }
     if (contacto === 0 || contacto === '0') {
         muestraPopUpCampoNoVacio($('#contactoAdd'));
-        $('#nombreEstatusUpdate').css("border", "1px solid red");
+        $('#contactoAdd').css("border", "1px solid red");
     } else {
         requisitos++;
         cierraPopUpChiquito($('#contactoAdd'));
-        $('#nombreEstatusUpdate').removeAttr('style');
+        $('#contactoAdd').removeAttr('style');
     }
     if (tipoContrato === 0 || tipoContrato === '0') {
         muestraPopUpCampoNoVacio($('#tipoContratoAdd'));
-        $('#nombreEstatusUpdate').css("border", "1px solid red");
+        $('#tipoContratoAdd').css("border", "1px solid red");
     } else {
         requisitos++;
-        $('#nombreEstatusUpdate').removeAttr('style');
+        $('#tipoContratoAdd').removeAttr('style');
         cierraPopUpChiquito($('#tipoContratoAdd'));
     }
-    if (estado === 0 || estado === '0') {
-        muestraPopUpCampoNoVacio($('#estadoAdd'));
-        $('#nombreEstatusUpdate').css("border", "1px solid red");
-    } else {
-        requisitos++;
-        $('#nombreEstatusUpdate').removeAttr('style');
-        cierraPopUpChiquito($('#estadoAdd'));
-    }
+    
     if (fechaCreacion === '') {
         muestraPopUpCampoNoVacio($('#fechaCreacion'));
-        $('#nombreEstatusUpdate').css("border", "1px solid red");
+        $('#fechaCreacion').css("border", "1px solid red");
     } else {
         requisitos++;
-        $('#nombreEstatusUpdate').removeAttr('style');
+        $('#fechaCreacion').removeAttr('style');
         cierraPopUpChiquito($('#fechaCreacion'));
-        
+
     }
     if (fechaPago === '') {
         muestraPopUpCampoNoVacio($('#fechaPago'));
-        $('#nombreEstatusUpdate').css("border", "1px solid red");
+        $('#fechaPago').css("border", "1px solid red");
     } else {
         requisitos++;
-        $('#nombreEstatusUpdate').removeAttr('style');
+        $('#fechaPago').removeAttr('style');
         cierraPopUpChiquito($('#fechaPago'));
     }
     if (fin === '') {
         muestraPopUpCampoNoVacio($('#fechaVencimiento'));
-        $('#nombreEstatusUpdate').css("border", "1px solid red");
+        $('#fechaVencimiento').css("border", "1px solid red");
     } else {
         requisitos++;
-        $('#nombreEstatusUpdate').removeAttr('style');
+        $('#fechaVencimiento').removeAttr('style');
         cierraPopUpChiquito($('#fechaVencimiento'));
     }
-    if (requisitos >= 8) {
+    if ($.isNumeric(folios)) {
+        if (parseInt(folios >= 1)) {
+            requisitos++;
+            cierraPopUpChiquito($('#folios'));
+            $('#folios').removeAttr('style');
+        } else {
+            muestraPopUpTituloAndMensaje($('#folios'), 'Los folios debe ser positivos', 'Error...');
+            $('#folios').css("border", "1px solid red");
+        }
+    } else {
+        muestraPopUpCampoNumerico($('#folios'));
+       $('#folios').css("border", "1px solid red");
+    }
+    if (requisitos >= 7) {
         $.ajax({
             type: 'POST',
             url: "addContrato/",

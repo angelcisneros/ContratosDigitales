@@ -118,6 +118,11 @@ ul#foot{
     font-size: 6em;
     color: #fff;
 }
+.font-pacific-inicio{
+    font-family: 'Pacifico', cursive;
+    
+    color: #000;
+}
 
 .amarillo{
     background-color: #AA2024;
