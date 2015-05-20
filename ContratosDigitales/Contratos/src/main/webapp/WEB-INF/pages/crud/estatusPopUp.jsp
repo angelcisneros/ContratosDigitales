@@ -10,8 +10,9 @@
                 <h4 class="modal-title"><strong>Agregar Nueno Estatus</strong></h4>
             </div>
             <div class="modal-body">
+                <small>Los datos con * son obligatorios</small>
                 <form id="estatusAddForm">
-                    <label>Nombre:</label>
+                    <label>*Nombre:</label>
                     <input id="nombreEstatusAdd" name="nombre" class="form-control" type="text" placeholder="Ingrese el nombre del Estatus">
                     <br>
                 </form>
@@ -37,8 +38,9 @@
                 <h4 class="modal-title"><strong>Actualizar Estatus</strong></h4>
             </div>
             <div class="modal-body">
+                <small>Los datos con * son obligatorios</small>
                 <form id="estatusUpdateForm">
-                    <label>Nombre:</label>
+                    <label>*Nombre:</label>
                     <input id="nombreEstatusUpdate" name="nombre" class="form-control" type="text" placeholder="Ingrese el nombre del Estatus">
                     <input id="idEstatusUpdate" name="id" class="form-control ocultar" type="text" placeholder="Ingrese el nombre del Estatus">
                 </form>

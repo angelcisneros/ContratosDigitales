@@ -78,21 +78,21 @@
 
                 <div class="row">
                     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-                        <strong><h3>Datos Generales</h3></strong>
+                        <strong><h3>Datos Generales</h3><small>Los datos con * son obligatorios</small></strong>
                         <form id="usuarioAddForm">
-                            <label>Nombre(s):</label>
+                            <label>*Nombre(s):</label>
                             <input id="nombreAdd" name="nombres" class="form-control" type="text" placeholder="Ingrese el nombre del Empleado">
                             <br>
-                            <label>Apellido Paterno:</label>
+                            <label>*Apellido Paterno:</label>
                             <input id="paternoAdd" name="paterno" class="form-control" type="text" placeholder="Ingrese el Apellido Paterno del Empleado">
                             <br>
-                            <label>Apellido Materno:</label>
+                            <label>*Apellido Materno:</label>
                             <input id="maternoAdd" name="materno" class="form-control" type="text" placeholder="Ingrese el Apellino Materno del Empleado">
                             <br>
-                            <label>Correo:</label>
+                            <label>*Correo:</label>
                             <input id="mailAdd" name="mail" class="form-control" type="text" placeholder="Ingrese el Apellino Materno del Empleado">
                             <br>
-                            <label>Cuenta:</label>
+                            <label>*Cuenta:</label>
                             <br>
                             <input id="activadaAdd" type="radio" value="true" checked="true" name="estado">Activada.
                             <br> 
@@ -137,20 +137,21 @@
                 <h4 class="modal-title"><strong>Actualizar Empleado</strong></h4>
             </div>
             <div class="modal-body">
+                <small>Los datos con * son obligatorios</small>
                 <form id="usuarioUpdateForm">
-                    <label>Nombre(s):</label>
+                    <label>*Nombre(s):</label>
                     <input id="nombreUpdate" name="nombres" class="form-control" type="text" placeholder="Ingrese el nombre del Empleado">
                     <br>
-                    <label>Apellido Paterno:</label>
+                    <label>*Apellido Paterno:</label>
                     <input id="paternoUpdate" name="paterno" class="form-control" type="text" placeholder="Ingrese el Apellido Paterno del Empleado">
                     <br>
-                    <label>Apellido Materno:</label>
+                    <label>*Apellido Materno:</label>
                     <input id="maternoUpdate" name="materno" class="form-control" type="text" placeholder="Ingrese el Apellino Materno del Empleado">
                     <br>
-                    <label>Correo:</label>
+                    <label>*Correo:</label>
                     <input id="mailUpdate" name="mail" class="form-control" type="text" placeholder="Ingrese el Apellino Materno del Empleado">
                     <br>
-                    <label>Cuenta:</label>
+                    <label>*Cuenta:</label>
                     <br>
                     <input id="activadaUpdate" type="radio" value="false">Activada.
                     <br>

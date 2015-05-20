@@ -18,7 +18,7 @@ $('#addContrato').on('click', function(eveent) {
 
     
     if ($.isNumeric(monto)) {
-        if (parseInt(monto >= 1)) {
+        if (parseInt(monto) > 0) {
             requisitos++;
             cierraPopUpChiquito($('#monto'));
             $('#monto').removeAttr('style');
@@ -73,7 +73,7 @@ $('#addContrato').on('click', function(eveent) {
         cierraPopUpChiquito($('#fechaVencimiento'));
     }
     if ($.isNumeric(folios)) {
-        if (parseInt(folios >= 1)) {
+        if (parseInt(folios) > 0) {
             requisitos++;
             cierraPopUpChiquito($('#folios'));
             $('#folios').removeAttr('style');

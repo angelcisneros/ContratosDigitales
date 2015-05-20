@@ -13,10 +13,11 @@
     <div class="row">
         <div class="col-md-1 col-lg-1"></div>
         <div class="col-xs-12 col-sm-12 col-md-10 col-lg-10">
+            <small>Los datos con * son obligatorios</small>
             <form role="form" method="post" id="contratoAddForm">
                 <div class="row">
                     <div class="form-group col-xs-12 col-sm-12 col-md-6 col-lg-6 ">
-                        <label>Contacto:</label>
+                        <label>*Cliente o Apoderado:</label>
                         <select id="contactoAdd" name="contacto.id" class="form-control">
                             <option value="0" label="Seleccione...">Seleccione...</option>
                             <c:forEach items="${contactos}" var="c" varStatus="status">
@@ -25,7 +26,7 @@
                         </select>
                     </div>
                     <div class="form-group col-xs-12 col-sm-12 col-md-6 col-lg-6 ">
-                        <label>Tipo de Contrato:</label>
+                        <label>*Tipo de Contrato:</label>
                         <select id="tipoContratoAdd" name="tipoContrato.id" class="form-control">
                             <option value="0" label="Seleccione...">Seleccione...</option>
                             <c:forEach items="${tipoContratos}" var="t" varStatus="status">
@@ -42,26 +43,26 @@
                     </div>
 /--%>
                     <div class="form-group col-xs-12 col-sm-12 col-md-2 col-lg-2 ">
-                        <label>Fecha de Inicio:</label>
+                        <label>*Fecha de Inicio:</label>
                         <input id="fechaCreacion" name="fechaCreacion" class="form-control" type="date" placeholder="Ingrese la Fecha de Creación"/>
                     </div>
                     <div class="form-group col-xs-12 col-sm-12 col-md-2 col-lg-2 ">
-                        <label>Fecha de Ven:</label>
+                        <label>*Fecha de Ven:</label>
                         <input id="fechaVencimiento" name="fechaVencimiento" class="form-control" type="date" placeholder="Ingrese la Fecha de Vencimiento"/>
                     </div>
                     <div class="form-group col-xs-12 col-sm-12 col-md-2 col-lg-2 ">
-                        <label>Fecha de Pago:</label>
+                        <label>*Fecha de Pago:</label>
                         <input id="fechaPago" name="fechaPago" class="form-control" type="date" placeholder="Ingrese la Fecha de Pago"/>
                     </div>
                     <div class="form-group col-xs-12 col-sm-12 col-md-3 col-lg-3">
-                        <label>Monto:</label>
+                        <label>*Monto:</label>
                         <div class="input-group">
                             <span class="input-group-addon" id="basic-addon1">$</span>
                             <input id="monto" path="monto" name="monto" class="form-control" type="number" placeholder="Ingrese Monto" aria-describedby="basic-addon1"/>
                         </div>
                     </div>
                     <div class="form-group col-xs-12 col-sm-12 col-md-3 col-lg-3 ">
-                        <label>Folios:</label>
+                        <label>*Folios:</label>
                         <input id="folios" path="folios" name="folios" class="form-control" type="number" placeholder="Ingrese Monto" />
                     </div>
                 </div>
@@ -97,8 +98,8 @@
 </div>
 
 <%@ include file="/WEB-INF/pages/templates/popUpRespuesta.jsp"%>
-<script src="js/usuario/nuevoContrato.js" charset="UTF-8">
-    < script src = "http://cdn.jsdelivr.net/webshim/1.12.4/extras/modernizr-custom.js" ></script>
+<script src="js/usuario/nuevoContrato.js" charset="UTF-8"></script>
+<script src="http://cdn.jsdelivr.net/webshim/1.12.4/extras/modernizr-custom.js"></script>
 <script src="http://cdn.jsdelivr.net/webshim/1.12.4/polyfiller.js"></script>
 <script>
     webshims.setOptions('waitReady', false);

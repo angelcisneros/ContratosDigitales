@@ -23,7 +23,7 @@
     </div><!-- /.container-fluid -->
 </nav>
 
-<div id="contenido" class="container-fluid">
+<div id="contenido" class="container-fluid ${error}">
     <div class="row">
         <div class="col-lg-1"></div>
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-10 ">
@@ -75,8 +75,6 @@
 
 
 <%@ include file="/WEB-INF/pages/busquedas/contratoCliente.jsp"%>
-<script src="js/busquedas/contratoCliente.js" charset="UTF-8"></script>
-
 <c:choose>
     <c:when test="${empty contacto.empresa}">
         <%@ include file="/WEB-INF/pages/cliente/popUpFirmarPF.jsp"%>
@@ -88,6 +86,8 @@
     </c:otherwise>
 </c:choose>
 <%@ include file="/WEB-INF/pages/templates/popUpPDF.jsp"%>
+<%@ include file="/WEB-INF/pages/cliente/popUpError.jsp"%>
 <%@ include file="/WEB-INF/pages/templates/popUpRespuesta.jsp"%>
 <script src="js/inputFile.js"></script>
+<script src="js/busquedas/contratoCliente.js" charset="UTF-8"></script>
 <%@ include file="/WEB-INF/pages/templates/footer.jsp"%>

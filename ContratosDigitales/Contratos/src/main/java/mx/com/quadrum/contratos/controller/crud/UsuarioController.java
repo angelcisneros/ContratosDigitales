@@ -6,21 +6,29 @@
 package mx.com.quadrum.contratos.controller.crud;
 
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.mail.MessagingException;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
+import mx.com.quadrum.contratos.controller.service.user.ClientesController;
 import mx.com.quadrum.entity.Permiso;
 import mx.com.quadrum.entity.Usuario;
 import mx.com.quadrum.service.ContactoService;
 import mx.com.quadrum.service.PermisoService;
 import mx.com.quadrum.service.UsuarioService;
+import mx.com.quadrum.service.util.EnviarCorreo;
 import static mx.com.quadrum.service.util.Llave.PERMISOS;
 import static mx.com.quadrum.service.util.MensajesCrud.ERROR_DATOS;
 import static mx.com.quadrum.service.util.MensajesCrud.SESION_CADUCA;
+import static mx.com.quadrum.service.util.Rutas.RECUPERA_PASS;
+import static mx.com.quadrum.service.util.Rutas.mensajePassword;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -119,4 +127,27 @@ public class UsuarioController {
         return "templates/error";
     }
 
+    @ResponseBody
+    @RequestMapping(value = "/recuperarContraseniaEmpleado", method = RequestMethod.POST)
+    public String recuperarContraseniaPost(@RequestBody String correo) {
+        System.out.println(correo);
+        Usuario usuario = usuarioService.buscarPorCorreo(correo);
+        if (usuario == null) {
+            return "Error...#No encontramos a nadie registrado con ese correo.";
+        } else {
+            try {
+                EnviarCorreo enviarCorreo = new EnviarCorreo();
+                enviarCorreo.enviaCredenciales(correo, RECUPERA_PASS, mensajePassword(usuario.getPassword()));
+                return "Correcto...#Se ha enviado su contraseña a su correo";
+            } catch (MessagingException ex) {
+                Logger.getLogger(ClientesController.class.getName()).log(Level.SEVERE, null, ex);
+                return "Error...#No se pudo enviar la contraseña";
+            }
+        }
+    }
+
+    @RequestMapping(value = "/recuperarContraseniaEmpleado", method = RequestMethod.GET)
+    public String recuperarContrasenia(Model model, HttpSession session) {
+        return "usuario/recuperarContrasenia";
+    }
 }

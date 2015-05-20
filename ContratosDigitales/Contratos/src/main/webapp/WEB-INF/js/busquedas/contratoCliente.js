@@ -4,6 +4,24 @@
  * and open the template in the editor.
  */
 
+$(document).on('ready', function(){
+   var contenido = $('#contenido');
+   console.log('entre');
+   if(contenido.hasClass('true')){
+       $('#popUpError').modal('show');
+       console.log('si tengo true');
+   }
+});
+
+$('#aceptoErrores').on('click', function(){
+    $.ajax({
+        type: 'POST',
+        url: "aceptoErrores",
+        dataType: 'text'
+    });
+    $('#popUpError').modal('hide');
+    $('#contenido').removeClass('true');
+});
 $(document).on('ready', function() {
     $('#busquedas').change(function(e) {
         var str = $("#busquedas option:selected").attr('value');

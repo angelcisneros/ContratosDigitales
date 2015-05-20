@@ -6,7 +6,8 @@
                     <button type="button" class="close" data-dismiss="modal">
                         <span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
                     </button>
-                    <h2 class="modal-title"><strong>Firmar...</strong></h2>
+                    <h2 class="modal-title"><strong>Firmar...</strong><small>Los datos con * son obligatorios</small></h2>
+                    
                 </div>
                 <div class="modal-body">
                     <div class="row">
@@ -14,7 +15,7 @@
                             <label id="rfc">RFC: </label>
                         </div>
                         <div class="col-xs-12 col-md-6">
-                            <label>Confirmar Monto:</label>
+                            <label>* Confirmar Monto:</label>
                             <label class="checkbox mischeckbox" >
                                 <input id="monto" type="checkbox" class="mischeckbox" /><strong></strong>
                             </label>
@@ -23,11 +24,11 @@
                     <hr>
                     <div class="row">
                         <div class="col-xs-12 col-md-12">
-                            <label>Subir Poder Notarial:</label>
+                            <label>* Subir Poder Notarial:</label>
                             <input id="poderNotarial" type="file" name="poderNotarial" class="filestyle form-control" data-buttonText=" Seleccione" data-buttonName="btn-primary" data-iconName="glyphicon-folder-open" />
                         </div>
                         <div class="col-xs-12 col-md-12">
-                            <label>Subir IFE:</label>
+                            <label>* Subir IFE:</label>
                             <input id="ife" type="file" name="ife" class="filestyle form-control" data-buttonText=" Seleccione" data-buttonName="btn-primary" data-iconName="glyphicon-folder-open" />
                         </div>
                     </div>
@@ -42,19 +43,19 @@
                     </div>
                     <div class="row">
                         <div class="col-xs-12 col-md-12">
-                            <label>Subir *.Cer:</label>
+                            <label>* Subir *.Cer:</label>
                             <input id="cer" type="file" name="cer" class="filestyle form-control" data-buttonText=" Seleccione" data-buttonName="btn-primary" data-iconName="glyphicon-folder-open" />
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-xs-12 col-md-12">
-                            <label>Subir *.Key:</label>
+                            <label>* Subir *.Key:</label>
                             <input id="key" type="file" name="key" class="filestyle form-control" data-buttonText=" Seleccione" data-buttonName="btn-primary" data-iconName="glyphicon-folder-open" />
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-xs-12 col-md-12">
-                            <label>Password:</label>
+                            <label>* Password:</label>
                             <input id="password" type="password" name="password" class="form-control" />
                         </div>
                     </div>

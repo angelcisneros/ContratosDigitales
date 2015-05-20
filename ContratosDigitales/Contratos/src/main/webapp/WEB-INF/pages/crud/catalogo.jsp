@@ -5,15 +5,15 @@
 <div id="contenido" class="container-fluid">
     <!-- Nav tabs -->
     <ul class="nav nav-tabs" role="tablist">
-        <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab"><h4>Formatos</h4></a></li>
-        <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab"><h4>Estatus</h4></a></li>
+        <li role="presentation" class="active"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab"><h4>Estatus</h4></a></li>
+        <%-- <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab"><h4>Estatus</h4></a></li> --%>
         <li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab"><h4>Grado</h4></a></li>
     </ul>
 
     <!-- Tab panes -->
     <div class="tab-content">
         <!-- TIPO CONTRATO -->
-        <div role="tabpanel" class="tab-pane active" id="home">
+    <%--    <div role="tabpanel" class="tab-pane active" id="home">
             <div class="row">
                 <div class="col-lg-1"></div>
                 <div class="col-xs-12 col-sm-12 col-md-10 col-lg-10 ">
@@ -62,7 +62,7 @@
                 </div>
                 <div class="col-md-1 col-lg-1"></div>
             </div>
-        </div>
+        </div> --%>
          <!-- ESTATUS -->
         <div role="tabpanel" class="tab-pane" id="profile">
             <div class="row">

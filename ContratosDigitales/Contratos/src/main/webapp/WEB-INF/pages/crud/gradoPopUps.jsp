@@ -9,8 +9,9 @@
                 <h4 class="modal-title"><strong>Agregar Nueno Grado</strong></h4>
             </div>
             <div class="modal-body">
+                <small>Los datos con * son obligatorios</small>
                 <form id="gradoAddForm">
-                    <label>Nombre:</label>
+                    <label>*Nombre:</label>
                     <input id="nombreGradoAdd" name="nombre" class="form-control" type="text" placeholder="Ingrese el nombre del Grado">
                     <br>
                 </form>
@@ -36,8 +37,9 @@
                 <h4 class="modal-title"><strong>Actualizar Grado</strong></h4>
             </div>
             <div class="modal-body">
+                <small>Los datos con * son obligatorios</small>
                 <form id="gradoUpdateForm">
-                    <label>Nombre:</label>
+                    <label>*Nombre:</label>
                     <input id="nombreGradoUpdate" name="nombre" class="form-control" type="text" placeholder="Ingrese el nombre del Grado">
                     <input id="idGradoUpdate" name="id" class="form-control ocultar" type="text" placeholder="Ingrese el nombre del Grado">
                 </form>
@@ -64,7 +66,8 @@
             </div>
             <div class="modal-body">
                 <form id="gradoDeleteForm">
-                    <strong><label>Nombre:</label></strong>
+                    <small>Los datos con * son obligatorios</small>
+                    <strong><label>*Nombre:</label></strong>
                     <label id="nombreGradoDelete"></label>
                     <input id="idGradoDelete" name="id" class="form-control ocultar" type="text" placeholder="Ingrese el nombre del Grado">
                 </form>

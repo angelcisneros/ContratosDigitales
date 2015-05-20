@@ -64,11 +64,12 @@
                 <h4 class="modal-title"><strong>Agregar Nueva Empresa</strong></h4>
             </div>
             <div class="modal-body">
+                <small>Los datos con * son obligatorios</small>
                 <form id="empresaAddForm">
-                    <label>Nombre:</label>
+                    <label>* Nombre:</label>
                     <input id="nombreAdd" name="razonSocial" class="form-control" type="text" placeholder="Ingrese el nombre del Empresa">
                     <br>
-                    <label>Dirección</label>
+                    <label>* Dirección</label>
                     <textarea id="direccionAdd" name="direccion" class="form-control"></textarea>
                 </form>
             </div>
@@ -94,11 +95,12 @@
                 <h4 class="modal-title"><strong>Actualizar Empresa</strong></h4>
             </div>
             <div class="modal-body">
+                <small>Los datos con * son obligatorios</small>
                 <form id="empresaUpdateForm">
-                    <label>Nombre:</label>
+                    <label>* Nombre:</label>
                     <input id="nombreUpdate" name="razonSocial" class="form-control" type="text" placeholder="Ingrese el nombre del Empresa">
                     <br>
-                    <label>Dirección</label>
+                    <label>* Dirección</label>
                     <textarea id="direccionUpdate" name="direccion" class="form-control"></textarea>
                     <input id="idUpdate" name="id" class="form-control ocultar" type="text" placeholder="Ingrese el nombre del Grado">
                 </form>

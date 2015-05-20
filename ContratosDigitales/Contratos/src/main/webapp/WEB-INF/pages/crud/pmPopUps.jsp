@@ -9,18 +9,19 @@
                 <h4 class="modal-title"><strong>Nuevo Cliente (PM)</strong></h4>
             </div>
             <div class="modal-body">
+                <small>Los datos con * son obligatorios</small>
                 <form id="contactoAddForm">
                     <h3>Datos del Apoderado</h3>
-                    <label>Nombre(s):</label>
+                    <label>*Nombre(s):</label>
                     <input id="nombreAdd" name="nombre" class="form-control" type="text" placeholder="Ingrese el nombre del Contacto">
                     <br>
-                    <label>Apellido Paterno:</label>
+                    <label>*Apellido Paterno:</label>
                     <input id="paternoAdd" name="paterno" class="form-control" type="text" placeholder="Ingrese el Apellido Paterno del Contacto">
                     <br>
-                    <label>Apellido Materno:</label>
+                    <label>*Apellido Materno:</label>
                     <input id="maternoAdd" name="materno" class="form-control" type="text" placeholder="Ingrese el Apellido Materno del Contacto">
                     <br>
-                    <label>Correo:</label>
+                    <label>*Correo:</label>
                     <input id="correoAdd" name="mail" class="form-control" type="email" placeholder="Ingrese el Correo">
                     <br>
                     <label>Grado:</label>
@@ -31,7 +32,7 @@
                         </c:forEach>
                     </select>
                     <br>
-                    <label>Teléfono 1:</label>
+                    <label>*Teléfono 1:</label>
                     <input id="telefono1Add" name="telefono1" class="form-control" type="text" placeholder="Ingrese el Teléfono del Contacto">
                     <br>
                     <label>Teléfono 2:</label>
@@ -42,7 +43,7 @@
                     <br>
                     <hr>
                     <h3>Datos de Empresa</h3>
-                    <label>Cliente (razón social):</label>
+                    <label>*Cliente (razón social):</label>
                     <select id="empresaAdd" name="empresa.id" class="form-control">
                         <option value="0" label="Seleccione...">Seleccione...</option>
                         <c:forEach items="${empresa}" var="e" varStatus="status">
@@ -50,7 +51,7 @@
                         </c:forEach>
                     </select>
                     <br>
-                    <label>RFC con la que firmará:</label>
+                    <label>*RFC con la que firmará:</label>
                     <input id="rfcAdd" name="rfc" class="form-control" type="text" placeholder="Ingrese el RFC">
                 </form>
             </div>

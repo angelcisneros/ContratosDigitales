@@ -12,22 +12,22 @@
                             <li>
                                 <strong><span class="glyphicon glyphicon-phone-alt"></span></strong>
                                 <br>
-                                Texto texto texto texto y mas texto
+                                90-00-74-56 / 90-00-09-27 / 90-00-74-54
                             </li>
                             <li>
                                 <strong><span class="glyphicon glyphicon-pushpin"></span></strong>
                                 <br>
-                                Texto texto texto texto y mas texto
+                                Calle montecito #38 Col. Nápoles Delegación Benito Juárez, en las oficinas de World Trade Center Piso 25 Oficina 22
                             </li>
                             <li>
                                 <strong><span class="glyphicon glyphicon-envelope"></span></strong>
                                 <br>
-                                Texto texto texto texto y mas texto
+                                contacto@quadrum.com.mx
                             </li>
                             <li>
                                 <strong><span class="glyphicon glyphicon-globe"></span></strong>
                                 <br>
-                                Texto texto texto texto y mas texto
+                                http://www.cfdiquadrum.com.mx/
                             </li>
                         </ul>
 
@@ -39,7 +39,7 @@
                             Si deseas obtener mas información acerca de nuestros servicios por favor ponte en contacto con nosotros con gusto de atenderemos.
                             <br><br>
                         <h3 class="text-center"><strong><span class="glyphicon glyphicon-envelope"></span></strong></h3>
-                        <h4 class="text-center"><a href="mailto:contacto@nexuscontadores.com.mx"> contacto@nexuscontadores.com.mx</a></h4>
+                        <h4 class="text-center"><a href="mailto:contacto@quadrum.com.mx"> contacto@quadrum.com.mx </a></h4>
 
                         </p>
 
@@ -55,7 +55,7 @@
             </div>
             <div class="col-lg-1"></div>
         </div>
-        <div id="footer" class="row text-center">Derechos reservados bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla 
+        <div id="footer" class="row text-center">
             <br><br>
         </div>
     </div>
